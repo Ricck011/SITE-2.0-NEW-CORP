@@ -30,7 +30,7 @@ const StepsTrail = ({ steps, className }: StepsTrailProps) => {
       <ol className="space-y-10">
         {steps.map((step) => (
           <li key={step.number} className="relative pl-14">
-            <span className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card font-display text-sm text-brand-red-soft">
+            <span className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card font-mono text-sm text-brand-accent-soft">
               {step.number}
             </span>
             <h3 className="text-lg font-semibold text-foreground mb-1">{step.title}</h3>

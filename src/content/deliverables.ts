@@ -10,29 +10,30 @@ export interface CoreFrontItem {
   hasEmblemSlot?: boolean;
 }
 
-// Frases curtas de rascunho, sem promessa inventada — ajustar com o Pedro no
-// print de aprovação da etapa 3.
+// Texto aprovado, literal da landing atual (CLAUDE-GERAL-\site, seção
+// #solucoes) — o 4º cartão (prototipo) usa o texto do passo 02 do "como
+// funciona", também já aprovado.
 export const CORE_FRONTS: CoreFrontItem[] = [
   {
     id: "identidade-visual",
     title: "Identidade visual",
-    description: "Logotipo, paleta e manual de marca prontos pra usar em qualquer material.",
+    description: "Marca, paleta, tipografia e aplicações — feitas para viver no digital, não só no papel.",
   },
   {
     id: "landing-pages",
     title: "Landing pages",
-    description: "Site que carrega rápido e leva direto ao WhatsApp.",
+    description: "Página única, rápida e construída para uma coisa só: transformar visita em contato.",
   },
   {
     id: "sistemas-gestao",
     title: "Sistemas de gestão",
-    description: "Painel de clientes, projetos e financeiro sob medida para o seu negócio.",
+    description: "Clientes, projetos e financeiro no mesmo lugar — o fluxo desenhado a partir da sua operação.",
     hasEmblemSlot: true,
   },
   {
-    id: "atendimento",
-    title: "Atendimento direto com quem faz",
-    description: "Sem intermediário: fala com quem desenha e programa o seu projeto.",
+    id: "prototipo",
+    title: "Protótipo de uma tela",
+    description: "Desenho uma tela real do seu projeto — a home, o painel, o que fizer mais sentido. Sem custo e sem compromisso.",
   },
 ];
 
@@ -83,4 +84,34 @@ export const CASE_TABS: CaseTabItem[] = [
   { id: "clientes", label: "Clientes", image: "/images/homepage/painel-clientes.webp", imageAlt: "Tela de clientes do painel NEW CORP" },
   { id: "projetos", label: "Projetos", image: "/images/homepage/painel-projetos.webp", imageAlt: "Tela de projetos do painel NEW CORP" },
   { id: "financeiro", label: "Financeiro", image: "/images/homepage/painel-financeiro.webp", imageAlt: "Tela de financeiro do painel NEW CORP" },
+];
+
+export interface ShowcaseItem {
+  id: string;
+  label: string;
+  image: string;
+  imageAlt: string;
+}
+
+// Vitrine do topo: só trabalho real (case Game Brothers + telas do painel
+// próprio), nada de foto de banco de imagem.
+export const HERO_SHOWCASE: ShowcaseItem[] = [
+  {
+    id: "landing-game-brothers",
+    label: "case · landing page",
+    image: "/images/case-game-brothers/gb-depois-desktop.webp",
+    imageAlt: "Site da Game Brothers depois da reconstrução",
+  },
+  {
+    id: "sistema-resumo",
+    label: "case · sistema",
+    image: "/images/homepage/painel-resumo.webp",
+    imageAlt: "Tela de resumo do painel NEW CORP",
+  },
+  {
+    id: "sistema-projetos",
+    label: "case · sistema",
+    image: "/images/homepage/painel-projetos.webp",
+    imageAlt: "Tela de projetos do painel NEW CORP",
+  },
 ];

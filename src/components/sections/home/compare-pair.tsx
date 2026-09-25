@@ -13,13 +13,13 @@ interface ComparePairProps {
 const ComparePair = ({ label, images }: ComparePairProps) => {
   return (
     <div>
-      <p className="text-sm text-muted-foreground mb-3">{label}</p>
+      <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground mb-3">{label}</p>
       <div className="grid grid-cols-2 gap-3">
         {images.map((image) => (
-          <figure key={image.tag} className="relative rounded-xl overflow-hidden border border-border bg-card">
+          <figure key={image.tag} className="relative rounded-md overflow-hidden border border-border bg-card">
             <span
               className={
-                "absolute top-2 left-2 z-10 rounded-full px-2.5 py-1 text-xs font-medium " +
+                "absolute top-2 left-2 z-10 rounded-sm px-2 py-1 font-mono text-[10px] uppercase tracking-[0.12em] " +
                 (image.tag === "depois" ? "bg-primary text-primary-foreground" : "bg-background/80 text-muted-foreground")
               }
             >

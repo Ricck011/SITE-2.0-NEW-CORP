@@ -51,6 +51,7 @@ const SecurityCompliance = () => {
             <AnimateOnView key={feature.title} once delay={index * 0.1}>
               <Card className="h-full p-[30px] hover:bg-brand-surface-hover transition-colors">
                 <CardContent className="flex flex-col gap-3 h-full">
+                  <span className="font-mono text-xs text-brand-accent-soft">{String(index + 1).padStart(2, "0")}</span>
                   <h3 className="h5">{feature.title}</h3>
                   <p className="text-card-foreground">{feature.description}</p>
                 </CardContent>

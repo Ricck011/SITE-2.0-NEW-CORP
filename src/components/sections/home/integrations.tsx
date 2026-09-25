@@ -57,7 +57,7 @@ const DeliverableBadge = ({ label, position, scrollYProgress }: DeliverableItemP
         scale,
       }}
     >
-      <span className="inline-flex items-center whitespace-nowrap rounded-full border border-border bg-card px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm text-foreground">
+      <span className="inline-flex items-center whitespace-nowrap rounded-sm border border-border bg-card px-3 py-1.5 sm:px-4 sm:py-2 font-mono text-xs sm:text-sm text-foreground">
         {label}
       </span>
     </motion.div>
@@ -93,7 +93,7 @@ const Integrations = () => {
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {DELIVERABLES.map((item, index) => (
               <AnimateOnView key={item.id} once delay={index * 0.05}>
-                <span className="flex items-center justify-center text-center rounded-full border border-border bg-background px-3 py-2 text-xs sm:text-sm text-foreground h-full">
+                <span className="flex items-center justify-center text-center rounded-sm border border-border bg-background px-3 py-2 font-mono text-xs sm:text-sm text-foreground h-full">
                   {item.label}
                 </span>
               </AnimateOnView>

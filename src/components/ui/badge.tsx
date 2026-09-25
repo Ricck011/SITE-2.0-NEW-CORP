@@ -5,11 +5,11 @@ import { cn } from "@/lib/utils";
 import { BadgeCheck } from "lucide-react";
 
 const badgeVariants = cva(
-  "inline-flex items-center gap-2",
+  "inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.16em]",
   {
     variants: {
       variant: {
-        default: "text-brand-red-soft",
+        default: "text-brand-accent-soft",
         secondary: "text-muted-foreground",
         color: "text-muted-foreground",
       },
@@ -24,7 +24,13 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement>, Varian
 
 function Badge({ className, variant, children, ...props }: BadgeProps) {
   return <div className={cn(badgeVariants({ variant }), className)} {...props}>
-    <BadgeCheck aria-hidden="true" className={cn("w-4 h-4", variant === "secondary" ? "fill-transparent stroke-muted-foreground" : variant === "color" ? "fill-brand-red stroke-background" : "fill-transparent stroke-brand-red-soft")} />
+    {variant === "secondary" ? (
+      <BadgeCheck aria-hidden="true" className="w-4 h-4 fill-transparent stroke-muted-foreground" />
+    ) : variant === "color" ? (
+      <BadgeCheck aria-hidden="true" className="w-4 h-4 fill-brand-accent stroke-background" />
+    ) : (
+      <span aria-hidden="true" className="h-[6px] w-[6px] shrink-0 bg-brand-accent" />
+    )}
     {children}
   </div>;
 }

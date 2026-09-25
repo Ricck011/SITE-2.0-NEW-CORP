@@ -31,7 +31,7 @@ const CompanyHero = () => {
 
                 <StaggerContainer className="flex flex-col sm:flex-row items-center justify-center gap-4 md:mb-16 mb-8">
                     <AnimateOnView delay={0.4}>
-                        <Button asChild className="bg-primary text-foreground hover:bg-primary/90">
+                        <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
                             <Link to="/#contato">
                                 Get Started for Free
                                 <ArrowRight className="w-5 h-5 ml-1" />

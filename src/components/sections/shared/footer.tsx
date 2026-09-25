@@ -17,7 +17,7 @@ const Footer = () => {
 
           <div className="max-w-[537px] grid grid-cols-1 sm:grid-cols-2 gap-10">
             <AnimateOnView once delay={0.1}>
-              <h3 className="text-lg font-semibold mb-6">Página</h3>
+              <h3 className="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground mb-6">Página</h3>
               <ul className="space-y-3">
                 {FOOTER_PAGE_LINKS.map((link) => (
                   <li key={link.href}>
@@ -30,7 +30,7 @@ const Footer = () => {
             </AnimateOnView>
 
             <AnimateOnView once delay={0.2}>
-              <h3 className="text-lg font-semibold mb-6">Contato</h3>
+              <h3 className="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground mb-6">Contato</h3>
               <ul className="space-y-3">
                 <li>
                   <a
@@ -65,8 +65,8 @@ const Footer = () => {
 
         <AnimateOnView once delay={0.3} className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-muted-foreground text-center md:text-left">{COPYRIGHT}</p>
-            <p className="text-sm text-muted-foreground">{DOMAIN_PENDING_NOTE}</p>
+            <p className="font-mono text-sm text-muted-foreground text-center md:text-left">{COPYRIGHT}</p>
+            <p className="font-mono text-sm text-muted-foreground">{DOMAIN_PENDING_NOTE}</p>
           </div>
         </AnimateOnView>
       </Container>

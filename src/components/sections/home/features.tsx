@@ -3,14 +3,14 @@ import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { CORE_FRONTS } from "@/content/deliverables";
 import { cn } from "@/lib/utils";
 import { motion, MotionValue } from "framer-motion";
-import { LayoutDashboard, LayoutTemplate, MessageCircle, Palette } from "lucide-react";
+import { LayoutDashboard, LayoutTemplate, PenTool, Palette } from "lucide-react";
 import { Card, CardContent } from "../../ui/card";
 
 const FRONT_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   "identidade-visual": Palette,
   "landing-pages": LayoutTemplate,
   "sistemas-gestao": LayoutDashboard,
-  atendimento: MessageCircle,
+  prototipo: PenTool,
 };
 
 interface FeaturesProps {
@@ -27,8 +27,8 @@ const Features = ({ cardSlotRef, cardX, cardY, cardScale, cardOpacity, active }:
     <section className="md:pt-20 xl:pt-[100px] pt-12 md:pb-20 pb-12" id="features">
       <Container className="md:space-y-10 xl:space-y-2xl space-y-8">
         <AnimateOnView>
-          <h2 className="h4 text-center max-w-[520px] mx-auto mb-4">
-            Três frentes, <span className="text-muted-foreground">um só time</span>
+          <h2 className="h4 text-center max-w-[560px] mx-auto mb-4">
+            Três frentes. <span className="text-muted-foreground">Uma empresa inteira no digital.</span>
           </h2>
         </AnimateOnView>
 
@@ -48,7 +48,7 @@ const Features = ({ cardSlotRef, cardX, cardY, cardScale, cardOpacity, active }:
                   className={cn(
                     "h-full flex flex-col gap-4 rounded-lg transition-transform",
                     front.hasEmblemSlot &&
-                      "lg:-translate-y-4 lg:scale-[1.06] border-primary/40 shadow-[0_0_50px_-12px_rgba(225,29,46,0.4)]",
+                      "lg:-translate-y-4 lg:scale-[1.06] border-primary/60",
                   )}
                 >
                   <CardContent className="flex flex-col items-center text-center gap-3 pt-2">
@@ -56,14 +56,14 @@ const Features = ({ cardSlotRef, cardX, cardY, cardScale, cardOpacity, active }:
                       <div ref={cardSlotRef} className="relative w-14 h-14 mb-1">
                         {active ? (
                           <motion.img
-                            src="/images/marca/newcorp-emblema.webp"
+                            src="/images/marca/newcorp-emblema-metalico.webp"
                             alt="Emblema NEW CORP"
                             className="absolute inset-0 w-full h-full object-contain"
                             style={{ x: cardX, y: cardY, scale: cardScale, opacity: cardOpacity }}
                           />
                         ) : (
                           <img
-                            src="/images/marca/newcorp-emblema.webp"
+                            src="/images/marca/newcorp-emblema-metalico.webp"
                             alt="Emblema NEW CORP"
                             className="absolute inset-0 w-full h-full object-contain"
                           />
@@ -71,7 +71,7 @@ const Features = ({ cardSlotRef, cardX, cardY, cardScale, cardOpacity, active }:
                       </div>
                     ) : (
                       <div className="w-14 h-14 mb-1 flex items-center justify-center rounded-full bg-brand-surface-2">
-                        <Icon className="w-6 h-6 text-brand-red-soft" />
+                        <Icon className="w-6 h-6 text-brand-accent-soft" />
                       </div>
                     )}
 

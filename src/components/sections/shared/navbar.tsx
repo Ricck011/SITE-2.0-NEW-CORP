@@ -10,6 +10,7 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import ScrollProgress from "@/components/ui/scroll-progress";
 import { cn } from "@/lib/utils";
 import { NAV_LINKS } from "@/content/site";
 import Container from "../../container";
@@ -43,10 +44,11 @@ const Navbar = () => {
       className={cn(
         "fixed inset-x-0 top-0 z-50 w-full transition-[padding,background-color,border-color] duration-300",
         isScrolled
-          ? "border-b border-border bg-background/80 py-4 backdrop-blur-md"
+          ? "border-b border-border bg-background py-4"
           : "border-b border-transparent pt-6 md:pt-10"
       )}
     >
+      <ScrollProgress />
       <Container className="flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-2 xl:w-[35%] md:w-[30%] w-fit">
           <img src="/images/common/logo.svg" alt="NEW CORP" className="h-[21px] max-w-[87px]" />
@@ -86,7 +88,7 @@ const Navbar = () => {
                         {link.label}
                       </Link>
                     ))}
-                    <Button asChild variant="default" size="default" className="mt-4 w-full">
+                    <Button asChild variant="outline-accent" size="default" className="mt-4 w-full">
                       <Link to="/#contato" onClick={closeSheet}>
                         Começar meu projeto
                       </Link>
@@ -114,7 +116,7 @@ const Navbar = () => {
         </NavigationMenu>
 
         <div className="hidden lg:flex gap-2 items-center xl:w-[35%] md:w-[30%] w-fit justify-end">
-          <Button asChild variant="default" size="default">
+          <Button asChild variant="outline-accent" size="default">
             <Link to="/#contato">Começar meu projeto</Link>
           </Button>
         </div>

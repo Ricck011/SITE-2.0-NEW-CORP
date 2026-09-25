@@ -44,7 +44,7 @@ const MobileApp = () => {
                   delay={0.1 + index * 0.05}
                   className="flex gap-4"
                 >
-                  <span className="shrink-0 font-display text-sm text-brand-red-soft pt-1">{move.number}</span>
+                  <span className="shrink-0 font-mono text-sm text-brand-accent-soft pt-1">{move.number}</span>
                   <div>
                     <h3 className="text-base font-semibold text-foreground mb-1">{move.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">{move.description}</p>

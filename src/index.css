@@ -4,45 +4,45 @@
 
 @layer base {
   :root {
-    /* Marca NEW CORP (preto + vermelho). Tudo escuro, sem modo claro. */
-    --background: 10 9 9;          /* #0a0909 */
-    --foreground: 243 239 239;     /* #f3efef */
+    /* Marca NEW CORP (preto frio + ciano + emblema metálico). Tudo escuro, sem modo claro. */
+    --background: 9 11 14;         /* #090b0e */
+    --foreground: 236 241 245;     /* #ecf1f5 */
 
-    --card: 18 16 16;              /* #121010 */
-    --card-foreground: 243 239 239;
+    --card: 15 18 23;              /* #0f1217 */
+    --card-foreground: 236 241 245;
 
-    --popover: 24 20 20;           /* #181414 */
-    --popover-foreground: 243 239 239;
+    --popover: 21 25 31;           /* #15191f */
+    --popover-foreground: 236 241 245;
 
-    --primary: 225 29 46;          /* #e11d2e */
-    --primary-foreground: 255 255 255;
+    --primary: 34 211 238;         /* #22d3ee */
+    --primary-foreground: 8 51 68; /* #083344 */
 
-    --secondary: 24 20 20;         /* #181414 */
-    --secondary-foreground: 243 239 239;
+    --secondary: 21 25 31;         /* #15191f */
+    --secondary-foreground: 236 241 245;
 
-    --muted: 31 26 26;             /* #1f1a1a: fundo apagado (padrão shadcn) */
-    --muted-foreground: 176 166 166; /* #b0a6a6: texto apagado */
+    --muted: 28 33 41;             /* #1c2129: fundo apagado (padrão shadcn) */
+    --muted-foreground: 160 171 184; /* #a0abb8: texto apagado, 8,4:1 */
 
-    --accent: 225 29 46;
-    --accent-foreground: 255 255 255;
+    --accent: 34 211 238;
+    --accent-foreground: 8 51 68;
 
     --destructive: 255 90 100;     /* #ff5a64 */
-    --destructive-foreground: 10 9 9;
+    --destructive-foreground: 9 11 14;
 
-    --border: 42 35 35;            /* #2a2323 */
-    --input: 107 98 98;            /* borda de campo com contraste 3:1 */
-    --ring: 255 90 100;
+    --border: 38 44 53;            /* #262c35 */
+    --input: 98 108 122;           /* borda de campo com contraste 3:1 */
+    --ring: 34 211 238;
 
-    --radius: 1.5rem;
+    --radius: 0.75rem;
 
-    --brand-red: 225 29 46;        /* #e11d2e: fundos e botões */
-    --brand-red-hover: 184 16 31;  /* #b8101f */
-    --brand-red-soft: 255 90 100;  /* #ff5a64: texto vermelho pequeno */
-    --brand-red-pale: 255 154 160; /* #ff9aa0 */
-    --brand-surface-2: 24 20 20;   /* #181414 */
-    --brand-surface-hover: 31 26 26; /* #1f1a1a */
-    --brand-line: 42 35 35;        /* #2a2323 */
-    --brand-faint: 138 128 128;    /* #8a8080 */
+    --brand-accent: 34 211 238;       /* #22d3ee: fundos e botões */
+    --brand-accent-hover: 103 232 249; /* #67e8f9 */
+    --brand-accent-soft: 34 211 238;   /* #22d3ee: texto ciano pequeno */
+    --brand-accent-pale: 165 243 252;  /* #a5f3fc */
+    --brand-surface-2: 21 25 31;      /* #15191f */
+    --brand-surface-hover: 28 33 41;  /* #1c2129 */
+    --brand-line: 38 44 53;           /* #262c35 */
+    --brand-faint: 124 134 148;       /* #7c8694 */
 
     /* Spacing */
     --spacing-base: 16px;
@@ -73,8 +73,8 @@
   }
 
   ::selection {
-    background: rgb(var(--brand-red));
-    color: #fff;
+    background: rgb(var(--brand-accent));
+    color: rgb(var(--primary-foreground));
   }
 
   /* Typography */
