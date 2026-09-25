@@ -73,7 +73,7 @@ const SecurityCompliance = () => {
               delay={index * 0.1}
             >
 
-              <Card className="h-full p-[30px] hover:scale-[0.9] hover:bg-revio-light-pink transition-all">
+              <Card className="h-full p-[30px] hover:scale-[0.9] hover:bg-brand-surface-hover transition-all">
                 <CardContent className="flex flex-col justify-between gap-y-[100px] h-full">
                   <h3 className="h5 max-w-[235px]">
                     {feature.title}
@@ -91,7 +91,7 @@ const SecurityCompliance = () => {
         <AnimateOnView
           once
           delay={0.3}
-          className="p-[27px] bg-revio-light-green flex flex-col md:flex-row items-center justify-center gap-3"
+          className="p-[27px] bg-brand-surface-2 border border-border flex flex-col md:flex-row items-center justify-center gap-3"
         >
           <p className="text-foreground text-lg text-center md:text-left max-w-[400px] md:max-w-full">
             ⚡️ The complete solution to accept money, make payments, and manage finances effortlessly.

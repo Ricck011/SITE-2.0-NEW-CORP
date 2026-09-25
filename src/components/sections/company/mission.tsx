@@ -50,7 +50,7 @@ const Mission = () => {
                                         At NEW CORP, our mission is simple yet powerful: to make global payments seamless, secure, and accessible for every business. We believe that the ability to transact should never be limited by borders, currencies, or complexity.
                                     </p>
 
-                                    <Button asChild className="bg-primary text-white hover:bg-primary/90 w-fit">
+                                    <Button asChild className="bg-primary text-foreground hover:bg-primary/90 w-fit">
                                         <Link to="/contact">
                                             Get Started for Free
                                             <ArrowRight className="w-5 h-5" />

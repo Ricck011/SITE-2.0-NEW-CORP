@@ -55,7 +55,7 @@ const BusinessAccount = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="w-full grid grid-cols-1 md:grid-cols-3 gap-2 p-1 bg-[#F5F5F7] rounded-[16px]"
+            className="w-full grid grid-cols-1 md:grid-cols-3 gap-2 p-1 bg-secondary rounded-[16px]"
           >
             {tabs.map((tab, index) => {
               const isActive = activeTab === index;
@@ -66,8 +66,8 @@ const BusinessAccount = () => {
                   className={`
                     flex items-center gap-4 p-[10px] rounded-[12px] transition-all duration-300 w-full justify-start
                     ${isActive
-                      ? "bg-white shadow-sm text-foreground"
-                      : "bg-transparent text-muted-foreground hover:bg-white/50"
+                      ? "bg-brand-surface-hover shadow-sm text-foreground"
+                      : "bg-transparent text-muted-foreground hover:bg-foreground/5"
                     }
                   `}
                 >

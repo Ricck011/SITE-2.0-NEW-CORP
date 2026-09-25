@@ -93,7 +93,7 @@ const Navbar = () => {
       className={cn(
         "fixed inset-x-0 top-0 z-50 w-full transition-[padding,background-color,border-color] duration-300",
         isScrolled
-          ? "border-b border-white/10 bg-black/80 py-4 backdrop-blur-md"
+          ? "border-b border-white/10 bg-background/80 py-4 backdrop-blur-md"
           : "border-b border-transparent pt-6 md:pt-10"
       )}>
       <Container className="flex justify-between items-center">
@@ -115,15 +115,15 @@ const Navbar = () => {
                   </Avatar>
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56 bg-black border-white/10 z-50">
+              <DropdownMenuContent align="end" className="w-56 bg-background border-white/10 z-50">
                 <div className="px-3 py-2">
-                  <p className="text-sm text-white">Hi, {getDisplayName()}</p>
+                  <p className="text-sm text-foreground">Hi, {getDisplayName()}</p>
                   <p className="text-xs text-muted-foreground truncate">{user.email}</p>
                 </div>
                 <DropdownMenuSeparator className="bg-white/10" />
                 {isAdmin && (
                   <>
-                    <DropdownMenuItem asChild className="text-white hover:bg-white/10 cursor-pointer">
+                    <DropdownMenuItem asChild className="text-foreground hover:bg-white/10 cursor-pointer">
                       <Link to="/dashboard/blog" className="flex items-center">
                         <FileText className="mr-2 h-4 w-4" />
                         Blog Dashboard
@@ -132,7 +132,7 @@ const Navbar = () => {
                     <DropdownMenuSeparator className="bg-white/10" />
                   </>
                 )}
-                <DropdownMenuItem asChild className="text-white hover:bg-white/10 cursor-pointer">
+                <DropdownMenuItem asChild className="text-foreground hover:bg-white/10 cursor-pointer">
                   <Link to="/dashboard/profile" className="flex items-center">
                     <User className="mr-2 h-4 w-4" />
                     Profile
@@ -151,7 +151,7 @@ const Navbar = () => {
             onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <div
-                className="cursor-pointer lg:hidden text-white h-11 w-11 flex items-center justify-center">
+                className="cursor-pointer lg:hidden text-foreground h-11 w-11 flex items-center justify-center">
                 <Menu
                   className="w-6 h-6"
                 />
@@ -159,10 +159,10 @@ const Navbar = () => {
             </SheetTrigger>
 
             <SheetContent
-              className="flex flex-col justify-between bg-black border-foreground"
+              className="flex flex-col justify-between bg-background border-border"
             >
               <div className="h-full flex flex-col">
-                <SheetHeader className="flex flex-row justify-between border-b border-foreground">
+                <SheetHeader className="flex flex-row justify-between border-b border-border">
                   <SheetTitle className="flex items-center">
                     <Link to="/" className="flex items-center" onClick={closeSheet}>
                       <img src="/images/common/logo.svg" alt="NEW CORP" className="h-4" />
@@ -170,8 +170,8 @@ const Navbar = () => {
                   </SheetTitle>
                   <div className="flex items-center gap-2">
                     <SheetPrimitive.Close
-                      className="h-11 w-11 flex items-center justify-center data-[state=open]:bg-white right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 disabled:pointer-events-none">
-                      <XIcon className="size-5 text-white" />
+                      className="h-11 w-11 flex items-center justify-center data-[state=open]:bg-secondary right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 disabled:pointer-events-none">
+                      <XIcon className="size-5 text-foreground" />
                       <span className="sr-only">Close</span>
                     </SheetPrimitive.Close>
                   </div>
@@ -179,7 +179,7 @@ const Navbar = () => {
                 <div className="px-5 py-6 flex flex-col h-full justify-between flex-1 overflow-y-auto">
                   <div className="flex flex-col gap-2">
                     {pages.map((page) => (
-                      <Link key={page.href} to={page.href} onClick={closeSheet} className="block py-2 text-muted hover:text-primary transition-colors">
+                      <Link key={page.href} to={page.href} onClick={closeSheet} className="block py-2 text-muted-foreground hover:text-primary transition-colors">
                         {page.name}
                       </Link>
                     ))}
@@ -201,7 +201,7 @@ const Navbar = () => {
             {pages.map((page) => (
               <NavigationMenuItem key={page.href}>
                 <NavigationMenuLink asChild>
-                  <Link to={page.href} className="px-4 py-2 text-white hover:text-primary transition-colors">
+                  <Link to={page.href} className="px-4 py-2 text-foreground hover:text-primary transition-colors">
                     {page.name}
                   </Link>
                 </NavigationMenuLink>
@@ -215,7 +215,7 @@ const Navbar = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="flex items-center gap-3 focus:outline-none hover:opacity-80 transition-opacity">
-                  <span className="text-sm text-white">Hi, {getDisplayName()}</span>
+                  <span className="text-sm text-foreground">Hi, {getDisplayName()}</span>
                   <Avatar className="h-10 w-10 border border-white/20">
                     <AvatarImage src={profile?.avatar_url || undefined} />
                     <AvatarFallback className="bg-primary/20 text-primary">
@@ -224,15 +224,15 @@ const Navbar = () => {
                   </Avatar>
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56 bg-black border-white/10 z-50">
+              <DropdownMenuContent align="end" className="w-56 bg-background border-white/10 z-50">
                 <div className="px-3 py-2">
-                  <p className="text-sm font-medium text-white">{profile?.first_name} {profile?.last_name}</p>
+                  <p className="text-sm font-medium text-foreground">{profile?.first_name} {profile?.last_name}</p>
                   <p className="text-xs text-muted-foreground truncate">{user.email}</p>
                 </div>
                 <DropdownMenuSeparator className="bg-white/10" />
                 {isAdmin && (
                   <>
-                    <DropdownMenuItem asChild className="text-white hover:bg-white/10 cursor-pointer">
+                    <DropdownMenuItem asChild className="text-foreground hover:bg-white/10 cursor-pointer">
                       <Link to="/dashboard/blog" className="flex items-center">
                         <FileText className="mr-2 h-4 w-4" />
                         Blog Dashboard
@@ -241,7 +241,7 @@ const Navbar = () => {
                     <DropdownMenuSeparator className="bg-white/10" />
                   </>
                 )}
-                <DropdownMenuItem asChild className="text-white hover:bg-white/10 cursor-pointer">
+                <DropdownMenuItem asChild className="text-foreground hover:bg-white/10 cursor-pointer">
                   <Link to="/dashboard/profile" className="flex items-center">
                     <User className="mr-2 h-4 w-4" />
                     Profile

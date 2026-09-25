@@ -55,7 +55,7 @@ const BlogDetailsContent = ({ post }: BlogDetailsContentProps) => {
               <h2 className="h6 mb-2 text-white">
                 Get insights delivered straight to you
               </h2>
-              <p className="text-muted">
+              <p className="text-muted-foreground">
                 Get the latest insights on payments.
               </p>
             </div>

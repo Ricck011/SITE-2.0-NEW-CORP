@@ -8,7 +8,7 @@ import Container from "../../container";
 const CTA = () => {
 
     return (
-        <div className="bg-black text-white md:pt-20 xl:pt-24 pt-12 pb-8 overflow-hidden">
+        <div className="bg-background text-foreground md:pt-20 xl:pt-24 pt-12 pb-8 overflow-hidden">
             <Container className="relative z-20">
                 <StaggerContainer className="max-w-[721px] mx-auto text-center">
                     <AnimateOnView
@@ -25,7 +25,7 @@ const CTA = () => {
                         blur
                         className="mb-10"
                     >
-                        <p className="text-lg text-muted">From startups launching their first product to mature enterprises scaling globally.</p>
+                        <p className="text-lg text-muted-foreground">From startups launching their first product to mature enterprises scaling globally.</p>
                     </AnimateOnView>
                     <AnimateOnView
                         once

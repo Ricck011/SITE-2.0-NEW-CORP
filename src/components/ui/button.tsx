@@ -5,16 +5,16 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 rounded-[10px]",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-[background-color,border-color,color,transform] duration-150 ease-out active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 rounded-[10px]",
   {
     variants: {
       variant: {
-        default: "bg-primary text-white hover:bg-primary/90",
-        gray: "bg-foreground text-white hover:bg-white hover:text-foreground rounded-xl",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-xl",
-        white: "bg-white text-primary hover:bg-primary hover:text-white border border-border",
-        link: "text-muted-foreground bg-transparent hover:text-white underline-offset-4 hover:underline",
-        outline: "bg-transparent border border-input hover:bg-accent hover:text-accent-foreground",
+        default: "bg-primary text-primary-foreground hover:bg-brand-red-hover",
+        gray: "bg-secondary text-foreground border border-border hover:bg-brand-surface-hover rounded-xl",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-brand-surface-hover rounded-xl",
+        white: "bg-foreground text-background hover:bg-white",
+        link: "text-muted-foreground bg-transparent hover:text-foreground underline-offset-4 hover:underline",
+        outline: "bg-white/[0.035] text-foreground border border-border hover:bg-brand-surface-hover hover:border-input",
       },
       size: {
         default: "h-[46px] pl-4 pr-[14px] py-3",

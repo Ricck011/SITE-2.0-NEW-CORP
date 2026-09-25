@@ -9,7 +9,7 @@ const ComingSoonContent = () => {
                     <h1 className="h2 text-white mb-8">
                         Exciting new features are on the way
                     </h1>
-                    <p className="text-muted">
+                    <p className="text-muted-foreground">
                         Exciting new features are on the way! NEW CORP is continuously evolving to provide you with the most advanced, secure, and seamless payment solutions.
                     </p>
                 </div>

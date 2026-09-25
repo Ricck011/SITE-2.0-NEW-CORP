@@ -261,10 +261,10 @@ const TeamOverview = () => {
                 ref={tooltipRef}
                 className={`absolute top-full ${positionClasses[position]} mt-3 z-30 w-48 bg-primary/90 backdrop-blur-sm rounded-xl p-3 shadow-lg animate-in fade-in-0 slide-in-from-bottom-2 duration-200`}
             >
-                <p className="text-white font-bold text-sm text-center mb-1">
+                <p className="text-foreground font-bold text-sm text-center mb-1">
                     {member.name}
                 </p>
-                <p className="text-white/90 text-xs text-center">
+                <p className="text-foreground/90 text-xs text-center">
                     {member.title}
                 </p>
             </div>
@@ -288,7 +288,7 @@ const TeamOverview = () => {
                     </AnimateOnView>
 
                     <AnimateOnView delay={0.2}>
-                        <Button asChild className="bg-primary text-white hover:bg-primary/90">
+                        <Button asChild className="bg-primary text-foreground hover:bg-primary/90">
                             <Link to="/contact">
                                 Join Us Now
                                 <ArrowRight className="w-5 h-5" />

@@ -52,7 +52,7 @@ const innerLinks = [
 const Footer = () => {
 
   return (
-    <footer className="relative bg-black text-white pt-36 pb-8 overflow-hidden">
+    <footer className="relative bg-background text-foreground pt-36 pb-8 overflow-hidden">
       {/* Grid Pattern Background */}
       <div className="absolute bottom-0 left-0 pointer-events-none w-[533px] h-[601px] z-10">
         <img src="/images/common/footer-pattern.svg" alt="pattern" />
@@ -68,16 +68,16 @@ const Footer = () => {
               <Link to="/">
                 <img className="mb-6" src="/images/common/logo.svg" alt="logo" />
               </Link>
-              <p className="text-muted">
+              <p className="text-muted-foreground">
                 From startups launching their first product to mature enterprises scaling globally.
               </p>
             </div>
 
             <div className="space-y-2.5">
-              <p className="text-white">
+              <p className="text-foreground">
                 Head Quarter:
               </p>
-              <p className="text-muted">
+              <p className="text-muted-foreground">
                 210 Bishop, 2 th Floor, <br />London, EC2M 4NR, United Kingdom
               </p>
             </div>
@@ -93,7 +93,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 {pagesLinks.map((link, index) => (
                   <li key={index}>
-                    <Link to={link.href} className="text-muted hover:text-white transition-colors">
+                    <Link to={link.href} className="text-muted-foreground hover:text-foreground transition-colors">
                       {link.title}
                     </Link>
                   </li>
@@ -113,7 +113,7 @@ const Footer = () => {
                 <ul className="space-y-3">
                   {innerLinks.map((link, index) => (
                     <li key={index}>
-                      <Link to={link.href} className="text-muted hover:text-white">
+                      <Link to={link.href} className="text-muted-foreground hover:text-foreground">
                         {link.title}
                       </Link>
                     </li>
@@ -131,8 +131,8 @@ const Footer = () => {
                 </p>
                 <NewsletterForm
                   buttonVariant="secondary"
-                  buttonClassName="bg-white text-black hover:bg-white/90 px-4 h-10"
-                  inputClassName="bg-foreground"
+                  buttonClassName="bg-foreground text-background hover:bg-white px-4 h-10"
+                  inputClassName="bg-background"
                   formClassName="flex"
                   gap="gap-1"
                 />
@@ -147,7 +147,7 @@ const Footer = () => {
         <AnimateOnView
           once
           delay={0.3}
-          className="border-t border-[#2a2a2a] pt-8 mt-8"
+          className="border-t border-border pt-8 mt-8"
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Copyright */}
@@ -159,19 +159,19 @@ const Footer = () => {
             <div className="flex flex-wrap justify-center gap-6">
               <Link
                 to="/privacy-policy"
-                className="text-sm text-muted-foreground hover:text-white transition-colors"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 Privacy Policy
               </Link>
               <Link
                 to="/terms-&-condition"
-                className="text-sm text-muted-foreground hover:text-white transition-colors"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 Terms &amp; Conditions
               </Link>
               <Link
                 to="/login"
-                className="text-sm text-muted-foreground hover:text-white transition-colors"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 Admin
               </Link>

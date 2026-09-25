@@ -11,10 +11,10 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-black">
+    <div className="flex min-h-screen items-center justify-center bg-background">
       <div className="text-center max-w-[377px] mx-auto">
-        <h1 className="text-[90px] font-semibold tracking-tighter text-white leading-[1.2] mb-2">404</h1>
-        <p className="mb-[60px] text-xl text-muted">
+        <h1 className="text-[90px] font-semibold tracking-tighter text-foreground leading-[1.2] mb-2">404</h1>
+        <p className="mb-[60px] text-xl text-muted-foreground">
           Oops! The page you’re looking for doesn’t exist or may have been moved.
         </p>
         <Button asChild>

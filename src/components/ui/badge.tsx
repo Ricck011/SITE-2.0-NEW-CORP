@@ -9,9 +9,9 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default: "text-primary",
-        secondary: "text-muted",
-        color: "text-muted",
+        default: "text-brand-red-soft",
+        secondary: "text-muted-foreground",
+        color: "text-muted-foreground",
       },
     },
     defaultVariants: {
@@ -24,7 +24,7 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement>, Varian
 
 function Badge({ className, variant, children, ...props }: BadgeProps) {
   return <div className={cn(badgeVariants({ variant }), className)} {...props}>
-    <BadgeCheck className={cn("w-4 h-4", variant === "secondary" ? " fill-transparent stroke-muted" : variant === "color" ? "fill-revio-light-orchid stroke-black" : "fill-transparent stroke-primary")} />
+    <BadgeCheck aria-hidden="true" className={cn("w-4 h-4", variant === "secondary" ? "fill-transparent stroke-muted-foreground" : variant === "color" ? "fill-brand-red stroke-background" : "fill-transparent stroke-brand-red-soft")} />
     {children}
   </div>;
 }

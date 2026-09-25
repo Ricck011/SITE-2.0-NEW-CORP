@@ -8,7 +8,7 @@ import { Badge } from "../../ui/badge";
 
 const FeaturesHero = () => {
   return (
-    <section className="relative bg-black overflow-hidden banner-top-padding pb-[120px] md:pb-[140px] lg:pb-[160px] xl:pb-[180px]">
+    <section className="relative bg-background overflow-hidden banner-top-padding pb-[120px] md:pb-[140px] lg:pb-[160px] xl:pb-[180px]">
       <Container className="relative z-10">
         {/* Trust badges */}
         <StaggerContainer className="flex flex-wrap items-center justify-center gap-6 mb-8">
@@ -17,14 +17,14 @@ const FeaturesHero = () => {
           </AnimateOnView>
           <AnimateOnView blur delay={0.1}>
             <Badge variant="color">
-              <span>Use over <span className="text-white">12K+</span> businesses worldwide.</span>
+              <span>Use over <span className="text-foreground">12K+</span> businesses worldwide.</span>
             </Badge>
           </AnimateOnView>
         </StaggerContainer>
 
         {/* Main headline */}
         <AnimateOnView blur className="text-center max-w-3xl mx-auto mb-10" delay={0.2}>
-          <h1 className="h1 text-white">
+          <h1 className="h1 text-foreground">
             Everything you need to power payments.
           </h1>
         </AnimateOnView>

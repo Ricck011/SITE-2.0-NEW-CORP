@@ -19,7 +19,7 @@ const MobileApp = () => {
   ];
 
   return (
-    <section className="md:pt-20 xl:pt-32 pt-12 bg-black" id="mobile-app">
+    <section className="md:pt-20 xl:pt-32 pt-12 bg-background" id="mobile-app">
       <Container className="flex flex-col md:flex-row justify-between md:gap-10 xl:gap-2xl gap-8">
         <StaggerContainer
           className="flex flex-col lg:max-w-[507px] pg-[120px]"
@@ -42,7 +42,7 @@ const MobileApp = () => {
             delay={0.2}
             className="md:mb-6 mb-3"
           >
-            <h2 className="h2 text-white">
+            <h2 className="h2 text-foreground">
               All in one secure mobile app.
             </h2>
           </AnimateOnView>
@@ -54,7 +54,7 @@ const MobileApp = () => {
             delay={0.4}
             className="md:mb-6 mb-3"
           >
-            <p className="text-lg text-white">Give your team NEW CORP cards and simplify business spending</p>
+            <p className="text-lg text-foreground">Give your team NEW CORP cards and simplify business spending</p>
           </AnimateOnView>
 
           {/* Features List */}
@@ -70,13 +70,13 @@ const MobileApp = () => {
                 className="flex flex-col md:flex-row md:gap-2 lg:gap-4 gap-1"
               >
                 <div className="flex-shrink-0 mt-1">
-                  <Check className="w-6 h-6 text-white" />
+                  <Check className="w-6 h-6 text-foreground" />
                 </div>
                 <div>
-                  <h3 className="text-lg text-white mb-2">
+                  <h3 className="text-lg text-foreground mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-muted">
+                  <p className="text-muted-foreground">
                     {feature.description}
                   </p>
                 </div>

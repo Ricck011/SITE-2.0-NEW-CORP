@@ -73,7 +73,7 @@ const CoreFeatures = () => {
                   blur
                   delay={0.3}
                 >
-                  <h4 className="h4 text-white mb-3 max-w-[400px]">
+                  <h4 className="h4 text-foreground mb-3 max-w-[400px]">
                     Seamless scheduling Made Simple.
                   </h4>
                 </AnimateOnView>
@@ -82,7 +82,7 @@ const CoreFeatures = () => {
                   delay={0.4}
                   blur
                 >
-                  <p className="text-muted mb-8 leading-relaxed">
+                  <p className="text-muted-foreground mb-8 leading-relaxed">
                     Stay on top of your bills and installments with automated reminders, clear tracking, and a simple overview.
                   </p>
                 </AnimateOnView>
