@@ -46,8 +46,8 @@ const SEO = ({
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={fullImageUrl} />
             <meta name="twitter:image:alt" content={title} />
-            <meta name="twitter:site" content="@revio.photo" />
-            <meta name="twitter:creator" content="@revio.photo" />
+            <meta name="twitter:site" content="@new_corp" />
+            <meta name="twitter:creator" content="@new_corp" />
 
             {/* Additional Meta Tags */}
             <meta name="author" content="NEW CORP" />
