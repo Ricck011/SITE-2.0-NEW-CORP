@@ -16,8 +16,8 @@ const Testimonials = lazy(() => import("@/components/sections/home/testimonials"
 
 const Home = () => {
   const heroRef = useRef<HTMLElement>(null);
-  const metaTitle = "SaaS Website Design Template | Lovable";
-  const metaDescription = "Launch a fintech SaaS marketing site with blog CMS and admin dashboard. Remix this template and go live in hours with pricing pages, SEO, and auth built in.";
+  const metaTitle = "NEW CORP — Built for the way you work";
+  const metaDescription = "NEW CORP is a modern platform that helps you get work done — product overview, pricing, blog, and more.";
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FinancialService",

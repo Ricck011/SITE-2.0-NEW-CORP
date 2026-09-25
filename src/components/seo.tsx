@@ -19,7 +19,7 @@ const SEO = ({
     twitterCard = "summary_large_image",
     jsonLd,
 }: SEOProps) => {
-    const siteUrl = "https://morganblake.com";
+    const siteUrl = "https://new-corp.lovable.dev";
     const fullUrl = `${siteUrl}${canonicalUrl}`;
     const fullImageUrl = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
 
