@@ -63,7 +63,7 @@ const Login = () => {
     return (
         <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-4">
             <Helmet>
-                <title>Sign In | Revio</title>
+                <title>Sign In | NEW CORP</title>
             </Helmet>
 
             <div className="w-full max-w-[400px] space-y-8">

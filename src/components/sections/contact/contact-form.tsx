@@ -105,7 +105,7 @@ const ContactForm = () => {
             Connect with our support team
           </h1>
           <p className="">
-            At Revio, we value clear communication and prompt support. Whether
+            At NEW CORP, we value clear communication and prompt support. Whether
             you have questions about our platform, need assistance with your
             integration.
           </p>

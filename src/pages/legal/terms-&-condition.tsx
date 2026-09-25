@@ -26,7 +26,7 @@ const TermsAndConditionPage = () => {
             <Layout>
                 <LegalHero
                     title={`Terms & Conditions`}
-                    description={`Terms & Conditions | Revio - Legal`}
+                    description={`Terms & Conditions | NEW CORP - Legal`}
                 />
                 <section>
 

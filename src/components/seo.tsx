@@ -50,7 +50,7 @@ const SEO = ({
             <meta name="twitter:creator" content="@revio.photo" />
 
             {/* Additional Meta Tags */}
-            <meta name="author" content="Revio" />
+            <meta name="author" content="NEW CORP" />
             <meta name="robots" content="index, follow" />
             <meta name="googlebot" content="index, follow" />
 

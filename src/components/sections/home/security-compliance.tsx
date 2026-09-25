@@ -10,17 +10,17 @@ const SecurityCompliance = () => {
   const features = [
     {
       title: "Fully Licensed & Compliant",
-      description: "Revio operates under strict financial regulations, ensuring your business is always backed by secure practices.",
+      description: "NEW CORP operates under strict financial regulations, ensuring your business is always backed by secure practices.",
       highlighted: false,
     },
     {
       title: "100% Digital Experience",
-      description: "Revio is built as a modern online payment platform—designed to handle all your business transactions seamlessly, anywhere, anytime.",
+      description: "NEW CORP is built as a modern online payment platform—designed to handle all your business transactions seamlessly, anywhere, anytime.",
       highlighted: true,
     },
     {
       title: "Independent & Reliable",
-      description: "Revio owns its core infrastructure, giving you direct access to payment processing without relying on third-party providers.",
+      description: "NEW CORP owns its core infrastructure, giving you direct access to payment processing without relying on third-party providers.",
       highlighted: false,
     },
   ];

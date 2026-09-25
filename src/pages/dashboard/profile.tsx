@@ -206,7 +206,7 @@ const ProfileSettings = () => {
             ]}
         >
             <Helmet>
-                <title>My Profile | Revio</title>
+                <title>My Profile | NEW CORP</title>
             </Helmet>
 
             <div className="mb-8">

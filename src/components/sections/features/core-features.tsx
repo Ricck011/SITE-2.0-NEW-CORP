@@ -12,25 +12,25 @@ const features = [
   {
     id: "api-integration",
     title: "Easy API & Integration",
-    description: "Connect Revio with your existing apps, e-commerce stores, and platforms using our developer-friendly API and pre-built integrations.",
+    description: "Connect NEW CORP with your existing apps, e-commerce stores, and platforms using our developer-friendly API and pre-built integrations.",
     image: "/images/features/tab-1.webp",
   },
   {
     id: "multi-currency",
     title: "Multi-Currency & Cross-Border",
-    description: "Expand your business globally by accepting payments in over 100 currencies, with built-in real-time conversion. Revio makes international transactions simple, transparent, and seamless—helping you reach more consumers without the complexity of managing cross-border payments.",
+    description: "Expand your business globally by accepting payments in over 100 currencies, with built-in real-time conversion. NEW CORP makes international transactions simple, transparent, and seamless—helping you reach more consumers without the complexity of managing cross-border payments.",
     image: "/images/features/tab-2.webp",
   },
   {
     id: "subscription-billing",
     title: "Subscription & Recurring Billing",
-    description: "Simplify revenue management with automated billing cycles and flexible subscription options tailored to your business model. Revio helps reduce missed payments with intelligent retry logic.",
+    description: "Simplify revenue management with automated billing cycles and flexible subscription options tailored to your business model. NEW CORP helps reduce missed payments with intelligent retry logic.",
     image: "/images/features/tab-3.webp",
   },
   {
     id: "dispute-chargeback",
     title: "Dispute & Chargeback Management",
-    description: "Managing disputes doesn't have to be complicated. Revio provides an all-in-one chargeback management system that helps businesses resolve conflicts quickly and transparently.",
+    description: "Managing disputes doesn't have to be complicated. NEW CORP provides an all-in-one chargeback management system that helps businesses resolve conflicts quickly and transparently.",
     image: "/images/features/tab-4.webp",
   },
 ];

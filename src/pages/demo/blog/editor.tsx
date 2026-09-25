@@ -172,7 +172,7 @@ const DemoBlogEditor = () => {
   return (
     <DemoBlogLayout breadcrumbs={breadcrumbs}>
       <Helmet>
-        <title>{isEditMode ? "Edit Post" : "Create Post"} Demo | Revio</title>
+        <title>{isEditMode ? "Edit Post" : "Create Post"} Demo | NEW CORP</title>
         <meta name="robots" content="noindex" />
       </Helmet>
 

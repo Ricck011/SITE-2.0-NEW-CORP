@@ -28,7 +28,7 @@ const Hero = ({ heroRef }: {
 
         <AnimateOnView blur className="text-center max-w-3xl mx-auto lg:mb-10 md:mb-8 mb-4" delay={0.2}>
           <h1 className="h1 text-white">
-            Revio Landing Page
+            NEW CORP Landing Page
           </h1>
         </AnimateOnView>
 

@@ -19,7 +19,7 @@ interface NewsletterFormProps {
 }
 
 const NewsletterForm = ({
-  title = "Stay Updated with Revio",
+  title = "Stay Updated with NEW CORP",
   description = "Get the latest insights on payments.",
   placeholder = "Your email",
   buttonText = "Subscribe",

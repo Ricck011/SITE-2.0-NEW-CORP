@@ -18,7 +18,7 @@ const CTA = () => {
                     >
                         <h2
                             className="h1"
-                        >Ready to Simplify Payments with Revio?</h2>
+                        >Ready to Simplify Payments with NEW CORP?</h2>
                     </AnimateOnView>
                     <AnimateOnView
                         once

@@ -124,7 +124,7 @@ const Footer = () => {
               {/* Newsletter */}
               <div>
                 <h3 className="text-lg font-semibold mb-2">
-                  Stay Updated with Revio
+                  Stay Updated with NEW CORP
                 </h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   Get the latest insights on payments.
@@ -152,7 +152,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Copyright */}
             <p className="text-sm text-muted-foreground text-center md:text-left">
-              © {new Date().getFullYear()} Revio. Made in Lovable.
+              © {new Date().getFullYear()} NEW CORP. Made in Lovable.
             </p>
 
             {/* Legal Links */}

@@ -12,7 +12,7 @@ const chartData = [
   {
     icon: "/images/icons/timeline.svg",
     title: "Real-Time Payment Processing",
-    description: "Process transactions instantly with Revio's real-time payment engine, built for reliability, and scale.",
+    description: "Process transactions instantly with NEW CORP's real-time payment engine, built for reliability, and scale.",
     image: "/images/features/chart-2.webp"
   },
   {
