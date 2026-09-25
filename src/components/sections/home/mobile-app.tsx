@@ -1,129 +1,72 @@
 import Container from "@/components/container";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import DeviceFrame from "@/components/ui/device-frame";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
-import { ArrowRight, Check } from "lucide-react";
-import { Link } from "react-router-dom";
+import {
+  GAME_BROTHERS_DESKTOP_COMPARE,
+  GAME_BROTHERS_LEDE,
+  GAME_BROTHERS_MOVES,
+  GAME_BROTHERS_PHONE_AFTER,
+  GAME_BROTHERS_STATUS,
+  GAME_BROTHERS_TAG,
+  GAME_BROTHERS_TITLE,
+} from "@/content/case-game-brothers";
+import { Info } from "lucide-react";
+import ComparePair from "./compare-pair";
 
 const MobileApp = () => {
-  const features = [
-    {
-      title: "Manage Anywhere, Anytime",
-      description: "Track payments, approve transactions, and view reports instantly with the NEW CORP mobile app.",
-    },
-    {
-      title: "Card Management",
-      description: "Freeze, unfreeze, or set limits on company cards directly from your phone.",
-    },
-  ];
-
   return (
-    <section className="md:pt-20 xl:pt-32 pt-12 bg-background" id="mobile-app">
-      <Container className="flex flex-col md:flex-row justify-between md:gap-10 xl:gap-2xl gap-8">
-        <StaggerContainer
-          className="flex flex-col lg:max-w-[507px] pg-[120px]"
-        >
-          {/* Badge */}
-          <AnimateOnView
-            once
-            blur
-            className="md:mb-4 mb-1.5"
-          >
-            <Badge variant="secondary">
-              Download App
-            </Badge>
+    <section className="md:pt-20 xl:pt-32 pt-12 bg-background" id="case-game-brothers">
+      <Container className="space-y-10">
+        <div className="max-w-[683px]">
+          <AnimateOnView once blur className="md:mb-4 mb-1.5">
+            <Badge variant="secondary">{GAME_BROTHERS_TAG}</Badge>
           </AnimateOnView>
 
-          {/* Headline */}
-          <AnimateOnView
-            once
-            blur
-            delay={0.2}
-            className="md:mb-6 mb-3"
-          >
-            <h2 className="h2 text-foreground">
-              All in one secure mobile app.
-            </h2>
+          <AnimateOnView once blur delay={0.2} className="md:mb-6 mb-3">
+            <h2 className="h2 text-foreground">{GAME_BROTHERS_TITLE}</h2>
           </AnimateOnView>
 
-          {/* Description */}
-          <AnimateOnView
-            once
-            blur
-            delay={0.4}
-            className="md:mb-6 mb-3"
-          >
-            <p className="text-lg text-foreground">Give your team NEW CORP cards and simplify business spending</p>
+          <AnimateOnView once blur delay={0.4}>
+            <p className="text-lg text-muted-foreground">{GAME_BROTHERS_LEDE}</p>
           </AnimateOnView>
+        </div>
 
-          {/* Features List */}
-          <StaggerContainer
-            className="flex flex-col md:gap-6 gap-4 md:mb-10 mb-8 max-w-[459px]"
-          >
-            {features.map((feature, index) => (
-              <AnimateOnView
-                once
-                blur
-                delay={0.5 + index * 0.1}
-                key={feature.title}
-                className="flex flex-col md:flex-row md:gap-2 lg:gap-4 gap-1"
-              >
-                <div className="flex-shrink-0 mt-1">
-                  <Check className="w-6 h-6 text-foreground" />
-                </div>
-                <div>
-                  <h3 className="text-lg text-foreground mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {feature.description}
-                  </p>
-                </div>
-              </AnimateOnView>
-            ))}
-          </StaggerContainer>
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+          <div>
+            <StaggerContainer className="flex flex-col gap-6 mb-8">
+              {GAME_BROTHERS_MOVES.map((move, index) => (
+                <AnimateOnView
+                  key={move.number}
+                  once
+                  blur
+                  delay={0.1 + index * 0.05}
+                  className="flex gap-4"
+                >
+                  <span className="shrink-0 font-display text-sm text-brand-red-soft pt-1">{move.number}</span>
+                  <div>
+                    <h3 className="text-base font-semibold text-foreground mb-1">{move.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{move.description}</p>
+                  </div>
+                </AnimateOnView>
+              ))}
+            </StaggerContainer>
 
-          {/* CTA Button */}
-          <AnimateOnView
-            once
-            delay={0.6}
-            className="mb-6"
-          >
-            <Button asChild>
-              <Link to="/#contato">
-                Download app
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Link>
-            </Button>
+            <AnimateOnView once delay={0.3} className="flex gap-3 p-4 rounded-xl bg-brand-surface-2 border border-border">
+              <Info className="w-5 h-5 shrink-0 text-muted-foreground mt-0.5" aria-hidden />
+              <p className="text-sm text-muted-foreground leading-relaxed">{GAME_BROTHERS_STATUS}</p>
+            </AnimateOnView>
+          </div>
+
+          <AnimateOnView once blur delay={0.5} className="flex flex-col items-center lg:items-end gap-8">
+            <DeviceFrame src={GAME_BROTHERS_PHONE_AFTER.src} alt={GAME_BROTHERS_PHONE_AFTER.alt} />
+            <ComparePair label="primeira tela, computador" images={GAME_BROTHERS_DESKTOP_COMPARE} />
           </AnimateOnView>
-        </StaggerContainer>
-
-        {/* Right Section - Smartphone Mockup */}
-        <AnimateOnView
-          once
-          blur
-          delay={0.6}
-          className="flex justify-center lg:justify-end"
-        >
-          <img 
-            className="relative max-w-[434px] w-full aspect-[434/645]" 
-            src="/images/homepage/phone.webp" 
-            alt="NEW CORP mobile app" 
-            width="434"
-            height="645"
-            loading="lazy"
-          />
-
-        </AnimateOnView>
+        </div>
       </Container>
     </section>
   );
 };
 
 export default MobileApp;
-
-
-
-
-
