@@ -8,36 +8,36 @@ import { Link } from "react-router-dom";
 
 const faqs = [
   {
-    question: "What is Revio?",
-    answer: "Revio is a secure and scalable payment gateway that helps businesses accept, process, and manage online payments worldwide. With features like real-time processing, multi-currency support, recurring billing, and fraud prevention, Revio makes payments seamless for both businesses and their customers.",
+    question: "What is NEW CORP?",
+    answer: "NEW CORP is a secure and scalable payment gateway that helps businesses accept, process, and manage online payments worldwide. With features like real-time processing, multi-currency support, recurring billing, and fraud prevention, NEW CORP makes payments seamless for both businesses and their customers.",
   },
   {
-    question: "How long does it take to set up Revio?",
-    answer: "Setting up Revio is quick and straightforward. Most businesses can get started within minutes. Our onboarding process typically takes 1-2 business days for account verification and integration setup. We provide comprehensive documentation and support to help you get up and running as fast as possible.",
+    question: "How long does it take to set up NEW CORP?",
+    answer: "Setting up NEW CORP is quick and straightforward. Most businesses can get started within minutes. Our onboarding process typically takes 1-2 business days for account verification and integration setup. We provide comprehensive documentation and support to help you get up and running as fast as possible.",
   },
   {
-    question: "Which payment methods does Revio support?",
-    answer: "Revio supports all major payment methods including credit and debit cards (Visa, Mastercard, American Express), digital wallets (Apple Pay, Google Pay, PayPal), bank transfers, and local payment methods in over 150 countries. We continuously add new payment methods based on market demand.",
+    question: "Which payment methods does NEW CORP support?",
+    answer: "NEW CORP supports all major payment methods including credit and debit cards (Visa, Mastercard, American Express), digital wallets (Apple Pay, Google Pay, PayPal), bank transfers, and local payment methods in over 150 countries. We continuously add new payment methods based on market demand.",
   },
   {
-    question: "Is Revio safe and compliant?",
-    answer: "Yes, Revio is fully PCI DSS Level 1 compliant and adheres to the highest security standards. We use end-to-end encryption, tokenization, and advanced fraud detection systems to protect your transactions. We're also compliant with GDPR, SOC 2, and other regional regulations.",
+    question: "Is NEW CORP safe and compliant?",
+    answer: "Yes, NEW CORP is fully PCI DSS Level 1 compliant and adheres to the highest security standards. We use end-to-end encryption, tokenization, and advanced fraud detection systems to protect your transactions. We're also compliant with GDPR, SOC 2, and other regional regulations.",
   },
   {
-    question: "Can I use Revio for subscription billing?",
-    answer: "Absolutely! Revio offers robust subscription and recurring billing features. You can set up flexible billing cycles, manage customer subscriptions, handle upgrades and downgrades, and automate recurring payments. Our Pro and Enterprise plans include advanced subscription management tools.",
+    question: "Can I use NEW CORP for subscription billing?",
+    answer: "Absolutely! NEW CORP offers robust subscription and recurring billing features. You can set up flexible billing cycles, manage customer subscriptions, handle upgrades and downgrades, and automate recurring payments. Our Pro and Enterprise plans include advanced subscription management tools.",
   },
   {
-    question: "Does Revio work for international businesses?",
-    answer: "Yes, Revio is designed for global businesses. We support multi-currency transactions, cross-border payments, and local payment methods in over 150 countries. Our platform handles currency conversion, international compliance, and regulatory requirements automatically.",
+    question: "Does NEW CORP work for international businesses?",
+    answer: "Yes, NEW CORP is designed for global businesses. We support multi-currency transactions, cross-border payments, and local payment methods in over 150 countries. Our platform handles currency conversion, international compliance, and regulatory requirements automatically.",
   },
   {
     question: "What support options are available?",
-    answer: "Revio offers multiple support tiers. Starter plans include email support, Pro plans add 24/7 live chat support, and Enterprise plans include dedicated account managers, SLA guarantees, and priority support. We also provide comprehensive documentation, API guides, and developer resources.",
+    answer: "NEW CORP offers multiple support tiers. Starter plans include email support, Pro plans add 24/7 live chat support, and Enterprise plans include dedicated account managers, SLA guarantees, and priority support. We also provide comprehensive documentation, API guides, and developer resources.",
   },
   {
     question: "Can I customize the checkout experience?",
-    answer: "Yes, Revio offers flexible customization options. You can customize the look and feel of hosted checkout pages, use our API to build fully custom checkout experiences, and integrate with your existing design system. Enterprise plans include advanced customization and white-label options.",
+    answer: "Yes, NEW CORP offers flexible customization options. You can customize the look and feel of hosted checkout pages, use our API to build fully custom checkout experiences, and integrate with your existing design system. Enterprise plans include advanced customization and white-label options.",
   },
 ];
 

@@ -17,7 +17,7 @@ export interface DemoProfile {
 export const demoProfile: DemoProfile = {
   first_name: "Amara",
   last_name: "Okafor",
-  email: "amara@revio.com",
+  email: "amara@newcorp.com",
   phone: "+1 (415) 555-0142",
   avatar_url: "/images/homepage/avatar-1.png",
 };

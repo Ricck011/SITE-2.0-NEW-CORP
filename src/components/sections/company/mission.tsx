@@ -47,7 +47,7 @@ const Mission = () => {
                                         Our mission
                                     </h2>
                                     <p className="card-foreground md:mb-8 mb-6 flex-1">
-                                        At Revio, our mission is simple yet powerful: to make global payments seamless, secure, and accessible for every business. We believe that the ability to transact should never be limited by borders, currencies, or complexity.
+                                        At NEW CORP, our mission is simple yet powerful: to make global payments seamless, secure, and accessible for every business. We believe that the ability to transact should never be limited by borders, currencies, or complexity.
                                     </p>
 
                                     <Button asChild className="bg-primary text-white hover:bg-primary/90 w-fit">

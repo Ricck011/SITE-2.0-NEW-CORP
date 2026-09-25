@@ -10,7 +10,7 @@ const ComingSoonContent = () => {
                         Exciting new features are on the way
                     </h1>
                     <p className="text-muted">
-                        Exciting new features are on the way! Revio is continuously evolving to provide you with the most advanced, secure, and seamless payment solutions.
+                        Exciting new features are on the way! NEW CORP is continuously evolving to provide you with the most advanced, secure, and seamless payment solutions.
                     </p>
                 </div>
                 <div className="max-w-[470px] mx-auto w-full">

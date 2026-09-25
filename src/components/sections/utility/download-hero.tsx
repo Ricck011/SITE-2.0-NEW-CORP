@@ -10,10 +10,10 @@ const DownloadHero = () => {
                 {/* Main headline */}
                 <AnimateOnView once blur className="text-center max-w-4xl mx-auto mb-10" delay={0.2}>
                     <h1 className="h1 text-white lg:mb-6 md:mb-4 mb-2">
-                        Download the Revio App
+                        Download the NEW CORP App
                     </h1>
                     <p className="text-lg text-muted leading-relaxed lg:mb-[60px] md:mb-10 mb-6 max-w-[622px] mx-auto">
-                        Take control of your payments anytime, anywhere with the Revio mobile app. Manage transactions, track subscriptions, and access real-time analytics—all from the convenience of your smartphone.
+                        Take control of your payments anytime, anywhere with the NEW CORP mobile app. Manage transactions, track subscriptions, and access real-time analytics—all from the convenience of your smartphone.
                     </p>
                     <div className="flex justify-center gap-4">
                         <Button asChild>

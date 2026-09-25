@@ -28,20 +28,20 @@ const CEOProfile = () => {
 
                     <AnimateOnView blur delay={0.1}>
                         <h2 className="h5 text-foreground mb-4">
-                            James Whitaker - Founder & CEO of Revio
+                            James Whitaker - Founder & CEO of NEW CORP
                         </h2>
                     </AnimateOnView>
 
                     <AnimateOnView delay={0.2}>
                         <div className="space-y-4 md:mb-[30px] mb-6">
                             <p>
-                                James Whitaker founded Revio with a vision to make global payments simple, secure, and accessible for businesses of every size. With over 15 years of experience in financial technology and digital banking, he has led multiple startups and worked with leading payment networks before launching Revio.
+                                James Whitaker founded NEW CORP with a vision to make global payments simple, secure, and accessible for businesses of every size. With over 15 years of experience in financial technology and digital banking, he has led multiple startups and worked with leading payment networks before launching NEW CORP.
                             </p>
                             <p>
-                                Under his leadership, Revio has grown into a trusted payment gateway, serving thousands of companies worldwide and processing millions of secure transactions every month. James is passionate about financial inclusion, innovation at scale, and building technology that empowers business growth.
+                                Under his leadership, NEW CORP has grown into a trusted payment gateway, serving thousands of companies worldwide and processing millions of secure transactions every month. James is passionate about financial inclusion, innovation at scale, and building technology that empowers business growth.
                             </p>
                             <p>
-                                "At Revio, we believe payments should fuel business growth—not hold it back. My mission is to build a payment ecosystem where every business, anywhere in the world, can succeed without barriers."
+                                "At NEW CORP, we believe payments should fuel business growth—not hold it back. My mission is to build a payment ecosystem where every business, anywhere in the world, can succeed without barriers."
                             </p>
                         </div>
                         <div className="max-w-[191px] w-full sm:mx-0 mx-auto">

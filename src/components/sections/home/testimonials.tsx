@@ -37,7 +37,7 @@ const Testimonials = () => {
           <TestimonialCard
             className="col-span-12 sm:col-span-6 lg:col-span-5 sm:order-1 lg:order-1"
             companyLogo="/images/homepage/logo-5.svg"
-            text="Revio transformed how we handle payments—simple, fast, and reliable!"
+            text="NEW CORP transformed how we handle payments—simple, fast, and reliable!"
             avatar="/images/homepage/avatar-1.png"
             author="Sophia Martinez"
             designation="Co-Founder & CEO"
@@ -51,7 +51,7 @@ const Testimonials = () => {
           <TestimonialCard
             className="col-span-12 sm:col-span-6 lg:col-span-4 sm:order-4 lg:order-3"
             companyLogo="/images/homepage/logo-3.svg"
-            text="Revio transformed how we handle payments—simple, fast, and reliable!"
+            text="NEW CORP transformed how we handle payments—simple, fast, and reliable!"
             avatar="/images/homepage/avatar-1.png"
             author="Sophia Martinez"
             designation="Co-Founder & CEO"
@@ -65,7 +65,7 @@ const Testimonials = () => {
           <TestimonialCard
             className="col-span-12 sm:col-span-6 lg:col-span-4 sm:order-5 lg:order-5"
             companyLogo="/images/homepage/logo-5.svg"
-            text="Revio transformed how we handle payments—simple, fast, and reliable!"
+            text="NEW CORP transformed how we handle payments—simple, fast, and reliable!"
             avatar="/images/homepage/avatar-1.png"
             author="Sophia Martinez"
             designation="Co-Founder & CEO"
@@ -73,7 +73,7 @@ const Testimonials = () => {
           <TestimonialCard
             className="col-span-12 sm:col-span-6 lg:col-span-5 sm:order-6 lg:order-6"
             companyLogo="/images/homepage/logo-1.svg"
-            text="Revio transformed how we handle payments—simple, fast, and reliable!"
+            text="NEW CORP transformed how we handle payments—simple, fast, and reliable!"
             avatar="/images/homepage/avatar-1.png"
             author="Sophia Martinez"
             designation="Co-Founder & CEO"

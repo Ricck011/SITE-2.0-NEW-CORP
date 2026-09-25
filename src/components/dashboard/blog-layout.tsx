@@ -76,7 +76,7 @@ const BlogLayout = ({ children, breadcrumbs }: BlogLayoutProps) => {
         <Sidebar collapsible="icon">
           <SidebarHeader>
             <Link to="/" className="flex items-center gap-2 px-2">
-              <img src="/images/common/logo.svg" alt="Revio" className="h-5" />
+              <img src="/images/common/logo.svg" alt="NEW CORP" className="h-5" />
             </Link>
           </SidebarHeader>
 

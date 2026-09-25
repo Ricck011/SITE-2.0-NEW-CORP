@@ -63,7 +63,7 @@ const Vision = () => {
                                 Our Vision for a Borderless World
                             </h3>
                             <p>
-                                At Revio, we envision a world where payments are borderless, seamless, and secure. Our goal is to remove the barriers that limit businesses and empower them to grow globally without worrying about payment complexities. We believe geography should never limit opportunity. Revio enables businesses to connect with customers worldwide, regardless of currency or location.
+                                At NEW CORP, we envision a world where payments are borderless, seamless, and secure. Our goal is to remove the barriers that limit businesses and empower them to grow globally without worrying about payment complexities. We believe geography should never limit opportunity. NEW CORP enables businesses to connect with customers worldwide, regardless of currency or location.
                             </p>
                         </div>
 
@@ -72,7 +72,7 @@ const Vision = () => {
                                 Trust & Transparency
                             </h3>
                             <p>
-                                At Revio, we believe that trust is the foundation of every successful transaction. Businesses and customers alike should feel confident that their payments are processed with the highest level of security, reliability, and fairness. That’s why we go beyond simply moving money—we build relationships based on openness and integrity.
+                                At NEW CORP, we believe that trust is the foundation of every successful transaction. Businesses and customers alike should feel confident that their payments are processed with the highest level of security, reliability, and fairness. That’s why we go beyond simply moving money—we build relationships based on openness and integrity.
                             </p>
                         </div>
                         <div className="space-y-4">
@@ -80,7 +80,7 @@ const Vision = () => {
                                 Innovation at Scale
                             </h3>
                             <p>
-                                At Revio, we don’t just innovate—we innovate with purpose and scalability in mind. As businesses grow, so do their payment challenges, and our mission is to provide solutions that adapt effortlessly to increasing demands. From handling thousands of daily transactions for small businesses to processing millions for global enterprises, our infrastructure is designed to perform reliably at every level.
+                                At NEW CORP, we don’t just innovate—we innovate with purpose and scalability in mind. As businesses grow, so do their payment challenges, and our mission is to provide solutions that adapt effortlessly to increasing demands. From handling thousands of daily transactions for small businesses to processing millions for global enterprises, our infrastructure is designed to perform reliably at every level.
                             </p>
                         </div>
                         <div className="space-y-4">
@@ -88,7 +88,7 @@ const Vision = () => {
                                 Empowering Growth
                             </h3>
                             <p>
-                                At Revio, we believe that payments should be a catalyst for business success—not a barrier. That’s why we design our platform to give businesses the freedom to focus on what truly matters: growth. By removing the complexity of global payments, we enable companies of every size to expand faster, reach more customers, and unlock new opportunities.
+                                At NEW CORP, we believe that payments should be a catalyst for business success—not a barrier. That’s why we design our platform to give businesses the freedom to focus on what truly matters: growth. By removing the complexity of global payments, we enable companies of every size to expand faster, reach more customers, and unlock new opportunities.
                             </p>
                         </div>
                         <div className="space-y-4">

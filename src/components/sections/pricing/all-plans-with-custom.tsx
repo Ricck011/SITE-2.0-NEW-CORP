@@ -73,7 +73,7 @@ const AllPlansWithCustom = () => {
                     </h3>
                     <p className="">
                       If your business model doesn't fit into Starter, Pro, or
-                      Enterprise, Revio offers fully customized.
+                      Enterprise, NEW CORP offers fully customized.
                     </p>
                   </CardHeader>
 

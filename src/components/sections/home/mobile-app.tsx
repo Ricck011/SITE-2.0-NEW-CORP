@@ -10,7 +10,7 @@ const MobileApp = () => {
   const features = [
     {
       title: "Manage Anywhere, Anytime",
-      description: "Track payments, approve transactions, and view reports instantly with the Revio mobile app.",
+      description: "Track payments, approve transactions, and view reports instantly with the NEW CORP mobile app.",
     },
     {
       title: "Card Management",
@@ -54,7 +54,7 @@ const MobileApp = () => {
             delay={0.4}
             className="md:mb-6 mb-3"
           >
-            <p className="text-lg text-white">Give your team Revio cards and simplify business spending</p>
+            <p className="text-lg text-white">Give your team NEW CORP cards and simplify business spending</p>
           </AnimateOnView>
 
           {/* Features List */}
@@ -109,7 +109,7 @@ const MobileApp = () => {
           <img 
             className="relative max-w-[434px] w-full aspect-[434/645]" 
             src="/images/homepage/phone.webp" 
-            alt="Revio mobile app" 
+            alt="NEW CORP mobile app" 
             width="434"
             height="645"
             loading="lazy"

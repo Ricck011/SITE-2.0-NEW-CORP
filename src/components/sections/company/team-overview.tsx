@@ -283,7 +283,7 @@ const TeamOverview = () => {
 
                     <AnimateOnView blur delay={0.1}>
                         <p className="mb-8">
-                            Revio is built by a team of innovators, engineers, and entrepreneurs passionate about transforming the way businesses handle payments.
+                            NEW CORP is built by a team of innovators, engineers, and entrepreneurs passionate about transforming the way businesses handle payments.
                         </p>
                     </AnimateOnView>
 

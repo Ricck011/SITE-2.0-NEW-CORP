@@ -22,7 +22,7 @@ const ContactHero = () => {
                 {/* Main headline */}
                 <AnimateOnView blur className="text-center max-w-2xl mx-auto lg:mb-10 md:mb-8 mb-4" delay={0.2}>
                     <h1 className="h1 text-white">
-                        Contact revio for payment solution
+                        Contact NEW CORP to get started
                     </h1>
                 </AnimateOnView>
             </Container>

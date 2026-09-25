@@ -261,7 +261,7 @@ const BlogEditor = () => {
   return (
     <BlogLayout breadcrumbs={breadcrumbs}>
       <Helmet>
-        <title>{isEditMode ? "Edit Post" : "Create Post"} | Revio</title>
+        <title>{isEditMode ? "Edit Post" : "Create Post"} | NEW CORP</title>
       </Helmet>
 
       <div className="max-w-4xl space-y-8">

@@ -17,18 +17,18 @@ const Hero = ({ heroRef }: {
       <Container className="relative z-10">
         <StaggerContainer className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 md:gap-4 xl:gap-6 mb-4 md:mb-8">
           <AnimateOnView>
-            <Badge variant="color">SaaS website design template</Badge>
+            <Badge variant="color">Meet NEW CORP</Badge>
           </AnimateOnView>
           <AnimateOnView delay={0.1}>
             <Badge variant="color">
-              <span>Use over <span className="text-white">12K+</span> businesses worldwide.</span>
+              <span>Built for the way you <span className="text-white">WORK</span></span>
             </Badge>
           </AnimateOnView>
         </StaggerContainer>
 
         <AnimateOnView blur className="text-center max-w-3xl mx-auto lg:mb-10 md:mb-8 mb-4" delay={0.2}>
           <h1 className="h1 text-white">
-            Revio Landing Page
+            Get work done with NEW CORP
           </h1>
         </AnimateOnView>
 

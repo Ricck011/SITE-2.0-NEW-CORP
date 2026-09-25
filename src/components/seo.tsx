@@ -19,7 +19,7 @@ const SEO = ({
     twitterCard = "summary_large_image",
     jsonLd,
 }: SEOProps) => {
-    const siteUrl = "https://morganblake.com";
+    const siteUrl = "https://new-corp.lovable.dev";
     const fullUrl = `${siteUrl}${canonicalUrl}`;
     const fullImageUrl = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
 
@@ -46,11 +46,11 @@ const SEO = ({
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={fullImageUrl} />
             <meta name="twitter:image:alt" content={title} />
-            <meta name="twitter:site" content="@revio.photo" />
-            <meta name="twitter:creator" content="@revio.photo" />
+            <meta name="twitter:site" content="@new_corp" />
+            <meta name="twitter:creator" content="@new_corp" />
 
             {/* Additional Meta Tags */}
-            <meta name="author" content="Revio" />
+            <meta name="author" content="NEW CORP" />
             <meta name="robots" content="index, follow" />
             <meta name="googlebot" content="index, follow" />
 

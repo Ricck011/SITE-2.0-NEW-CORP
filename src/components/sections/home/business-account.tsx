@@ -20,7 +20,7 @@ const BusinessAccount = () => {
       icon: "/images/icons/bank.svg",
       title: "Payment Automation",
       badge: "Business Account",
-      heading: "Simplified payments with Revio pay",
+      heading: "Simplified payments with NEW CORP pay",
       description: "Streamline transactions and manage high-value payments effortlessly.",
       lottie: revioPay,
       link: "/contact",

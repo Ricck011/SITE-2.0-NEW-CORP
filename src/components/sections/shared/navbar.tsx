@@ -98,7 +98,7 @@ const Navbar = () => {
       )}>
       <Container className="flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-2 xl:w-[35%] md:w-[30%] w-fit">
-          <img src="/images/common/logo.svg" alt="Revio" className="h-[21px] max-w-[87px]" />
+          <img src="/images/common/logo.svg" alt="NEW CORP" className="h-[21px] max-w-[87px]" />
         </Link>
 
         {/* <!-- Mobile --> */}
@@ -165,7 +165,7 @@ const Navbar = () => {
                 <SheetHeader className="flex flex-row justify-between border-b border-foreground">
                   <SheetTitle className="flex items-center">
                     <Link to="/" className="flex items-center" onClick={closeSheet}>
-                      <img src="/images/common/logo.svg" alt="Revio" className="h-4" />
+                      <img src="/images/common/logo.svg" alt="NEW CORP" className="h-4" />
                     </Link>
                   </SheetTitle>
                   <div className="flex items-center gap-2">

@@ -9,7 +9,7 @@ const GlobalLocations = () => {
         {
             title: "Headquarters",
             location: "San Francisco, USA",
-            description: "Revio's global headquarters and innovation hub, driving product development and strategic growth."
+            description: "NEW CORP's global headquarters and innovation hub, driving product development and strategic growth."
         },
         {
             title: "Europe",
@@ -46,7 +46,7 @@ const GlobalLocations = () => {
 
                     <AnimateOnView delay={0.2}>
                         <p className="max-w-[560px] mx-auto">
-                            Revio operates globally with offices strategically located in major financial and tech hubs. Our distributed team allows us to better serve clients around the world.
+                            NEW CORP operates globally with offices strategically located in major financial and tech hubs. Our distributed team allows us to better serve clients around the world.
                         </p>
                     </AnimateOnView>
                 </StaggerContainer>
