@@ -1,50 +1,22 @@
-"use client";
-import * as SheetPrimitive from "@radix-ui/react-dialog";
-import { LogOut, Menu, User, XIcon, FileText } from "lucide-react";
+import { Menu } from "lucide-react";
+import * as React from "react";
+import { Link } from "react-router-dom";
 
-import React from "react";
-
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@/components/ui/navigation-menu";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { useAuth } from "@/hooks/use-auth";
-import { useAdmin } from "@/hooks/use-admin";
-import { Link, useNavigate } from "react-router-dom";
-import { toast } from "sonner";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "@/components/ui/navigation-menu";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { NAV_LINKS } from "@/content/site";
 import Container from "../../container";
-
-const pages = [
-  {
-    name: "Features",
-    href: "/features"
-  },
-  {
-    name: "Pricing",
-    href: "/pricing"
-  },
-  {
-    name: "Company",
-    href: "/company"
-  },
-  {
-    name: "Blog",
-    href: "/blog"
-  },
-  {
-    name: "Contact",
-    href: "/contact"
-  }
-]
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
-  const { user, profile, signOut } = useAuth();
-  const { isAdmin } = useAdmin();
-  const navigate = useNavigate();
   const scrollRafRef = React.useRef<number | null>(null);
 
   const handleScroll = React.useCallback(() => {
@@ -66,143 +38,74 @@ const Navbar = () => {
 
   const closeSheet = React.useCallback(() => setIsOpen(false), []);
 
-  const handleSignOut = React.useCallback(async () => {
-    await signOut();
-    toast.success("Signed out successfully");
-    navigate("/");
-  }, [signOut, navigate]);
-
-  const getInitials = () => {
-    const first = profile?.first_name || "";
-    const last = profile?.last_name || "";
-    if (first || last) {
-      return `${first.charAt(0)}${last.charAt(0)}`.toUpperCase();
-    }
-    return user?.email?.charAt(0).toUpperCase() || "U";
-  };
-
-  const getDisplayName = () => {
-    if (profile?.first_name) {
-      return profile.first_name;
-    }
-    return user?.email?.split("@")[0] || "User";
-  };
-
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 w-full transition-[padding,background-color,border-color] duration-300",
         isScrolled
-          ? "border-b border-white/10 bg-background/80 py-4 backdrop-blur-md"
+          ? "border-b border-border bg-background/80 py-4 backdrop-blur-md"
           : "border-b border-transparent pt-6 md:pt-10"
-      )}>
+      )}
+    >
       <Container className="flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-2 xl:w-[35%] md:w-[30%] w-fit">
           <img src="/images/common/logo.svg" alt="NEW CORP" className="h-[21px] max-w-[87px]" />
         </Link>
 
-        {/* <!-- Mobile --> */}
+        {/* Celular */}
         <div className="flex items-center gap-2 lg:hidden">
-          {user ? (
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button className="flex items-center gap-2 focus:outline-none">
-                  <Avatar className="h-9 w-9 border border-white/20">
-                    <AvatarImage src={profile?.avatar_url || undefined} />
-                    <AvatarFallback className="bg-primary/20 text-primary text-sm">
-                      {getInitials()}
-                    </AvatarFallback>
-                  </Avatar>
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56 bg-background border-white/10 z-50">
-                <div className="px-3 py-2">
-                  <p className="text-sm text-foreground">Hi, {getDisplayName()}</p>
-                  <p className="text-xs text-muted-foreground truncate">{user.email}</p>
-                </div>
-                <DropdownMenuSeparator className="bg-white/10" />
-                {isAdmin && (
-                  <>
-                    <DropdownMenuItem asChild className="text-foreground hover:bg-white/10 cursor-pointer">
-                      <Link to="/dashboard/blog" className="flex items-center">
-                        <FileText className="mr-2 h-4 w-4" />
-                        Blog Dashboard
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator className="bg-white/10" />
-                  </>
-                )}
-                <DropdownMenuItem asChild className="text-foreground hover:bg-white/10 cursor-pointer">
-                  <Link to="/dashboard/profile" className="flex items-center">
-                    <User className="mr-2 h-4 w-4" />
-                    Profile
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator className="bg-white/10" />
-                <DropdownMenuItem onClick={handleSignOut} className="text-red-400 hover:bg-white/10 cursor-pointer">
-                  <LogOut className="mr-2 h-4 w-4" />
-                  Sign out
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          ) : null}
-          <Sheet
-            open={isOpen}
-            onOpenChange={setIsOpen}>
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <div
-                className="cursor-pointer lg:hidden text-foreground h-11 w-11 flex items-center justify-center">
-                <Menu
-                  className="w-6 h-6"
-                />
-              </div>
+              <button
+                type="button"
+                aria-label="Abrir menu"
+                className="cursor-pointer lg:hidden text-foreground h-11 w-11 flex items-center justify-center"
+              >
+                <Menu className="w-6 h-6" aria-hidden="true" />
+              </button>
             </SheetTrigger>
 
-            <SheetContent
-              className="flex flex-col justify-between bg-background border-border"
-            >
+            <SheetContent className="flex flex-col justify-between bg-background border-border">
               <div className="h-full flex flex-col">
-                <SheetHeader className="flex flex-row justify-between border-b border-border">
-                  <SheetTitle className="flex items-center">
-                    <Link to="/" className="flex items-center" onClick={closeSheet}>
-                      <img src="/images/common/logo.svg" alt="NEW CORP" className="h-4" />
-                    </Link>
-                  </SheetTitle>
-                  <div className="flex items-center gap-2">
-                    <SheetPrimitive.Close
-                      className="h-11 w-11 flex items-center justify-center data-[state=open]:bg-secondary right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 disabled:pointer-events-none">
-                      <XIcon className="size-5 text-foreground" />
-                      <span className="sr-only">Close</span>
-                    </SheetPrimitive.Close>
-                  </div>
+                <SheetHeader className="flex flex-row items-center border-b border-border pb-4">
+                  <Link to="/" onClick={closeSheet} className="flex items-center">
+                    <img src="/images/common/logo.svg" alt="NEW CORP" className="h-4" />
+                  </Link>
+                  <SheetTitle className="sr-only">Menu</SheetTitle>
+                  <SheetDescription className="sr-only">Links de navegação da NEW CORP</SheetDescription>
                 </SheetHeader>
-                <div className="px-5 py-6 flex flex-col h-full justify-between flex-1 overflow-y-auto">
-                  <div className="flex flex-col gap-2">
-                    {pages.map((page) => (
-                      <Link key={page.href} to={page.href} onClick={closeSheet} className="block py-2 text-muted-foreground hover:text-primary transition-colors">
-                        {page.name}
+                <div className="px-1 py-6 flex flex-col h-full justify-between flex-1 overflow-y-auto">
+                  <nav className="flex flex-col gap-2" aria-label="Navegação principal">
+                    {NAV_LINKS.map((link) => (
+                      <Link
+                        key={link.href}
+                        to={link.href}
+                        onClick={closeSheet}
+                        className="block py-2 text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {link.label}
                       </Link>
                     ))}
-                    {!user && (
-                      <Button asChild variant="gray" size="default" className="mt-4 w-full">
-                        <Link to="/signup" onClick={closeSheet}>Get Started</Link>
-                      </Button>
-                    )}
-                  </div>
+                    <Button asChild variant="default" size="default" className="mt-4 w-full">
+                      <Link to="/#contato" onClick={closeSheet}>
+                        Começar meu projeto
+                      </Link>
+                    </Button>
+                  </nav>
                 </div>
               </div>
             </SheetContent>
           </Sheet>
         </div>
 
-        {/* <!-- Desktop --> */}
+        {/* Computador */}
         <NavigationMenu className="hidden lg:block mx-auto">
           <NavigationMenuList className="gap-1">
-            {pages.map((page) => (
-              <NavigationMenuItem key={page.href}>
+            {NAV_LINKS.map((link) => (
+              <NavigationMenuItem key={link.href}>
                 <NavigationMenuLink asChild>
-                  <Link to={page.href} className="px-4 py-2 text-foreground hover:text-primary transition-colors">
-                    {page.name}
+                  <Link to={link.href} className="px-4 py-2 text-foreground hover:text-primary transition-colors">
+                    {link.label}
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -211,54 +114,9 @@ const Navbar = () => {
         </NavigationMenu>
 
         <div className="hidden lg:flex gap-2 items-center xl:w-[35%] md:w-[30%] w-fit justify-end">
-          {user ? (
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button className="flex items-center gap-3 focus:outline-none hover:opacity-80 transition-opacity">
-                  <span className="text-sm text-foreground">Hi, {getDisplayName()}</span>
-                  <Avatar className="h-10 w-10 border border-white/20">
-                    <AvatarImage src={profile?.avatar_url || undefined} />
-                    <AvatarFallback className="bg-primary/20 text-primary">
-                      {getInitials()}
-                    </AvatarFallback>
-                  </Avatar>
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56 bg-background border-white/10 z-50">
-                <div className="px-3 py-2">
-                  <p className="text-sm font-medium text-foreground">{profile?.first_name} {profile?.last_name}</p>
-                  <p className="text-xs text-muted-foreground truncate">{user.email}</p>
-                </div>
-                <DropdownMenuSeparator className="bg-white/10" />
-                {isAdmin && (
-                  <>
-                    <DropdownMenuItem asChild className="text-foreground hover:bg-white/10 cursor-pointer">
-                      <Link to="/dashboard/blog" className="flex items-center">
-                        <FileText className="mr-2 h-4 w-4" />
-                        Blog Dashboard
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator className="bg-white/10" />
-                  </>
-                )}
-                <DropdownMenuItem asChild className="text-foreground hover:bg-white/10 cursor-pointer">
-                  <Link to="/dashboard/profile" className="flex items-center">
-                    <User className="mr-2 h-4 w-4" />
-                    Profile
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator className="bg-white/10" />
-                <DropdownMenuItem onClick={handleSignOut} className="text-red-400 hover:bg-white/10 cursor-pointer">
-                  <LogOut className="mr-2 h-4 w-4" />
-                  Sign out
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          ) : (
-            <Button asChild variant="gray" size="default">
-              <Link to="/signup">Get Started</Link>
-            </Button>
-          )}
+          <Button asChild variant="default" size="default">
+            <Link to="/#contato">Começar meu projeto</Link>
+          </Button>
         </div>
       </Container>
     </header>

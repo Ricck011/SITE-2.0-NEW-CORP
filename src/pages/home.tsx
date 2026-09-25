@@ -6,7 +6,6 @@ import { appConfig } from "@/utils/app-config";
 import { lazy, Suspense, useRef } from "react";
 
 // Lazy load below-the-fold components for code splitting
-const Blog = lazy(() => import("@/components/sections/home/blog"));
 const BusinessAccount = lazy(() => import("@/components/sections/home/business-account"));
 const CoreFeatures = lazy(() => import("@/components/sections/home/core-features"));
 const Integrations = lazy(() => import("@/components/sections/home/integrations"));
@@ -18,31 +17,18 @@ const Home = () => {
   const heroRef = useRef<HTMLElement>(null);
   const metaTitle = "NEW CORP — Built for the way you work";
   const metaDescription = "NEW CORP is a modern platform that helps you get work done — product overview, pricing, blog, and more.";
+  // JSON-LD provisório: nome/descrição em inglês e endereço saem na etapa 7 (SEO).
+  // Retirado agora, por regra da marca: preço (offers) e as afirmações de fintech
+  // que não são verdade sobre a NEW CORP (PCI DSS, contas de comerciante etc.).
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "FinancialService",
+    "@type": "ProfessionalService",
     "name": appConfig.name,
     "description": appConfig.description,
     "url": appConfig.url,
     "logo": appConfig.logo,
     "image": appConfig.ogImage,
-    "applicationCategory": "FinanceApplication, BusinessApplication",
-    "operatingSystem": "Web, iOS, Android",
-    "offers": {
-      "@type": "Offer",
-      "price": "0.00",
-      "priceCurrency": "USD",
-      "description": "Start for free with our basic plan"
-    },
-    "areaServed": "Worldwide",
-    "serviceType": "Payment Processing",
-    "knowsAbout": [
-      "PCI DSS Compliance",
-      "Merchant Accounts",
-      "Point of Sale Systems",
-      "Digital Wallets",
-      "Global Payouts"
-    ]
+    "areaServed": "São Paulo, BR",
   };
 
   return (
@@ -74,9 +60,6 @@ const Home = () => {
         </Suspense>
         <Suspense fallback={null}>
           <Testimonials />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Blog />
         </Suspense>
       </Layout>
     </>

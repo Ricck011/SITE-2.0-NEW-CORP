@@ -50,7 +50,7 @@ const CoreFeatures = () => {
             delay={0.4}
           >
             <Button asChild>
-              <Link to="/contact">
+              <Link to="/#contato">
                 Get Started for Free
                 <ArrowRight className="w-5 h-5" />
               </Link>
@@ -92,7 +92,7 @@ const CoreFeatures = () => {
                 delay={0.5}
               >
                 <Button asChild>
-                  <Link to="/download">
+                  <Link to="/#contato">
                     Download app
                     <ArrowRight className="w-5 h-5" />
                   </Link>

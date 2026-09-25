@@ -56,7 +56,7 @@ const SecurityCompliance = () => {
             delay={0.3}
           >
             <Button asChild>
-              <Link to="/contact">
+              <Link to="/#contato">
                 Get Started for Free
                 <ArrowRight className="w-5 h-5" />
               </Link>
@@ -97,7 +97,7 @@ const SecurityCompliance = () => {
             ⚡️ The complete solution to accept money, make payments, and manage finances effortlessly.
           </p>
           <Button className="bg-foreground text-background hover:bg-foreground/90" asChild>
-            <Link to="/contact">
+            <Link to="/#contato">
               Get Started for Free
               <ArrowRight className="w-5 h-5" />
             </Link>

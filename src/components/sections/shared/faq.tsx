@@ -52,7 +52,7 @@ const FAQ = () => {
               <Badge className="md:mb-4 mb-1.5">FAQs</Badge>
               <h2 className="h2 md:mb-6 mb-3">Frequently asked questions</h2>
               <Button asChild>
-                <Link to="/contact">
+                <Link to="/#contato">
                   Book a free call <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>

@@ -35,22 +35,15 @@ const Hero = ({ heroRef }: {
         <StaggerContainer className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
           <AnimateOnView delay={0.4}>
             <Button asChild>
-              <Link to="/contact">
+              <Link to="/#contato">
                 Get Started for Free
                 <ArrowRight className="w-5 h-5 ml-1" />
               </Link>
             </Button>
           </AnimateOnView>
           <AnimateOnView delay={0.5}>
-            <Button variant="outline" asChild>
-              <Link to="/demo/dashboard/blog">
-                Try demo
-              </Link>
-            </Button>
-          </AnimateOnView>
-          <AnimateOnView delay={0.6}>
             <Button variant="link" asChild>
-              <Link to="/features">
+              <Link to="/servicos">
                 Explore Features
               </Link>
             </Button>

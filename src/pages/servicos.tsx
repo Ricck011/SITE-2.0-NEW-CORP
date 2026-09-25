@@ -5,21 +5,21 @@ import FeaturesHero from "@/components/sections/features/hero";
 import SEO from "@/components/seo";
 import { appConfig } from "@/utils/app-config";
 
-const Features = () => {
+const Servicos = () => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": `Features | ${appConfig.name}`,
+    "name": `Serviços | ${appConfig.name}`,
     "description": `${appConfig.description}`,
-    "url": `${appConfig.url}/features`
+    "url": `${appConfig.url}/servicos`,
   };
 
   return (
     <>
       <SEO
-        title={`Features | ${appConfig.name}`}
+        title={`Serviços | ${appConfig.name}`}
         description={`${appConfig.description}`}
-        canonicalUrl="/features"
+        canonicalUrl="/servicos"
         ogType="website"
         jsonLd={jsonLd}
       />
@@ -33,5 +33,4 @@ const Features = () => {
   );
 };
 
-export default Features;
-
+export default Servicos;

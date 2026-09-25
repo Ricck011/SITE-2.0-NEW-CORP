@@ -32,7 +32,7 @@ const CompanyHero = () => {
                 <StaggerContainer className="flex flex-col sm:flex-row items-center justify-center gap-4 md:mb-16 mb-8">
                     <AnimateOnView delay={0.4}>
                         <Button asChild className="bg-primary text-foreground hover:bg-primary/90">
-                            <Link to="/contact">
+                            <Link to="/#contato">
                                 Get Started for Free
                                 <ArrowRight className="w-5 h-5 ml-1" />
                             </Link>
@@ -40,7 +40,7 @@ const CompanyHero = () => {
                     </AnimateOnView>
                     <AnimateOnView delay={0.5}>
                         <Button variant="link" asChild>
-                            <Link to="/features">
+                            <Link to="/servicos">
                                 Explore Features
                             </Link>
                         </Button>

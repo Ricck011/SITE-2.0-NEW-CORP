@@ -29,7 +29,7 @@ const TestimonialCard = ({
                         </AvatarFallback>
                     </Avatar>
                     <div>
-                        <p className="font-medium text-black">
+                        <p className="font-medium text-foreground">
                             {author}
                         </p>
                         <p className="text-muted-foreground">

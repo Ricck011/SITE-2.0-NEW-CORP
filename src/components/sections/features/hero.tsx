@@ -33,7 +33,7 @@ const FeaturesHero = () => {
         <StaggerContainer className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
           <AnimateOnView delay={0.4}>
             <Button asChild>
-              <Link to="/contact">
+              <Link to="/#contato">
                 Get Started for Free
                 <ArrowRight className="w-5 h-5" />
               </Link> 
@@ -41,7 +41,7 @@ const FeaturesHero = () => {
           </AnimateOnView>
           <AnimateOnView delay={0.5}>
             <Button variant="link" asChild>
-              <Link to="/company">
+              <Link to="/sobre">
                 About Us
               </Link>
             </Button>

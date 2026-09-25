@@ -91,7 +91,7 @@ const MobileApp = () => {
             className="mb-6"
           >
             <Button asChild>
-              <Link to="/download">
+              <Link to="/#contato">
                 Download app
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>

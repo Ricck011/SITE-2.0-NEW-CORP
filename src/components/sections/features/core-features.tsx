@@ -130,7 +130,7 @@ const CoreFeatures = () => {
 
           <AnimateOnView once delay={0.4}>
             <Button asChild>
-              <Link to="/contact">
+              <Link to="/#contato">
                 Get Started for Free
                 <ArrowRight className="w-5 h-5" />
               </Link>
