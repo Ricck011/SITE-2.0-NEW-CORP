@@ -3,23 +3,49 @@ import Features from "@/components/sections/home/features";
 import Hero from "@/components/sections/home/hero";
 import SEO from "@/components/seo";
 import { appConfig } from "@/utils/app-config";
-import { lazy, Suspense, useRef } from "react";
+import { useEmblemTravel } from "@/hooks/use-emblem-travel";
+import { useReducedMotion, useScroll } from "framer-motion";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 
 // Lazy load below-the-fold components for code splitting
-const BusinessAccount = lazy(() => import("@/components/sections/home/business-account"));
 const CoreFeatures = lazy(() => import("@/components/sections/home/core-features"));
 const Integrations = lazy(() => import("@/components/sections/home/integrations"));
+const BusinessAccount = lazy(() => import("@/components/sections/home/business-account"));
 const MobileApp = lazy(() => import("@/components/sections/home/mobile-app"));
 const SecurityCompliance = lazy(() => import("@/components/sections/home/security-compliance"));
 const Testimonials = lazy(() => import("@/components/sections/home/testimonials"));
 
 const Home = () => {
-  const heroRef = useRef<HTMLElement>(null);
-  const metaTitle = "NEW CORP — Built for the way you work";
-  const metaDescription = "NEW CORP is a modern platform that helps you get work done — product overview, pricing, blog, and more.";
-  // JSON-LD provisório: nome/descrição em inglês e endereço saem na etapa 7 (SEO).
-  // Retirado agora, por regra da marca: preço (offers) e as afirmações de fintech
-  // que não são verdade sobre a NEW CORP (PCI DSS, contas de comerciante etc.).
+  const travelSectionRef = useRef<HTMLDivElement>(null);
+  const heroEmblemRef = useRef<HTMLImageElement>(null);
+  const cardSlotRef = useRef<HTMLDivElement>(null);
+
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024);
+    checkDesktop();
+    window.addEventListener("resize", checkDesktop);
+    return () => window.removeEventListener("resize", checkDesktop);
+  }, []);
+
+  const prefersReducedMotion = useReducedMotion();
+  const emblemTravelActive = isDesktop && !prefersReducedMotion;
+
+  const { scrollYProgress } = useScroll({
+    target: travelSectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  const { originOpacity, cardX, cardY, cardScale, cardOpacity } = useEmblemTravel({
+    originRef: heroEmblemRef,
+    targetRef: cardSlotRef,
+    scrollYProgress,
+    active: emblemTravelActive,
+  });
+
+  const metaTitle = "NEW CORP — Arte que chama. Sistema que sustenta.";
+  const metaDescription =
+    "Identidade visual, landing page e sistema de gestão para pequenas empresas que ainda não existem no digital. Entrega em até 10 dias úteis. Cajamar, atendo SP.";
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -41,8 +67,20 @@ const Home = () => {
         jsonLd={jsonLd}
       />
       <Layout>
-        <Hero heroRef={heroRef} />
-        <Features heroRef={heroRef} />
+        <div ref={travelSectionRef}>
+          <Hero emblemRef={heroEmblemRef} originOpacity={originOpacity} active={emblemTravelActive} />
+          <Features
+            cardSlotRef={cardSlotRef}
+            cardX={cardX}
+            cardY={cardY}
+            cardScale={cardScale}
+            cardOpacity={cardOpacity}
+            active={emblemTravelActive}
+          />
+        </div>
+        <Suspense fallback={null}>
+          <Integrations />
+        </Suspense>
         <Suspense fallback={null}>
           <CoreFeatures />
         </Suspense>
@@ -51,9 +89,6 @@ const Home = () => {
         </Suspense>
         <Suspense fallback={null}>
           <BusinessAccount />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Integrations />
         </Suspense>
         <Suspense fallback={null}>
           <SecurityCompliance />

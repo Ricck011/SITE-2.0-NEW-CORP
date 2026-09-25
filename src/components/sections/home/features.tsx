@@ -1,171 +1,84 @@
 import Container from "@/components/container";
-import FeatureCard from "@/components/ui/feature-card";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { CORE_FRONTS } from "@/content/deliverables";
+import { cn } from "@/lib/utils";
+import { motion, MotionValue } from "framer-motion";
+import { LayoutDashboard, LayoutTemplate, MessageCircle, Palette } from "lucide-react";
 import { Card, CardContent } from "../../ui/card";
 
-type FeatureItem = {
-  id: string;
-  type: "feature";
-  icon: string;
-  title: string;
-  description: string;
+const FRONT_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  "identidade-visual": Palette,
+  "landing-pages": LayoutTemplate,
+  "sistemas-gestao": LayoutDashboard,
+  atendimento: MessageCircle,
 };
 
-type LottieItem = {
-  id: string;
-  type: "lottie";
-};
+interface FeaturesProps {
+  cardSlotRef: React.RefObject<HTMLDivElement>;
+  cardX: MotionValue<number>;
+  cardY: MotionValue<number>;
+  cardScale: MotionValue<number>;
+  cardOpacity: MotionValue<number>;
+  active: boolean;
+}
 
-const items: (FeatureItem | LottieItem)[] = [
-  {
-    id: "fast-reliable",
-    type: "feature",
-    icon: "/images/icons/star.svg",
-    title: "Fast & Reliable",
-    description: "Real-time processing with near-zero downtime."
-  },
-  {
-    id: "flex-integrations",
-    type: "feature",
-    icon: "/images/icons/arrow.svg",
-    title: "Flexible Integrations",
-    description: "Works with your favorite platforms or custom APIs."
-  },
-  {
-    id: "coin-animation",
-    type: "lottie",
-  },
-  {
-    id: "transparent-pricing",
-    type: "feature",
-    icon: "/images/icons/tag.svg",
-    title: "Transparent Pricing",
-    description: "Only pay per transaction—no hidden fees."
-  },
-  {
-    id: "global-reach",
-    type: "feature",
-    icon: "/images/icons/globe.svg",
-    title: "Global Reach",
-    description: "Accept multiple & local payment methods."
-  },
-];
-
-const Features = ({ heroRef }: { heroRef?: React.RefObject<HTMLElement> | null }) => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const lottieContainerRef = useRef<HTMLDivElement>(null);
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
-
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  // Check for desktop on mount and resize
-  useEffect(() => {
-    const checkDesktop = () => {
-      setIsDesktop(window.innerWidth >= 1024);
-    };
-
-    checkDesktop();
-    window.addEventListener("resize", checkDesktop);
-
-    return () => {
-      window.removeEventListener("resize", checkDesktop);
-    };
-  }, []);
-
-  // Lottie Scroll Animation
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "start start"]
-  });
-
-  useEffect(() => {
-    const calculateOffset = () => {
-      if (!heroRef?.current || !lottieContainerRef.current) return;
-
-      const heroRect = heroRef.current.getBoundingClientRect();
-      const containerRect = lottieContainerRef.current.getBoundingClientRect();
-
-      const heroCenterX = heroRect.left + heroRect.width / 2;
-
-      const heroCenterY = heroRect.top + heroRect.height / 2 + window.scrollY + 250;
-
-      const containerCenterX = containerRect.left + containerRect.width / 2;
-      const containerCenterY = containerRect.top + containerRect.height / 2 + window.scrollY;
-
-      const offsetX = heroCenterX - containerCenterX;
-      const offsetY = heroCenterY - containerCenterY;
-
-      setOffset({ x: offsetX, y: offsetY });
-    };
-
-    const timeoutId = setTimeout(() => {
-      calculateOffset();
-    }, 100);
-
-    window.addEventListener("resize", calculateOffset);
-    window.addEventListener("scroll", calculateOffset);
-
-    return () => {
-      clearTimeout(timeoutId);
-      window.removeEventListener("resize", calculateOffset);
-      window.removeEventListener("scroll", calculateOffset);
-    };
-  }, [heroRef]);
-
-  const x = useTransform(scrollYProgress, [0, 1], [offset.x, 0]);
-  const y = useTransform(scrollYProgress, [0, 1], [offset.y, 0]);
-  // Scale: start at 1.2, end at 1.0
-  const scale = useTransform(scrollYProgress, [0, 1], [3, 1]);
-
+const Features = ({ cardSlotRef, cardX, cardY, cardScale, cardOpacity, active }: FeaturesProps) => {
   return (
-    <section ref={sectionRef} className="md:pt-20 xl:pt-[100px] pt-12 md:pb-20 pb-12" id="features">
+    <section className="md:pt-20 xl:pt-[100px] pt-12 md:pb-20 pb-12" id="features">
       <Container className="md:space-y-10 xl:space-y-2xl space-y-8">
-        {/* Section header */}
         <AnimateOnView>
-          <h2 className="h4 text-center max-w-[389px] mx-auto mb-4">
-            Fast, secure, and flexible <span className="text-muted-foreground">payment solutions</span>
+          <h2 className="h4 text-center max-w-[520px] mx-auto mb-4">
+            Três frentes, <span className="text-muted-foreground">um só time</span>
           </h2>
         </AnimateOnView>
 
-        {/* Features grid */}
-        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-6 lg:grid-cols-5 gap-4 relative">
-          {items.map((item, index) => {
-            if (item.type === "lottie") {
-              return (
-                <div
-                  key={item.id}
-                  className="w-full lg:col-span-1 sm:col-span-2 col-span-1"
-                >
-                  <Card className="h-full flex flex-col justify-between gap-4 rounded-lg">
-                    <CardContent className="h-full flex items-center justify-center p-0 sm:p-6">
-                      <div ref={lottieContainerRef} className="w-32 h-32 sm:w-40 sm:h-40 md:w-full md:h-full relative">
-                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={isDesktop ? { x, y, scale } : {}}>
-                          <img
-                            src="/images/coin.svg"
-                            alt="Coin"
-                            className="w-full h-full object-cover"
-                          />
-                        </motion.div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              );
-            }
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 relative lg:items-center">
+          {CORE_FRONTS.map((front, index) => {
+            const Icon = FRONT_ICONS[front.id] ?? Palette;
 
             return (
               <AnimateOnView
-                key={item.id}
+                key={front.id}
                 once
                 y={40}
                 delay={index * 0.1}
-                className={`relative z-10 
-                  ${index < 2 ? 'lg:col-span-1 sm:col-span-2 col-span-1' : 'lg:col-span-1 sm:col-span-3 col-span-1'}
-                  `}
+                className={cn("relative z-0", front.hasEmblemSlot && "lg:z-10")}
               >
-                <FeatureCard icon={item.icon} title={item.title} description={item.description} />
+                <Card
+                  className={cn(
+                    "h-full flex flex-col gap-4 rounded-lg transition-transform",
+                    front.hasEmblemSlot &&
+                      "lg:-translate-y-4 lg:scale-[1.06] border-primary/40 shadow-[0_0_50px_-12px_rgba(225,29,46,0.4)]",
+                  )}
+                >
+                  <CardContent className="flex flex-col items-center text-center gap-3 pt-2">
+                    {front.hasEmblemSlot ? (
+                      <div ref={cardSlotRef} className="relative w-14 h-14 mb-1">
+                        {active ? (
+                          <motion.img
+                            src="/images/marca/newcorp-emblema.webp"
+                            alt="Emblema NEW CORP"
+                            className="absolute inset-0 w-full h-full object-contain"
+                            style={{ x: cardX, y: cardY, scale: cardScale, opacity: cardOpacity }}
+                          />
+                        ) : (
+                          <img
+                            src="/images/marca/newcorp-emblema.webp"
+                            alt="Emblema NEW CORP"
+                            className="absolute inset-0 w-full h-full object-contain"
+                          />
+                        )}
+                      </div>
+                    ) : (
+                      <div className="w-14 h-14 mb-1 flex items-center justify-center rounded-full bg-brand-surface-2">
+                        <Icon className="w-6 h-6 text-brand-red-soft" />
+                      </div>
+                    )}
+
+                    <h3 className="text-lg font-semibold text-card-foreground">{front.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{front.description}</p>
+                  </CardContent>
+                </Card>
               </AnimateOnView>
             );
           })}

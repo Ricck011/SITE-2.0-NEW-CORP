@@ -108,6 +108,7 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.4s var(--ease-out) forwards",
         "scale-in": "scale-in 0.3s var(--ease-out) forwards",
+        "tab-fill": "tab-fill 5s linear forwards",
       },
     },
   },

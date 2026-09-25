@@ -147,6 +147,37 @@
       transform: translateY(-12px);
     }
   }
+
+  /* Barra de progresso das abas do case (case-tabs.tsx): a aba ativa roda
+     tab-fill por 5s; o componente ouve o fim dessa animação pra trocar de aba,
+     em vez de um timer em JS, pra nunca dessincronizar barra e conteúdo. */
+  @keyframes tab-fill {
+    from {
+      transform: scaleX(0);
+    }
+
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  .tab-fill-bar {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  [data-state="active"] .tab-fill-bar {
+    animation: tab-fill 5s linear forwards;
+  }
+
+  [data-state="inactive"] .tab-fill-bar {
+    animation: none;
+    transform: scaleX(0);
+  }
+
+  [data-autorotate-paused="true"] .tab-fill-bar {
+    animation-play-state: paused;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
