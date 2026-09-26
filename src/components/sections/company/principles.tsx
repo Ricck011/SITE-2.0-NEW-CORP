@@ -6,7 +6,6 @@ import {
   SOBRE_CTA_LEDE,
   SOBRE_CTA_TITLE,
   SOBRE_PROOF_BODY,
-  SOBRE_PROOF_CTA,
   SOBRE_PROOF_TITLE,
 } from "@/content/sobre";
 import { ArrowRight, CalendarCheck, KeyRound, MessageSquare, Receipt, type LucideIcon } from "lucide-react";
@@ -43,20 +42,8 @@ const Principles = () => {
 
         <AnimateOnView className="mt-16 md:mt-20">
           <div className="rounded-lg border border-border bg-card p-8 md:p-12">
-            <div className="grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-14">
-              <div className="lg:col-span-8">
-                <h2 className="h4 max-w-[22ch]">{SOBRE_PROOF_TITLE}</h2>
-                <p className="paragraph-regular mt-5 max-w-[62ch] text-muted-foreground">{SOBRE_PROOF_BODY}</p>
-              </div>
-              <div className="lg:col-span-4 lg:justify-self-end">
-                <Button variant="outline" asChild>
-                  <Link to="/#cases">
-                    {SOBRE_PROOF_CTA}
-                    <ArrowRight className="ml-1 h-5 w-5" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
+            <h2 className="h4 max-w-[22ch]">{SOBRE_PROOF_TITLE}</h2>
+            <p className="paragraph-regular mt-5 max-w-[62ch] text-muted-foreground">{SOBRE_PROOF_BODY}</p>
           </div>
         </AnimateOnView>
 

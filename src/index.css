@@ -151,7 +151,7 @@
     }
   }
 
-  /* Barra de progresso das abas do case (case-tabs.tsx): a aba ativa roda
+  /* Barra de progresso da vitrine do topo (hero-showcase.tsx): a aba ativa roda
      tab-fill por 5s; o componente ouve o fim dessa animação pra trocar de aba,
      em vez de um timer em JS, pra nunca dessincronizar barra e conteúdo. */
   @keyframes tab-fill {

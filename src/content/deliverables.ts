@@ -1,5 +1,5 @@
 // Dados da home: as 3 frentes, os 12 itens da entrega, os 4 números do topo
-// e as abas do case do painel. Conteúdo aprovado, portado da landing atual
+// e a vitrine do hero. Conteúdo aprovado, portado da landing atual
 // (CLAUDE-GERAL-\site\assets\js\landing.js).
 
 export interface CoreFrontItem {
@@ -163,20 +163,6 @@ export const HERO_FEATS: HeroFeat[] = [
   { id: "landing", label: "Landing page" },
   { id: "sistema", label: "Sistema de gestão" },
   { id: "prazo", label: "Entrega em até 10 dias" },
-];
-
-export interface CaseTabItem {
-  id: string;
-  label: string;
-  image: string;
-  imageAlt: string;
-}
-
-export const CASE_TABS: CaseTabItem[] = [
-  { id: "resumo", label: "Resumo", image: "/images/homepage/painel-resumo.webp", imageAlt: "Tela de resumo do painel NEW CORP" },
-  { id: "clientes", label: "Clientes", image: "/images/homepage/painel-clientes.webp", imageAlt: "Tela de clientes do painel NEW CORP" },
-  { id: "projetos", label: "Projetos", image: "/images/homepage/painel-projetos.webp", imageAlt: "Tela de projetos do painel NEW CORP" },
-  { id: "financeiro", label: "Financeiro", image: "/images/homepage/painel-financeiro.webp", imageAlt: "Tela de financeiro do painel NEW CORP" },
 ];
 
 export interface ShowcaseItem {
