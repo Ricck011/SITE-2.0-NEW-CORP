@@ -30,11 +30,13 @@ const OutOfScope = () => {
               {OUT_OF_SCOPE.map((item, index) => (
                 <AnimateOnView key={item.id} asChild delay={index * 0.06}>
                   <li className="flex gap-4 py-5">
-                    <Minus
-                      className="mt-1 h-4 w-4 shrink-0 text-muted-foreground"
-                      strokeWidth={2.25}
-                      aria-hidden="true"
-                    />
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-border bg-card">
+                      <Minus
+                        className="h-3.5 w-3.5 text-muted-foreground"
+                        strokeWidth={2.25}
+                        aria-hidden="true"
+                      />
+                    </span>
                     <div>
                       <p className="text-[15px] font-semibold leading-snug text-foreground">{item.label}</p>
                       <p className="mt-1.5 text-sm leading-[1.55] text-muted-foreground">{item.reason}</p>

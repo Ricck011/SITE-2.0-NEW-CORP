@@ -77,11 +77,11 @@ const HeroShowcase = () => {
 
       <div className="absolute -left-6 -bottom-6 sm:-left-8 sm:-bottom-8 z-10 w-[90px] sm:w-[120px] xl:w-[140px]">
         <img
-          src="/images/marca/newcorp-emblema-metalico.webp"
+          src="/images/marca/newcorp-nc-mark.png"
           alt="Emblema NEW CORP"
           className="w-full h-auto"
-          width="1174"
-          height="740"
+          width="623"
+          height="544"
           {...fetchPriority("high")}
           loading="eager"
         />

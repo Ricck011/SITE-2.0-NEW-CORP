@@ -45,7 +45,7 @@ const Features = () => {
                     {front.hasEmblemSlot ? (
                       <div className="relative w-14 h-14 mb-1">
                         <img
-                          src="/images/marca/newcorp-emblema-metalico.webp"
+                          src="/images/marca/newcorp-nc-mark.png"
                           alt="Emblema NEW CORP"
                           className="absolute inset-0 w-full h-full object-contain"
                         />

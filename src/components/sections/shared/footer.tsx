@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between gap-10 mb-12">
           <div className="space-y-6 max-w-[310px]">
             <Link to="/">
-              <img className="mb-6" src="/images/common/logo.svg" alt="NEW CORP" />
+              <img className="mb-6 h-10 w-auto" src="/images/marca/newcorp-nc-mark.png" alt="NEW CORP" />
             </Link>
             <p className="text-muted-foreground">{FOOTER_TAGLINE}</p>
           </div>

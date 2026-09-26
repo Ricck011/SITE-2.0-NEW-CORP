@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    /* Marca NEW CORP (preto frio + ciano + emblema metálico). Tudo escuro, sem modo claro. */
+    /* Marca NEW CORP (preto frio + azul/roxo metálico, logo NC). Tudo escuro, sem modo claro. */
     --background: 9 11 14;         /* #090b0e */
     --foreground: 236 241 245;     /* #ecf1f5 */
 
@@ -14,8 +14,8 @@
     --popover: 21 25 31;           /* #15191f */
     --popover-foreground: 236 241 245;
 
-    --primary: 34 211 238;         /* #22d3ee */
-    --primary-foreground: 8 51 68; /* #083344 */
+    --primary: 0 200 253;          /* #00c8fd */
+    --primary-foreground: 10 8 36; /* #0a0824 */
 
     --secondary: 21 25 31;         /* #15191f */
     --secondary-foreground: 236 241 245;
@@ -23,22 +23,23 @@
     --muted: 28 33 41;             /* #1c2129: fundo apagado (padrão shadcn) */
     --muted-foreground: 160 171 184; /* #a0abb8: texto apagado, 8,4:1 */
 
-    --accent: 34 211 238;
-    --accent-foreground: 8 51 68;
+    --accent: 0 200 253;
+    --accent-foreground: 10 8 36;
 
     --destructive: 255 90 100;     /* #ff5a64 */
     --destructive-foreground: 9 11 14;
 
     --border: 38 44 53;            /* #262c35 */
     --input: 98 108 122;           /* borda de campo com contraste 3:1 */
-    --ring: 34 211 238;
+    --ring: 0 200 253;
 
     --radius: 0.75rem;
 
-    --brand-accent: 34 211 238;       /* #22d3ee: fundos e botões */
-    --brand-accent-hover: 103 232 249; /* #67e8f9 */
-    --brand-accent-soft: 34 211 238;   /* #22d3ee: texto ciano pequeno */
-    --brand-accent-pale: 165 243 252;  /* #a5f3fc */
+    --brand-accent: 0 200 253;         /* #00c8fd: fundos e botões */
+    --brand-accent-2: 139 42 241;      /* #8b2af1: roxo, pra degradê com o accent */
+    --brand-accent-hover: 92 220 255;  /* #5cdcff */
+    --brand-accent-soft: 0 200 253;    /* #00c8fd: texto azul pequeno */
+    --brand-accent-pale: 179 236 255;  /* #b3ecff */
     --brand-surface-2: 21 25 31;      /* #15191f */
     --brand-surface-hover: 28 33 41;  /* #1c2129 */
     --brand-line: 38 44 53;           /* #262c35 */

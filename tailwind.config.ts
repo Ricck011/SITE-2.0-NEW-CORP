@@ -59,6 +59,7 @@ export default {
         },
         brand: {
           accent: token("brand-accent"),
+          "accent-2": token("brand-accent-2"),
           "accent-hover": token("brand-accent-hover"),
           "accent-soft": token("brand-accent-soft"),
           "accent-pale": token("brand-accent-pale"),

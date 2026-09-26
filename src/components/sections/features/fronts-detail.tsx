@@ -43,12 +43,14 @@ const FrontsDetail = () => {
                       </p>
                       <ul className="mt-5 space-y-3.5">
                         {deliverables.map((item) => (
-                          <li key={item.id} className="flex gap-3">
-                            <Check
-                              className="mt-[3px] h-4 w-4 shrink-0 text-brand-accent-soft"
-                              strokeWidth={2.25}
-                              aria-hidden="true"
-                            />
+                          <li key={item.id} className="flex items-center gap-3">
+                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-border bg-card">
+                              <Check
+                                className="h-3.5 w-3.5 text-brand-accent-soft"
+                                strokeWidth={2.25}
+                                aria-hidden="true"
+                              />
+                            </span>
                             <span className="text-[15px] leading-snug text-foreground">{item.label}</span>
                           </li>
                         ))}
