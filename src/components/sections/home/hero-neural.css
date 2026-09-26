@@ -1,0 +1,569 @@
+/* Topo no estilo "Neural Pathway" (biblioteca MotionSites), adaptado para a
+   landing: sem a barra e o menu do prompt (a navbar do site continua), texto
+   em português e vídeo comprimido servido daqui mesmo (public/videos).
+
+   Duas unidades de medida controlam tudo:
+   --u  computador: mapeia a prancheta de 1536x1024 do prompt na tela.
+   --c  celular e tablet: redefinida por tamanho de tela, mais abaixo. */
+
+.neural-hero {
+  --n-ink: #ffffff;
+  --n-sub: #cfd5df; /* o prompt usa #a2a9b8; clareado para ler sobre os arcos */
+  --n-foot: #f4f8fd;
+  --n-hair: rgba(196, 214, 232, 0.72);
+  --n-chev: rgba(214, 232, 250, 0.9);
+  --n-feat: #e2ebf5;
+  --n-veil: 6, 10, 18; /* RGB cru, usado dentro de rgba() */
+
+  --n-cover: max(calc(100vw / 1536), calc(100vh / 1024));
+  --n-fit: calc(100vh / 910);
+  --u: min(var(--n-cover), var(--n-fit));
+  --n-blur: calc(var(--u) * 26);
+  --n-glow: calc(var(--u) * 34);
+  --n-hairline: max(1px, calc(var(--u) * 1.6));
+
+  /* Base: celular em pé (prancheta de 360x770). */
+  --c: min(calc(100vw / 360), calc(100vh / 770), 1px);
+  --rise: 6px;
+
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #02060f;
+  color: var(--n-ink);
+  font-family: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-feature-settings: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+}
+
+/* svh desconta a barra do navegador no celular; quem não conhece fica no vh. */
+@supports (height: 100svh) {
+  .neural-hero {
+    --n-cover: max(calc(100vw / 1536), calc(100svh / 1024));
+    --n-fit: calc(100svh / 910);
+    --c: min(calc(100vw / 360), calc(100svh / 770), 1px);
+    min-height: 100svh;
+  }
+}
+
+/* ---------- Fundo ---------- */
+
+.neural-art {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  background: #03060c;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Véu do celular: o recorte em pé joga os arcos claros bem em cima do texto,
+   então o véu é mais forte e mira outro ponto. */
+.neural-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(130% 44% at 50% 45%, rgba(var(--n-veil), 0.5) 0%, rgba(var(--n-veil), 0.26) 55%, rgba(var(--n-veil), 0) 100%),
+    linear-gradient(180deg, rgba(var(--n-veil), 0.34) 0%, rgba(var(--n-veil), 0) 20%, rgba(var(--n-veil), 0) 60%, rgba(var(--n-veil), 0.36) 100%);
+}
+
+/* Vale em todo tamanho: faixa escura no topo, porque os feixes dourados passam
+   atrás do logo e dos links da navbar (contraste do logo ia a 1,1:1; com a
+   faixa, 5,5:1), e a fusão do fim do vídeo no fundo da seção seguinte. */
+.neural-veil::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(var(--n-veil), 0.75) 0%, rgba(var(--n-veil), 0.55) 10%, rgba(var(--n-veil), 0) 22%),
+    linear-gradient(180deg, rgb(var(--background) / 0) 86%, rgb(var(--background)) 100%);
+}
+
+/* ---------- Conteúdo (fluxo: celular e tablet) ---------- */
+
+.neural-body {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--c) * 22);
+  padding: calc(84px + var(--c) * 24) calc(var(--c) * 26) calc(var(--c) * 12);
+  text-align: center;
+}
+
+.neural-title {
+  margin: 0;
+  font-size: calc(var(--c) * 32);
+  font-weight: 424;
+  line-height: 1.2;
+  letter-spacing: -0.002em;
+  text-wrap: balance;
+}
+
+.neural-title span,
+.neural-sub span,
+.neural-foot span {
+  display: block;
+}
+
+/* O subtítulo em português é mais comprido que o do prompt e as pontas das
+   linhas cruzam os arcos dourados. Contraste medido em 6 quadros do vídeo, a
+   1536x900: 99% dos pixels atrás do texto passavam de 2,0:1 para 7,6:1 com o
+   véu local (::before), a cor mais clara e o halo nas letras. */
+.neural-sub {
+  position: relative;
+  margin: 0;
+  color: var(--n-sub);
+  font-size: calc(var(--c) * 16);
+  font-weight: 446;
+  line-height: 1.45;
+  text-wrap: balance;
+  text-shadow:
+    0 0 3px rgba(2, 6, 15, 0.85),
+    0 0 10px rgba(2, 6, 15, 0.75),
+    0 0 24px rgba(2, 6, 15, 0.55);
+}
+
+.neural-sub::before {
+  content: "";
+  position: absolute;
+  inset: -70% -34%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(closest-side, rgba(var(--n-veil), 0.86) 0%, rgba(var(--n-veil), 0.8) 60%, rgba(var(--n-veil), 0) 100%);
+}
+
+/* O vidro do botão: três degradês empilhados, quente à esquerda e frio à
+   direita, puxando o dourado e o azul do vídeo. */
+.neural-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--c) * 12);
+  padding: calc(var(--c) * 15) calc(var(--c) * 28);
+  border-radius: 999px;
+  color: var(--n-ink);
+  font-size: calc(var(--c) * 16.5);
+  font-weight: 497;
+  line-height: 1;
+  background:
+    linear-gradient(180deg, rgba(6, 12, 22, 0) 45%, rgba(6, 12, 22, 0.12) 78%, rgba(6, 12, 22, 0.28) 100%),
+    linear-gradient(90deg, rgba(255, 226, 178, 0.17) 0%, rgba(255, 236, 208, 0.07) 22%, rgba(176, 206, 238, 0.03) 55%, rgba(150, 196, 244, 0.09) 100%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.17) 12%, rgba(255, 255, 255, 0.11) 26%, rgba(255, 255, 255, 0.07) 42%, rgba(255, 255, 255, 0.05) 60%, rgba(255, 255, 255, 0.04) 80%, rgba(255, 255, 255, 0.04) 100%);
+  -webkit-backdrop-filter: blur(var(--n-blur)) saturate(0.45);
+  backdrop-filter: blur(var(--n-blur)) saturate(0.45);
+  box-shadow:
+    0 calc(var(--u) * -2) calc(var(--u) * 20) rgba(255, 224, 176, 0.2),
+    0 0 var(--n-glow) rgba(168, 204, 252, 0.16),
+    inset 0 var(--n-hairline) 0 0 rgba(255, 251, 242, 0.45);
+  transition: box-shadow 0.3s var(--ease-out);
+}
+
+/* Borda fina em degradê: é um pseudo-elemento mascarado, não uma border. */
+.neural-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: var(--n-hairline);
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 246, 0.95) 0%, rgba(255, 252, 246, 0.2) 45%, rgba(255, 252, 246, 0) 78%),
+    linear-gradient(90deg, rgba(255, 228, 182, 0.95) 0%, rgba(250, 236, 210, 0.7) 12%, rgba(226, 230, 234, 0.03) 32%, rgba(214, 226, 240, 0.02) 62%, rgba(200, 228, 250, 0.7) 90%, rgba(186, 224, 247, 0.95) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.neural-cta:hover {
+  box-shadow:
+    0 calc(var(--u) * -2) calc(var(--u) * 24) rgba(255, 224, 176, 0.3),
+    0 0 calc(var(--n-glow) * 1.4) rgba(168, 204, 252, 0.26),
+    inset 0 var(--n-hairline) 0 0 rgba(255, 251, 242, 0.55);
+}
+
+.neural-cta:focus-visible,
+.neural-pause:focus-visible {
+  outline: 2px solid #9fe0ff;
+  outline-offset: 3px;
+}
+
+.neural-arrow {
+  flex: none;
+  width: calc(var(--c) * 17);
+  height: calc(var(--c) * 12);
+  fill: none;
+  stroke: var(--n-ink);
+  stroke-width: 1.6;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  transition: translate 0.3s var(--ease-out);
+}
+
+.neural-cta:hover .neural-arrow {
+  translate: 3px 0;
+}
+
+.neural-feats {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  justify-content: center;
+  gap: calc(var(--c) * 16);
+  margin: calc(var(--c) * 22) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.neural-feats li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: calc(var(--c) * 10);
+  color: var(--n-feat);
+  font-size: calc(var(--c) * 13);
+  font-weight: 534;
+  text-shadow:
+    0 0 3px rgba(2, 6, 15, 0.85),
+    0 0 10px rgba(2, 6, 15, 0.7);
+}
+
+/* Os selos das pontas caem em cima dos feixes azuis (pior 1% dos pixels:
+   1,1:1). Um véu por selo leva a 4,5:1 sem apagar o miolo do vídeo. */
+.neural-feats li::before {
+  content: "";
+  position: absolute;
+  inset: -90% -20%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(closest-side, rgba(var(--n-veil), 0.8) 0%, rgba(var(--n-veil), 0.72) 60%, rgba(var(--n-veil), 0) 100%);
+}
+
+.neural-chev {
+  flex: none;
+  width: calc(var(--c) * 10);
+  height: calc(var(--c) * 18);
+  fill: none;
+  stroke: var(--n-chev);
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.neural-rule {
+  display: block;
+  width: 1px;
+  height: calc(var(--c) * 30);
+  margin-top: calc(var(--c) * 6);
+  transform-origin: top;
+  background: linear-gradient(180deg, rgba(186, 200, 214, 0.7) 0%, rgba(206, 220, 232, 0.92) 52%, rgba(182, 198, 212, 0.68) 100%);
+}
+
+.neural-foot {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  /* 80px embaixo no celular: os botões flutuantes (chat e assistente) ocupam
+     os últimos 68px da tela e cobriam o texto. */
+  padding: 0 calc(var(--c) * 26) calc(env(safe-area-inset-bottom) + 80px);
+  color: var(--n-foot);
+  font-size: calc(var(--c) * 13.5);
+  font-weight: 521;
+  line-height: 1.65;
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* Pausar o vídeo (regra de acessibilidade para fundo que se mexe por mais de
+   5 segundos). Só existe no computador, onde o vídeo toca. */
+.neural-pause {
+  position: absolute;
+  left: 16px;
+  bottom: 20px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--n-hair);
+  border-radius: 999px;
+  color: var(--n-ink);
+  background: rgba(255, 255, 255, 0.04);
+  -webkit-backdrop-filter: blur(12px) saturate(0.45);
+  backdrop-filter: blur(12px) saturate(0.45);
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.neural-pause:hover {
+  opacity: 1;
+}
+
+/* Celular deitado: prancheta de 760x430. */
+@media (max-height: 429px) and (min-aspect-ratio: 1/1) {
+  .neural-hero {
+    --c: min(calc(100vw / 760), calc(100vh / 430));
+  }
+  .neural-body {
+    gap: calc(var(--c) * 12);
+  }
+  .neural-title {
+    font-size: calc(var(--c) * 31);
+    max-width: 26ch;
+  }
+  .neural-sub {
+    font-size: calc(var(--c) * 16);
+    max-width: 44ch;
+  }
+  .neural-sub span {
+    display: inline;
+  }
+  .neural-cta {
+    font-size: calc(var(--c) * 15.5);
+    padding: calc(var(--c) * 12) calc(var(--c) * 24);
+  }
+  .neural-feats {
+    grid-template-columns: repeat(4, max-content);
+    gap: calc(var(--c) * 24);
+    margin-top: calc(var(--c) * 2);
+  }
+  .neural-feats li {
+    font-size: calc(var(--c) * 13.5);
+  }
+  .neural-rule {
+    display: none;
+  }
+  .neural-foot {
+    font-size: calc(var(--c) * 13);
+    padding-bottom: calc(env(safe-area-inset-bottom) + var(--c) * 16);
+  }
+}
+
+/* ---------- Tablet (prancheta de 860x1120) ---------- */
+
+@media (min-width: 600px) and (min-height: 430px) {
+  .neural-hero {
+    --c: min(calc(100vw / 860), calc(100vh / 1120));
+  }
+  /* O véu leve do computador volta: no tablet o texto já não fica em cima dos arcos. */
+  .neural-veil {
+    background:
+      radial-gradient(140% 60% at 50% 40%, rgba(var(--n-veil), 0.16) 0%, rgba(var(--n-veil), 0.057) 50%, rgba(var(--n-veil), 0) 100%),
+      linear-gradient(180deg, rgba(var(--n-veil), 0) 45%, rgba(var(--n-veil), 0.1) 100%);
+  }
+  .neural-body {
+    gap: calc(var(--c) * 26);
+    padding-top: calc(100px + var(--c) * 40);
+  }
+  .neural-title {
+    font-size: calc(var(--c) * 46);
+    line-height: 1.15;
+  }
+  .neural-sub {
+    font-size: calc(var(--c) * 21);
+    line-height: 1.34;
+  }
+  .neural-cta {
+    gap: calc(var(--c) * 14);
+    padding: calc(var(--c) * 18) calc(var(--c) * 34);
+    font-size: calc(var(--c) * 21);
+  }
+  .neural-arrow {
+    width: calc(var(--c) * 20);
+    height: calc(var(--c) * 14);
+  }
+  .neural-feats {
+    gap: calc(var(--c) * 22) calc(var(--c) * 54);
+    margin-top: calc(var(--c) * 12);
+  }
+  .neural-feats li {
+    gap: calc(var(--c) * 12);
+    font-size: calc(var(--c) * 16);
+  }
+  .neural-chev {
+    width: calc(var(--c) * 12);
+    height: calc(var(--c) * 21);
+  }
+  .neural-rule {
+    height: calc(var(--c) * 46);
+    margin-top: calc(var(--c) * 4);
+  }
+  .neural-foot {
+    font-size: calc(var(--c) * 16);
+    padding-bottom: calc(env(safe-area-inset-bottom) + var(--c) * 36);
+  }
+}
+
+@media (min-width: 600px) and (min-height: 430px) and (min-aspect-ratio: 1/1) {
+  .neural-hero {
+    --c: min(calc(100vw / 1040), calc(100vh / 780));
+  }
+  .neural-feats {
+    grid-template-columns: repeat(4, max-content);
+    gap: calc(var(--c) * 40);
+  }
+}
+
+@supports (height: 100svh) {
+  @media (min-width: 600px) and (min-height: 430px) {
+    .neural-hero {
+      --c: min(calc(100vw / 860), calc(100svh / 1120));
+    }
+  }
+  @media (min-width: 600px) and (min-height: 430px) and (min-aspect-ratio: 1/1) {
+    .neural-hero {
+      --c: min(calc(100vw / 1040), calc(100svh / 780));
+    }
+  }
+}
+
+/* ---------- Computador: composição travada na prancheta de 1536x1024 ----------
+   Cada margem abaixo reproduz a coordenada do prompt (título a 285u do topo da
+   prancheta, botão a 555u, selos a 718u, traço a 792u), então o botão pousa
+   em cima do ponto mais claro do vídeo, que fica no centro exato da tela. */
+
+@media (min-width: 1200px) and (min-height: 560px) and (min-aspect-ratio: 100/95) {
+  .neural-body {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: calc(var(--u) * 1024);
+    transform: translateY(-50%);
+    justify-content: flex-start;
+    gap: 0;
+    padding: calc(var(--u) * 260) 0 0;
+  }
+  .neural-title {
+    font-size: calc(var(--u) * 46.8);
+    line-height: calc(var(--u) * 50);
+    letter-spacing: 0;
+  }
+  .neural-sub {
+    margin-top: calc(var(--u) * 36);
+    font-size: calc(var(--u) * 20);
+    line-height: calc(var(--u) * 24);
+  }
+  .neural-cta {
+    margin-top: calc(var(--u) * 111);
+    height: calc(var(--u) * 46.6);
+    gap: calc(var(--u) * 14);
+    padding: 0 calc(var(--u) * 30) 0 calc(var(--u) * 32);
+    font-size: calc(var(--u) * 20);
+  }
+  .neural-arrow {
+    width: calc(var(--u) * 16);
+    height: calc(var(--u) * 11);
+  }
+  .neural-feats {
+    display: flex;
+    gap: calc(var(--u) * 64);
+    margin-top: calc(var(--u) * 116);
+  }
+  .neural-feats li {
+    height: calc(var(--u) * 20);
+    gap: calc(var(--u) * 15);
+    font-size: calc(var(--u) * 14.6);
+    letter-spacing: -0.03em;
+  }
+  .neural-chev {
+    width: calc(var(--u) * 11);
+    height: calc(var(--u) * 20);
+  }
+  .neural-rule {
+    height: calc(var(--u) * 57);
+    margin-top: calc(var(--u) * 52);
+  }
+  .neural-foot {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(var(--u) * 63.5);
+    padding: 0;
+    font-size: calc(var(--u) * 16.3);
+    line-height: calc(var(--u) * 25);
+  }
+}
+
+/* ---------- Entrada: uma linha do tempo só, roda uma vez, ~2,1 s ----------
+   Só propriedades independentes (translate, scale, opacity, clip-path), nunca
+   transform: o bloco do computador usa transform para se centralizar. Todas com
+   fill-mode backwards: o estado inicial segura durante o atraso (nada pisca) e,
+   no fim, o elemento volta ao estilo normal sem sobrar transformação. */
+
+@media (prefers-reduced-motion: no-preference) {
+  .neural-hero {
+    --ent-line: cubic-bezier(0.16, 1, 0.3, 1);
+    --ent-soft: cubic-bezier(0.25, 0.8, 0.35, 1);
+  }
+  @media (min-width: 600px) {
+    .neural-hero {
+      --rise: 9px;
+    }
+  }
+
+  @keyframes neural-wipe {
+    from {
+      clip-path: inset(-0.78em 0 calc(100% + 0.78em) 0);
+      translate: 0 var(--rise);
+    }
+    to {
+      clip-path: inset(-0.78em 0 -0.78em 0);
+      translate: 0 0;
+    }
+  }
+  @keyframes neural-lift {
+    from {
+      opacity: 0;
+      translate: 0 var(--rise);
+    }
+  }
+  @keyframes neural-fade {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes neural-draw {
+    from {
+      scale: 1 0;
+    }
+  }
+
+  .neural-h1a { animation: neural-wipe 0.95s var(--ent-line) 0.34s backwards; }
+  .neural-h1b { animation: neural-wipe 0.95s var(--ent-line) 0.44s backwards; }
+  .neural-sub::before { animation: neural-fade 0.7s var(--ent-soft) 0.7s backwards; }
+  .neural-sub1 { animation: neural-lift 0.7s var(--ent-soft) 0.74s backwards; }
+  .neural-sub2 { animation: neural-lift 0.7s var(--ent-soft) 0.8s backwards; }
+  .neural-cta { animation: neural-lift 0.8s var(--ent-line) 0.94s backwards; }
+  .neural-feats li:nth-child(1) { animation: neural-lift 0.6s var(--ent-soft) 1.08s backwards; }
+  .neural-feats li:nth-child(2) { animation: neural-lift 0.6s var(--ent-soft) 1.15s backwards; }
+  .neural-feats li:nth-child(3) { animation: neural-lift 0.6s var(--ent-soft) 1.22s backwards; }
+  .neural-feats li:nth-child(4) { animation: neural-lift 0.6s var(--ent-soft) 1.29s backwards; }
+  .neural-rule { animation: neural-draw 0.55s var(--ent-line) 1.34s backwards; }
+  .neural-foot1 { animation: neural-lift 0.6s var(--ent-soft) 1.42s backwards; }
+  .neural-foot2 { animation: neural-lift 0.6s var(--ent-soft) 1.48s backwards; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neural-hero *,
+  .neural-hero *::before {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -72,6 +72,20 @@ export const HERO_STATS: HeroStat[] = [
   { id: "atendimento", target: 1, label: "atendimento direto com quem faz" },
 ];
 
+export interface HeroFeat {
+  id: string;
+  label: string;
+}
+
+// Os 4 selos com seta embaixo do botão do topo (layout Neural Pathway).
+// Texto curto: no computador os quatro ficam numa linha só.
+export const HERO_FEATS: HeroFeat[] = [
+  { id: "identidade", label: "Identidade visual" },
+  { id: "landing", label: "Landing page" },
+  { id: "sistema", label: "Sistema de gestão" },
+  { id: "prazo", label: "Entrega em até 10 dias" },
+];
+
 export interface CaseTabItem {
   id: string;
   label: string;
