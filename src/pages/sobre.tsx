@@ -1,42 +1,46 @@
 import Layout from "@/components/layout";
-import CEOProfile from "@/components/sections/company/ceo-profile";
-import GlobalLocations from "@/components/sections/company/global-locations";
 import CompanyHero from "@/components/sections/company/hero";
-import HeroImage from "@/components/sections/company/hero-image";
+import Story from "@/components/sections/company/story";
 import SEO from "@/components/seo";
+import { SOBRE_LEDE } from "@/content/sobre";
 import { appConfig } from "@/utils/app-config";
 import { lazy, Suspense } from "react";
-const Values = lazy(() => import("@/components/sections/company/values"));
+
+const Principles = lazy(() => import("@/components/sections/company/principles"));
 
 const Sobre = () => {
+  const metaTitle = "Sobre — Quem faz a NEW CORP | Pedro Henrique";
+  const metaDescription =
+    "Vim de vendas, não de programação. Faço marca, página e sistema para pequenas empresas, sozinho, de Cajamar para toda São Paulo.";
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    "name": `Sobre | ${appConfig.name}`,
-    "description": `${appConfig.description}`,
+    "name": metaTitle,
+    "description": metaDescription,
     "url": `${appConfig.url}/sobre`,
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Pedro Henrique",
+      "jobTitle": "Fundador",
+      "worksFor": { "@type": "Organization", "name": appConfig.name },
+      "description": SOBRE_LEDE,
+    },
   };
 
   return (
     <>
       <SEO
-        title={`Sobre | ${appConfig.name}`}
-        description={`${appConfig.description}`}
+        title={metaTitle}
+        description={metaDescription}
         canonicalUrl="/sobre"
         ogType="website"
         jsonLd={jsonLd}
       />
       <Layout>
         <CompanyHero />
-        <HeroImage />
+        <Story />
         <Suspense fallback={null}>
-          <Values />
-        </Suspense>
-        <Suspense fallback={null}>
-          <CEOProfile />
-        </Suspense>
-        <Suspense fallback={null}>
-          <GlobalLocations />
+          <Principles />
         </Suspense>
       </Layout>
     </>

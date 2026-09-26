@@ -1,54 +1,41 @@
 import Container from "@/components/container";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
-import { StaggerContainer } from "@/components/ui/motion/stagger";
-import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
-import { Badge } from "../../ui/badge";
+import { SOBRE_BADGE, SOBRE_FACTS, SOBRE_LEDE, SOBRE_TITLE } from "@/content/sobre";
 
 const CompanyHero = () => {
-    return (
-        <section className="relative bg-background overflow-hidden banner-top-padding pb-[400px] lg:pb-[453px]">
-            <Container className="relative z-10">
-                <StaggerContainer className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 md:gap-4 xl:gap-6 mb-4 md:mb-8">
-                    <AnimateOnView blur>
-                        <Badge variant="color" className="gap-2">
-                            One seamless payment at a time.
-                        </Badge>
-                    </AnimateOnView>
-                    <AnimateOnView blur delay={0.1}>
-                        <Badge variant="color" className="gap-2">
-                            <span>Use over <span className="text-foreground">12K+</span> businesses worldwide.</span>
-                        </Badge>
-                    </AnimateOnView>
-                </StaggerContainer>
+  return (
+    <section className="relative bg-background overflow-hidden banner-top-padding pb-16 md:pb-20 lg:pb-24">
+      <Container className="relative z-10">
+        <AnimateOnView blur className="mb-4 md:mb-6">
+          <Badge>{SOBRE_BADGE}</Badge>
+        </AnimateOnView>
 
-                <AnimateOnView blur className="text-center max-w-3xl mx-auto lg:mb-10 md:mb-8 mb-4" delay={0.2}>
-                    <h1 className="h1 text-foreground">
-                        Shaping the future of global payments
-                    </h1>
-                </AnimateOnView>
+        <AnimateOnView blur className="mb-5 md:mb-7" delay={0.1}>
+          {/* max-w em ch aqui, não no wrapper: ver nota igual em
+              features/hero.tsx. */}
+          <h1 className="h1 text-foreground max-w-[22ch]">{SOBRE_TITLE}</h1>
+        </AnimateOnView>
 
-                <StaggerContainer className="flex flex-col sm:flex-row items-center justify-center gap-4 md:mb-16 mb-8">
-                    <AnimateOnView delay={0.4}>
-                        <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-                            <Link to="/#contato">
-                                Get Started for Free
-                                <ArrowRight className="w-5 h-5 ml-1" />
-                            </Link>
-                        </Button>
-                    </AnimateOnView>
-                    <AnimateOnView delay={0.5}>
-                        <Button variant="link" asChild>
-                            <Link to="/servicos">
-                                Explore Features
-                            </Link>
-                        </Button>
-                    </AnimateOnView>
-                </StaggerContainer>
-            </Container>
-        </section>
-    );
+        <AnimateOnView delay={0.2}>
+          <p className="paragraph-large text-muted-foreground max-w-[54ch]">{SOBRE_LEDE}</p>
+        </AnimateOnView>
+
+        <AnimateOnView delay={0.3}>
+          <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-border pt-8 md:mt-16 lg:grid-cols-4">
+            {SOBRE_FACTS.map((fact) => (
+              <div key={fact.id}>
+                <dt className="font-display text-2xl font-semibold tracking-[-0.02em] text-foreground md:text-[28px]">
+                  {fact.value}
+                </dt>
+                <dd className="mt-2 text-sm leading-[1.5] text-muted-foreground">{fact.label}</dd>
+              </div>
+            ))}
+          </dl>
+        </AnimateOnView>
+      </Container>
+    </section>
+  );
 };
 
 export default CompanyHero;

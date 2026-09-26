@@ -1,6 +1,7 @@
 export const appConfig = {
     name: "NEW CORP",
-    description: "NEW CORP is built for the way you work — a modern platform that helps you get work done.",
+    description:
+        "Identidade visual, landing page e painel de gestão para pequena empresa. Protótipo de uma tela sem custo. Cajamar, atendo toda São Paulo.",
     url: "https://new-corp.lovable.dev",
     logo: "/logo.svg",
     favicon: "/favicon.ico",

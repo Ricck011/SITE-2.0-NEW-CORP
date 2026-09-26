@@ -1,49 +1,43 @@
 import Container from "@/components/container";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
+import { SERVICOS_BADGE, SERVICOS_LEDE, SERVICOS_TITLE } from "@/content/servicos";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Badge } from "../../ui/badge";
 
 const FeaturesHero = () => {
   return (
-    <section className="relative bg-background overflow-hidden banner-top-padding pb-[120px] md:pb-[140px] lg:pb-[160px] xl:pb-[180px]">
+    <section className="relative bg-background overflow-hidden banner-top-padding pb-16 md:pb-20 lg:pb-24">
       <Container className="relative z-10">
-        {/* Trust badges */}
-        <StaggerContainer className="flex flex-wrap items-center justify-center gap-6 mb-8">
-          <AnimateOnView blur>
-            <Badge variant="color">One seamless payment at a time.</Badge>
-          </AnimateOnView>
-          <AnimateOnView blur delay={0.1}>
-            <Badge variant="color">
-              <span>Use over <span className="text-foreground">12K+</span> businesses worldwide.</span>
-            </Badge>
-          </AnimateOnView>
-        </StaggerContainer>
-
-        {/* Main headline */}
-        <AnimateOnView blur className="text-center max-w-3xl mx-auto mb-10" delay={0.2}>
-          <h1 className="h1 text-foreground">
-            Everything you need to power payments.
-          </h1>
+        <AnimateOnView blur className="mb-4 md:mb-6">
+          <Badge>{SERVICOS_BADGE}</Badge>
         </AnimateOnView>
 
-        {/* CTAs */}
-        <StaggerContainer className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <AnimateOnView delay={0.4}>
+        <AnimateOnView blur className="mb-5 md:mb-7" delay={0.1}>
+          {/* max-w em ch aqui, não no wrapper: "ch" mede o "0" da fonte do
+              próprio elemento — no wrapper (16px) o título quebrava quase
+              palavra por palavra. */}
+          <h1 className="h1 text-foreground max-w-[20ch]">{SERVICOS_TITLE}</h1>
+        </AnimateOnView>
+
+        <AnimateOnView className="mb-9 md:mb-11" delay={0.2}>
+          <p className="paragraph-large text-muted-foreground max-w-[58ch]">{SERVICOS_LEDE}</p>
+        </AnimateOnView>
+
+        <StaggerContainer className="flex flex-col sm:flex-row items-start gap-4">
+          <AnimateOnView delay={0.3}>
             <Button asChild>
               <Link to="/#contato">
-                Get Started for Free
-                <ArrowRight className="w-5 h-5" />
-              </Link> 
+                Quero meu protótipo
+                <ArrowRight className="w-5 h-5 ml-1" />
+              </Link>
             </Button>
           </AnimateOnView>
-          <AnimateOnView delay={0.5}>
+          <AnimateOnView delay={0.4}>
             <Button variant="link" asChild>
-              <Link to="/sobre">
-                About Us
-              </Link>
+              <Link to="/sobre">Quem faz</Link>
             </Button>
           </AnimateOnView>
         </StaggerContainer>
@@ -53,4 +47,3 @@ const FeaturesHero = () => {
 };
 
 export default FeaturesHero;
-
