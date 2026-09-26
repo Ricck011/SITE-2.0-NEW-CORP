@@ -77,6 +77,18 @@
     color: rgb(var(--primary-foreground));
   }
 
+  /* Véu sobre o vídeo do hero: pesado à esquerda, onde fica o texto, e leve à
+     direita, pra cortina de luz continuar visível atrás da vitrine. */
+  .hero-video-scrim {
+    background: linear-gradient(
+      100deg,
+      rgb(var(--background) / 0.96) 0%,
+      rgb(var(--background) / 0.88) 30%,
+      rgb(var(--background) / 0.55) 62%,
+      rgb(var(--background) / 0.42) 100%
+    );
+  }
+
   /* Typography */
   .h1 {
     @apply font-display text-[36px] md:text-[54px] lg:text-[68px] font-bold leading-[1.05] tracking-[-0.02em];

@@ -4,8 +4,8 @@ import Hero from "@/components/sections/home/hero";
 import SEO from "@/components/seo";
 import { appConfig } from "@/utils/app-config";
 import { useEmblemTravel } from "@/hooks/use-emblem-travel";
-import { useReducedMotion, useScroll } from "framer-motion";
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { useScroll } from "framer-motion";
+import { lazy, Suspense, useRef } from "react";
 
 // Lazy load below-the-fold components for code splitting
 const CoreFeatures = lazy(() => import("@/components/sections/home/core-features"));
@@ -20,16 +20,7 @@ const Home = () => {
   const heroEmblemRef = useRef<HTMLImageElement>(null);
   const cardSlotRef = useRef<HTMLDivElement>(null);
 
-  const [isDesktop, setIsDesktop] = useState(false);
-  useEffect(() => {
-    const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024);
-    checkDesktop();
-    window.addEventListener("resize", checkDesktop);
-    return () => window.removeEventListener("resize", checkDesktop);
-  }, []);
-
-  const prefersReducedMotion = useReducedMotion();
-  const emblemTravelActive = isDesktop && !prefersReducedMotion;
+  const emblemTravelActive = false;
 
   const { scrollYProgress } = useScroll({
     target: travelSectionRef,
