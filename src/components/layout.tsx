@@ -1,9 +1,12 @@
 import { cn } from '@/lib/utils'
-import React from 'react'
-import CTA from './sections/shared/cta'
+import React, { lazy, Suspense } from 'react'
 import Dock from './dock'
 import Footer from './sections/shared/footer'
 import Navbar from './sections/shared/navbar'
+
+// Fica no fim de toda página (#contato). Carrega sob demanda: as bibliotecas
+// de formulário só baixam quando a pessoa chega perto do fim.
+const ContactForm = lazy(() => import('./sections/home/contact-form'))
 
 interface LayoutProps {
     children: React.ReactNode
@@ -16,7 +19,9 @@ const Layout = ({ children, className, ...props }: LayoutProps) => {
         <main className={cn("min-h-screen", className)} {...props}>
             <Navbar />
             {children}
-            <CTA />
+            <Suspense fallback={null}>
+                <ContactForm />
+            </Suspense>
             <Footer />
             <Dock />
         </main>

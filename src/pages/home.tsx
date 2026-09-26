@@ -3,9 +3,7 @@ import Features from "@/components/sections/home/features";
 import Hero from "@/components/sections/home/hero";
 import SEO from "@/components/seo";
 import { appConfig } from "@/utils/app-config";
-import { useEmblemTravel } from "@/hooks/use-emblem-travel";
-import { useScroll } from "framer-motion";
-import { lazy, Suspense, useRef } from "react";
+import { lazy, Suspense } from "react";
 
 // Lazy load below-the-fold components for code splitting
 const CoreFeatures = lazy(() => import("@/components/sections/home/core-features"));
@@ -13,30 +11,10 @@ const Integrations = lazy(() => import("@/components/sections/home/integrations"
 const BusinessAccount = lazy(() => import("@/components/sections/home/business-account"));
 const MobileApp = lazy(() => import("@/components/sections/home/mobile-app"));
 const SecurityCompliance = lazy(() => import("@/components/sections/home/security-compliance"));
-const Testimonials = lazy(() => import("@/components/sections/home/testimonials"));
-const Quiz = lazy(() => import("@/components/sections/home/quiz"));
 const Assistant = lazy(() => import("@/components/sections/home/assistant"));
-const ContactForm = lazy(() => import("@/components/sections/home/contact-form"));
+const Quiz = lazy(() => import("@/components/sections/home/quiz"));
 
 const Home = () => {
-  const travelSectionRef = useRef<HTMLDivElement>(null);
-  const heroEmblemRef = useRef<HTMLImageElement>(null);
-  const cardSlotRef = useRef<HTMLDivElement>(null);
-
-  const emblemTravelActive = false;
-
-  const { scrollYProgress } = useScroll({
-    target: travelSectionRef,
-    offset: ["start start", "end start"],
-  });
-
-  const { originOpacity, cardX, cardY, cardScale, cardOpacity } = useEmblemTravel({
-    originRef: heroEmblemRef,
-    targetRef: cardSlotRef,
-    scrollYProgress,
-    active: emblemTravelActive,
-  });
-
   const metaTitle = "NEW CORP — Arte que chama. Sistema que sustenta.";
   const metaDescription =
     "Identidade visual, landing page e sistema de gestão para pequenas empresas que ainda não existem no digital. Entrega em até 10 dias úteis. Cajamar, atendo SP.";
@@ -61,17 +39,8 @@ const Home = () => {
         jsonLd={jsonLd}
       />
       <Layout>
-        <div ref={travelSectionRef}>
-          <Hero emblemRef={heroEmblemRef} originOpacity={originOpacity} active={emblemTravelActive} />
-          <Features
-            cardSlotRef={cardSlotRef}
-            cardX={cardX}
-            cardY={cardY}
-            cardScale={cardScale}
-            cardOpacity={cardOpacity}
-            active={emblemTravelActive}
-          />
-        </div>
+        <Hero />
+        <Features />
         <Suspense fallback={null}>
           <Integrations />
         </Suspense>
@@ -88,16 +57,10 @@ const Home = () => {
           <SecurityCompliance />
         </Suspense>
         <Suspense fallback={null}>
-          <Testimonials />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Quiz />
-        </Suspense>
-        <Suspense fallback={null}>
           <Assistant />
         </Suspense>
         <Suspense fallback={null}>
-          <ContactForm />
+          <Quiz />
         </Suspense>
       </Layout>
     </>

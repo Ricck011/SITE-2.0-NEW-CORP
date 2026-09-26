@@ -2,7 +2,6 @@ import Container from "@/components/container";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { CORE_FRONTS } from "@/content/deliverables";
 import { cn } from "@/lib/utils";
-import { motion, MotionValue } from "framer-motion";
 import { LayoutDashboard, LayoutTemplate, PenTool, Palette } from "lucide-react";
 import { Card, CardContent } from "../../ui/card";
 
@@ -13,16 +12,7 @@ const FRONT_ICONS: Record<string, React.ComponentType<{ className?: string }>> =
   prototipo: PenTool,
 };
 
-interface FeaturesProps {
-  cardSlotRef: React.RefObject<HTMLDivElement>;
-  cardX: MotionValue<number>;
-  cardY: MotionValue<number>;
-  cardScale: MotionValue<number>;
-  cardOpacity: MotionValue<number>;
-  active: boolean;
-}
-
-const Features = ({ cardSlotRef, cardX, cardY, cardScale, cardOpacity, active }: FeaturesProps) => {
+const Features = () => {
   return (
     <section className="md:pt-20 xl:pt-[100px] pt-12 md:pb-20 pb-12" id="features">
       <Container className="md:space-y-10 xl:space-y-2xl space-y-8">
@@ -53,21 +43,12 @@ const Features = ({ cardSlotRef, cardX, cardY, cardScale, cardOpacity, active }:
                 >
                   <CardContent className="flex flex-col items-center text-center gap-3 pt-2">
                     {front.hasEmblemSlot ? (
-                      <div ref={cardSlotRef} className="relative w-14 h-14 mb-1">
-                        {active ? (
-                          <motion.img
-                            src="/images/marca/newcorp-emblema-metalico.webp"
-                            alt="Emblema NEW CORP"
-                            className="absolute inset-0 w-full h-full object-contain"
-                            style={{ x: cardX, y: cardY, scale: cardScale, opacity: cardOpacity }}
-                          />
-                        ) : (
-                          <img
-                            src="/images/marca/newcorp-emblema-metalico.webp"
-                            alt="Emblema NEW CORP"
-                            className="absolute inset-0 w-full h-full object-contain"
-                          />
-                        )}
+                      <div className="relative w-14 h-14 mb-1">
+                        <img
+                          src="/images/marca/newcorp-emblema-metalico.webp"
+                          alt="Emblema NEW CORP"
+                          className="absolute inset-0 w-full h-full object-contain"
+                        />
                       </div>
                     ) : (
                       <div className="w-14 h-14 mb-1 flex items-center justify-center rounded-full bg-brand-surface-2">

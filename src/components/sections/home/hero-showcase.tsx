@@ -3,19 +3,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAutoRotateTabs } from "@/hooks/use-auto-rotate-tabs";
 import { HERO_SHOWCASE } from "@/content/deliverables";
 import { Pause, Play } from "lucide-react";
-import { motion, MotionValue } from "framer-motion";
-
-interface HeroShowcaseProps {
-  emblemRef: React.RefObject<HTMLImageElement>;
-  originOpacity: MotionValue<number>;
-  active: boolean;
-}
 
 // Vitrine de trabalho real no topo: imagem grande + 3 miniaturas que trocam
 // sozinhas (mesmo mecanismo das abas do painel — abas/case-tabs.tsx), com o
-// emblema "carimbado" no canto — é dali que o anel começa a descer até o
-// cartão "Sistemas de gestão" (use-emblem-travel.ts).
-const HeroShowcase = ({ emblemRef, originOpacity, active }: HeroShowcaseProps) => {
+// emblema "carimbado" no canto.
+const HeroShowcase = () => {
   const itemIds = HERO_SHOWCASE.map((item) => item.id);
   const { activeId, isPaused, isManuallyPaused, containerRef, handleValueChange, handleBarAnimationEnd, togglePause } =
     useAutoRotateTabs({ itemIds });
@@ -84,30 +76,15 @@ const HeroShowcase = ({ emblemRef, originOpacity, active }: HeroShowcaseProps) =
       </Tabs>
 
       <div className="absolute -left-6 -bottom-6 sm:-left-8 sm:-bottom-8 z-10 w-[90px] sm:w-[120px] xl:w-[140px]">
-        {active ? (
-          <motion.img
-            ref={emblemRef}
-            src="/images/marca/newcorp-emblema-metalico.webp"
-            alt="Emblema NEW CORP"
-            className="w-full h-auto"
-            style={{ opacity: originOpacity }}
-            width="1174"
-            height="740"
-            {...fetchPriority("high")}
-            loading="eager"
-          />
-        ) : (
-          <img
-            ref={emblemRef}
-            src="/images/marca/newcorp-emblema-metalico.webp"
-            alt="Emblema NEW CORP"
-            className="w-full h-auto"
-            width="1174"
-            height="740"
-            {...fetchPriority("high")}
-            loading="eager"
-          />
-        )}
+        <img
+          src="/images/marca/newcorp-emblema-metalico.webp"
+          alt="Emblema NEW CORP"
+          className="w-full h-auto"
+          width="1174"
+          height="740"
+          {...fetchPriority("high")}
+          loading="eager"
+        />
       </div>
     </div>
   );
