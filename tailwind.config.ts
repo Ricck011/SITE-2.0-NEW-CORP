@@ -13,10 +13,15 @@ export default {
       center: true,
     },
     extend: {
+      // Uma família só no site inteiro (IBM Plex Sans), variando peso e
+      // espaçamento. A Chakra Petch (títulos) e a IBM Plex Mono (rótulos)
+      // saíram em 26/09: davam ar de template de IA. `display` e `mono`
+      // continuam existindo como apelido para não trocar classe em 12
+      // arquivos — o que muda é o peso e o tracking de cada uso.
       fontFamily: {
         sans: ["IBM Plex Sans", "ui-sans-serif", "system-ui", "sans-serif"],
-        display: ["Chakra Petch", "sans-serif"],
-        mono: ["IBM Plex Mono", "ui-monospace", "monospace"],
+        display: ["IBM Plex Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["IBM Plex Sans", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       colors: {
         border: token("border"),

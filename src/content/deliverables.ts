@@ -40,22 +40,101 @@ export const CORE_FRONTS: CoreFrontItem[] = [
 export interface DeliverableItem {
   id: string;
   label: string;
+  /** Uma linha dizendo o que o item é na prática. */
+  description: string;
+  /** A qual das três frentes o item pertence (vira o rótulo do cartão). */
+  front: "Marca" | "Web" | "Sistema";
+  /** Nome do ícone lucide-react; o mapa fica em `integrations.tsx`. */
+  icon: string;
 }
 
-// Ordem fixa (não sorteada), igual à landing atual.
+// Ordem fixa (não sorteada): marca, depois web, depois sistema — a mesma
+// ordem em que o trabalho acontece.
 export const DELIVERABLES: DeliverableItem[] = [
-  { id: "logotipo", label: "Logotipo" },
-  { id: "paleta", label: "Paleta de cores" },
-  { id: "tipografia", label: "Tipografia" },
-  { id: "manual-marca", label: "Manual de marca" },
-  { id: "landing-page", label: "Landing page" },
-  { id: "form-leads", label: "Formulário de leads" },
-  { id: "whatsapp", label: "Integração WhatsApp" },
-  { id: "cad-clientes", label: "Cadastro de clientes" },
-  { id: "controle-projetos", label: "Controle de projetos" },
-  { id: "fluxo-caixa", label: "Fluxo de caixa" },
-  { id: "relatorios", label: "Relatórios" },
-  { id: "painel-celular", label: "Painel no celular" },
+  {
+    id: "logotipo",
+    label: "Logotipo",
+    description: "Versão principal, reduzida e monocromática, em arquivo que não perde qualidade em nenhum tamanho.",
+    front: "Marca",
+    icon: "Hexagon",
+  },
+  {
+    id: "paleta",
+    label: "Paleta de cores",
+    description: "As cores da marca com o código exato de cada uma, conferidas em fundo claro e escuro.",
+    front: "Marca",
+    icon: "Palette",
+  },
+  {
+    id: "tipografia",
+    label: "Tipografia",
+    description: "As fontes escolhidas e onde usar cada uma: título, texto corrido e destaque.",
+    front: "Marca",
+    icon: "Type",
+  },
+  {
+    id: "manual-marca",
+    label: "Manual de marca",
+    description: "Um guia curto com o certo e o errado, para quem for mexer na sua marca depois de mim.",
+    front: "Marca",
+    icon: "BookOpen",
+  },
+  {
+    id: "landing-page",
+    label: "Landing page",
+    description: "Uma página feita para uma coisa só: transformar quem chega em contato no seu WhatsApp.",
+    front: "Web",
+    icon: "LayoutTemplate",
+  },
+  {
+    id: "form-leads",
+    label: "Formulário de leads",
+    description: "A pessoa preenche e o pedido chega direto a você, sem plataforma no meio cobrando mensalidade.",
+    front: "Web",
+    icon: "ClipboardList",
+  },
+  {
+    id: "whatsapp",
+    label: "Integração WhatsApp",
+    description: "Botão que já abre a conversa com a mensagem escrita, para a pessoa só apertar enviar.",
+    front: "Web",
+    icon: "MessageCircle",
+  },
+  {
+    id: "cad-clientes",
+    label: "Cadastro de clientes",
+    description: "Cada cliente com histórico, telefone e em que pé está a negociação.",
+    front: "Sistema",
+    icon: "Users",
+  },
+  {
+    id: "controle-projetos",
+    label: "Controle de projetos",
+    description: "O que está em andamento, o que travou e o que já foi entregue, numa tela só.",
+    front: "Sistema",
+    icon: "FolderKanban",
+  },
+  {
+    id: "fluxo-caixa",
+    label: "Fluxo de caixa",
+    description: "Entrada e saída lançadas na hora, com o saldo do mês sempre à vista.",
+    front: "Sistema",
+    icon: "Wallet",
+  },
+  {
+    id: "relatorios",
+    label: "Relatórios",
+    description: "Os números do mês prontos quando você abrir, sem montar planilha no domingo.",
+    front: "Sistema",
+    icon: "BarChart3",
+  },
+  {
+    id: "painel-celular",
+    label: "Painel no celular",
+    description: "O mesmo painel no telefone, para consultar de qualquer lugar sem abrir o computador.",
+    front: "Sistema",
+    icon: "Smartphone",
+  },
 ];
 
 export interface HeroStat {

@@ -20,7 +20,7 @@ const SecurityCompliance = () => {
     },
     {
       title: "Arte e sistema juntos",
-      description: "Pela mesma equipe — nada de emendar fornecedor.",
+      description: "Feitos pela mesma pessoa, sem emendar fornecedor no meio do caminho.",
     },
   ];
 

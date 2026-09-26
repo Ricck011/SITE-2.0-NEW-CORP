@@ -80,8 +80,8 @@ const Hero = () => {
         </h1>
 
         <p className="neural-sub">
-          <span className="neural-sub1">Identidade visual, landing page e sistema de gestão</span>
-          <span className="neural-sub2">para pequenas empresas que ainda não existem no digital.</span>
+          <span className="neural-sub1">Marca que passa confiança, página que traz contato</span>
+          <span className="neural-sub2">e um painel para largar a planilha.</span>
         </p>
 
         <Link to="/#contato" className="neural-cta">

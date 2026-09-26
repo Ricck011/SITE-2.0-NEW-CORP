@@ -17,7 +17,7 @@ const CoreFeatures = () => {
             </AnimateOnView>
 
             <AnimateOnView once blur delay={0.2} className="h2 md:mb-6 mb-3">
-              O painel que a gente mesmo usa
+              O painel que eu mesmo uso
             </AnimateOnView>
 
             <AnimateOnView once delay={0.3} className="text-lg text-muted-foreground">

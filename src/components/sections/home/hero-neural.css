@@ -2,6 +2,9 @@
    landing: sem a barra e o menu do prompt (a navbar do site continua), texto
    em português e vídeo comprimido servido daqui mesmo (public/videos).
 
+   A fonte é a IBM Plex Sans do resto do site: o prompt pedia Sora, tirada em
+   26/09 junto com a Chakra Petch e a Mono — o Pedro quis uma família só.
+
    Duas unidades de medida controlam tudo:
    --u  computador: mapeia a prancheta de 1536x1024 do prompt na tela.
    --c  celular e tablet: redefinida por tamanho de tela, mais abaixo. */
@@ -34,7 +37,7 @@
   overflow: hidden;
   background: #02060f;
   color: var(--n-ink);
-  font-family: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
   font-feature-settings: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -109,7 +112,7 @@
 .neural-title {
   margin: 0;
   font-size: calc(var(--c) * 32);
-  font-weight: 424;
+  font-weight: 500;
   line-height: 1.2;
   letter-spacing: -0.002em;
   text-wrap: balance;
@@ -130,7 +133,7 @@
   margin: 0;
   color: var(--n-sub);
   font-size: calc(var(--c) * 16);
-  font-weight: 446;
+  font-weight: 400;
   line-height: 1.45;
   text-wrap: balance;
   text-shadow:
@@ -159,7 +162,7 @@
   border-radius: 999px;
   color: var(--n-ink);
   font-size: calc(var(--c) * 16.5);
-  font-weight: 497;
+  font-weight: 500;
   line-height: 1;
   background:
     linear-gradient(180deg, rgba(6, 12, 22, 0) 45%, rgba(6, 12, 22, 0.12) 78%, rgba(6, 12, 22, 0.28) 100%),
@@ -237,7 +240,7 @@
   gap: calc(var(--c) * 10);
   color: var(--n-feat);
   font-size: calc(var(--c) * 13);
-  font-weight: 534;
+  font-weight: 500;
   text-shadow:
     0 0 3px rgba(2, 6, 15, 0.85),
     0 0 10px rgba(2, 6, 15, 0.7);
@@ -283,7 +286,7 @@
   padding: 0 calc(var(--c) * 26) calc(env(safe-area-inset-bottom) + 80px);
   color: var(--n-foot);
   font-size: calc(var(--c) * 13.5);
-  font-weight: 521;
+  font-weight: 500;
   line-height: 1.65;
   text-align: center;
   text-wrap: balance;

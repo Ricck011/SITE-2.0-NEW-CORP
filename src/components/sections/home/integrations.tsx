@@ -1,127 +1,112 @@
 import Container from "@/components/container";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
-import { DELIVERABLES } from "@/content/deliverables";
-import { useIsMobile } from "@/hooks/use-mobile";
-import { motion, MotionValue, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { useMemo, useRef } from "react";
+import { DELIVERABLES, type DeliverableItem } from "@/content/deliverables";
+import { cn } from "@/lib/utils";
+import {
+  BarChart3,
+  BookOpen,
+  ClipboardList,
+  FolderKanban,
+  Hexagon,
+  LayoutTemplate,
+  MessageCircle,
+  Palette,
+  Smartphone,
+  Type,
+  Users,
+  Wallet,
+  type LucideIcon,
+} from "lucide-react";
 
-interface DeliverablePosition {
-  x: number;
-  y: number;
-  scrollThreshold: number;
-}
+// O ícone mora aqui e não no arquivo de conteúdo: assim `deliverables.ts`
+// continua sendo só dado, sem importar componente.
+const ICONS: Record<string, LucideIcon> = {
+  Hexagon,
+  Palette,
+  Type,
+  BookOpen,
+  LayoutTemplate,
+  ClipboardList,
+  MessageCircle,
+  Users,
+  FolderKanban,
+  Wallet,
+  BarChart3,
+  Smartphone,
+};
 
-// Posições fixas ao redor do título (não sorteadas — ordem segue a ordem
-// real da entrega). Distribuídas numa elipse pra caber na largura da seção.
-function buildPositions(count: number): DeliverablePosition[] {
-  const radiusX = 42;
-  const radiusY = 36;
-  return Array.from({ length: count }, (_, i) => {
-    const angle = (i / count) * Math.PI * 2 - Math.PI / 2;
-    return {
-      x: 50 + radiusX * Math.cos(angle),
-      y: 50 + radiusY * Math.sin(angle),
-      scrollThreshold: (i + 1) / (count + 1),
-    };
-  });
-}
+// A ordem das colunas é a ordem em que o trabalho acontece.
+const FRONTS = [
+  { id: "Marca", title: "Marca", note: "Como a empresa aparece" },
+  { id: "Web", title: "Web", note: "Onde o cliente chega" },
+  { id: "Sistema", title: "Sistema", note: "Como a operação se sustenta" },
+] as const;
 
-interface DeliverableItemProps {
-  label: string;
-  position: DeliverablePosition;
-  scrollYProgress: MotionValue<number>;
-}
-
-const DeliverableBadge = ({ label, position, scrollYProgress }: DeliverableItemProps) => {
-  const opacity = useTransform(
-    scrollYProgress,
-    [position.scrollThreshold - 0.15, position.scrollThreshold],
-    [0, 1],
-    { clamp: true },
-  );
-  const scale = useTransform(
-    scrollYProgress,
-    [position.scrollThreshold - 0.15, position.scrollThreshold],
-    [0.8, 1],
-    { clamp: true },
-  );
-
+const DeliverableRow = ({ item }: { item: DeliverableItem }) => {
+  const Icon = ICONS[item.icon];
   return (
-    <motion.div
-      className="absolute"
-      style={{
-        left: `${position.x}%`,
-        top: `${position.y}%`,
-        transform: "translate(-50%, -50%)",
-        opacity,
-        scale,
-      }}
-    >
-      <span className="inline-flex items-center whitespace-nowrap rounded-sm border border-border bg-card px-3 py-1.5 sm:px-4 sm:py-2 font-mono text-xs sm:text-sm text-foreground">
-        {label}
+    <li className="flex gap-3.5">
+      <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background text-brand-accent-soft">
+        {Icon ? <Icon className="h-[18px] w-[18px]" strokeWidth={1.75} aria-hidden="true" /> : null}
       </span>
-    </motion.div>
+      <div className="min-w-0">
+        <p className="text-[15px] font-semibold leading-snug text-foreground">{item.label}</p>
+        <p className="mt-1 text-sm leading-[1.5] text-muted-foreground">{item.description}</p>
+      </div>
+    </li>
   );
 };
 
 const Integrations = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const isMobile = useIsMobile();
-  const prefersReducedMotion = useReducedMotion();
-  const useSimpleLayout = isMobile || !!prefersReducedMotion;
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-
-  const positions = useMemo(() => buildPositions(DELIVERABLES.length), []);
-
-  const title = (
-    <h2 className="h2 text-center max-w-[560px] mx-auto mb-4">
-      O que entra <span className="text-muted-foreground">na entrega</span>
-    </h2>
-  );
-
-  if (useSimpleLayout) {
-    // Sem tela grudando: a versão de hoje mantém o sticky em qualquer
-    // aparelho e trava a rolagem no celular — corrigido aqui.
-    return (
-      <section ref={sectionRef} className="relative bg-card py-16" id="entrega">
-        <Container className="space-y-8">
-          <AnimateOnView>{title}</AnimateOnView>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {DELIVERABLES.map((item, index) => (
-              <AnimateOnView key={item.id} once delay={index * 0.05}>
-                <span className="flex items-center justify-center text-center rounded-sm border border-border bg-background px-3 py-2 font-mono text-xs sm:text-sm text-foreground h-full">
-                  {item.label}
-                </span>
-              </AnimateOnView>
-            ))}
-          </div>
-        </Container>
-      </section>
-    );
-  }
-
+  // Uma coluna por frente. A versão anterior espalhava as 12 etiquetas numa
+  // elipse presa à rolagem: pedia 3 telas de rolagem, cortava "Manual de
+  // marca" na borda direita e não dizia o que cada item era.
   return (
-    <section ref={sectionRef} className="relative bg-card" id="entrega" style={{ height: "300vh" }}>
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
-        <Container className="relative z-10">
-          <AnimateOnView>{title}</AnimateOnView>
-        </Container>
+    <section className="relative bg-card py-20 md:py-24 lg:py-28" id="entrega">
+      <Container>
+        <AnimateOnView>
+          <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">O que entra na entrega</p>
+          <h2 className="h2 mt-3 max-w-[18ch]">
+            Doze entregas, <span className="text-muted-foreground">nenhuma surpresa.</span>
+          </h2>
+          <p className="paragraph-large mt-5 max-w-[56ch] text-muted-foreground">
+            Está tudo listado antes de você pagar a primeira parcela. O que não estiver aqui, eu falo na hora — não
+            aparece como extra depois.
+          </p>
+        </AnimateOnView>
 
-        <div className="absolute inset-0 w-full h-full pointer-events-none">
-          {DELIVERABLES.map((item, index) => (
-            <DeliverableBadge
-              key={item.id}
-              label={item.label}
-              position={positions[index]}
-              scrollYProgress={scrollYProgress}
-            />
-          ))}
+        <div className="mt-12 grid gap-x-10 gap-y-12 md:mt-16 lg:grid-cols-3">
+          {FRONTS.map((front, frontIndex) => {
+            const items = DELIVERABLES.filter((item) => item.front === front.id);
+            return (
+              <AnimateOnView key={front.id} delay={frontIndex * 0.08}>
+                <div
+                  className={cn(
+                    "h-full lg:pl-10",
+                    // A linha divide as colunas no desktop; empilhado, ela sumiria
+                    // no meio do texto, então só aparece a partir de lg.
+                    frontIndex > 0 && "lg:border-l lg:border-border",
+                  )}
+                >
+                  <div className="flex items-baseline gap-3 border-b border-border pb-4">
+                    <h3 className="h5">{front.title}</h3>
+                    <span className="font-mono text-xs uppercase tracking-[0.14em] text-brand-accent-soft">
+                      {String(items.length).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <p className="mt-3 text-sm text-muted-foreground">{front.note}</p>
+
+                  <ul className="mt-7 space-y-6">
+                    {items.map((item) => (
+                      <DeliverableRow key={item.id} item={item} />
+                    ))}
+                  </ul>
+                </div>
+              </AnimateOnView>
+            );
+          })}
         </div>
-      </div>
+      </Container>
     </section>
   );
 };
