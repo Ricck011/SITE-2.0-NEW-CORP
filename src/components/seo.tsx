@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { appConfig } from "@/utils/app-config";
 
 interface SEOProps {
     title: string;
@@ -15,11 +16,13 @@ const SEO = ({
     description,
     canonicalUrl,
     ogType = "website",
-    ogImage = "/og-image.jpg",
+    ogImage = appConfig.ogImage,
     twitterCard = "summary_large_image",
     jsonLd,
 }: SEOProps) => {
-    const siteUrl = "https://new-corp.lovable.dev";
+    // Um lugar só pro domínio: quando o Pedro fechar o definitivo, muda em
+    // app-config.ts e o site inteiro acompanha.
+    const siteUrl = appConfig.url;
     const fullUrl = `${siteUrl}${canonicalUrl}`;
     const fullImageUrl = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
 
@@ -37,8 +40,8 @@ const SEO = ({
             <meta property="og:url" content={fullUrl} />
             <meta property="og:image" content={fullImageUrl} />
             <meta property="og:image:alt" content={title} />
-            <meta property="og:site_name" content="Lovable" />
-            <meta property="og:locale" content="en_US" />
+            <meta property="og:site_name" content={appConfig.name} />
+            <meta property="og:locale" content="pt_BR" />
 
             {/* Twitter Card Meta Tags */}
             <meta name="twitter:card" content={twitterCard} />
@@ -46,8 +49,6 @@ const SEO = ({
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={fullImageUrl} />
             <meta name="twitter:image:alt" content={title} />
-            <meta name="twitter:site" content="@new_corp" />
-            <meta name="twitter:creator" content="@new_corp" />
 
             {/* Additional Meta Tags */}
             <meta name="author" content="NEW CORP" />
