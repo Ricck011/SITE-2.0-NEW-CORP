@@ -8,6 +8,7 @@ import Servicos from "./pages/servicos";
 import Sobre from "./pages/sobre";
 import NotFound from "./pages/not-found";
 import ScrollManager from "./components/scroll-manager";
+import { AssistantChatProvider } from "./hooks/use-assistant-chat";
 
 const App = () => (
   <HelmetProvider>
@@ -15,13 +16,15 @@ const App = () => (
       <TooltipProvider>
         <Sonner />
         <BrowserRouter>
-          <ScrollManager />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/servicos" element={<Servicos />} />
-            <Route path="/sobre" element={<Sobre />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AssistantChatProvider>
+            <ScrollManager />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/servicos" element={<Servicos />} />
+              <Route path="/sobre" element={<Sobre />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </AssistantChatProvider>
         </BrowserRouter>
       </TooltipProvider>
     </MotionConfig>

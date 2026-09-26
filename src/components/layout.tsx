@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils'
 import React from 'react'
 import CTA from './sections/shared/cta'
+import Dock from './dock'
 import Footer from './sections/shared/footer'
 import Navbar from './sections/shared/navbar'
 
@@ -17,6 +18,7 @@ const Layout = ({ children, className, ...props }: LayoutProps) => {
             {children}
             <CTA />
             <Footer />
+            <Dock />
         </main>
     )
 }

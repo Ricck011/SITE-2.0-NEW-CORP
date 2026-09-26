@@ -14,6 +14,9 @@ const BusinessAccount = lazy(() => import("@/components/sections/home/business-a
 const MobileApp = lazy(() => import("@/components/sections/home/mobile-app"));
 const SecurityCompliance = lazy(() => import("@/components/sections/home/security-compliance"));
 const Testimonials = lazy(() => import("@/components/sections/home/testimonials"));
+const Quiz = lazy(() => import("@/components/sections/home/quiz"));
+const Assistant = lazy(() => import("@/components/sections/home/assistant"));
+const ContactForm = lazy(() => import("@/components/sections/home/contact-form"));
 
 const Home = () => {
   const travelSectionRef = useRef<HTMLDivElement>(null);
@@ -86,6 +89,15 @@ const Home = () => {
         </Suspense>
         <Suspense fallback={null}>
           <Testimonials />
+        </Suspense>
+        <Suspense fallback={null}>
+          <Quiz />
+        </Suspense>
+        <Suspense fallback={null}>
+          <Assistant />
+        </Suspense>
+        <Suspense fallback={null}>
+          <ContactForm />
         </Suspense>
       </Layout>
     </>
