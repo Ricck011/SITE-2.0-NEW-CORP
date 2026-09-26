@@ -36,8 +36,8 @@ const FeaturesGrid = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {
-            chartData.map((item, index) => (
-              <AnimateOnView once y={40} delay={0.2}>
+            chartData.map((item) => (
+              <AnimateOnView key={item.title} once y={40} delay={0.2}>
                 <Card className="h-full border-border border overflow-hidden shadow-sm p-0">
                   <CardContent className="p-0">
                     <div className="p-6">

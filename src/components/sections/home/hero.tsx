@@ -1,3 +1,4 @@
+import { fetchPriority } from "@/lib/utils";
 import Container from "@/components/container";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -90,7 +91,7 @@ const Hero = ({ emblemRef, originOpacity, active }: HeroProps) => {
         src={HERO_POSTER}
         alt=""
         aria-hidden
-        fetchPriority="high"
+        {...fetchPriority("high")}
         className="absolute inset-0 w-full h-full object-cover"
       />
       {scrubEnabled && (

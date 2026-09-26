@@ -1,3 +1,4 @@
+import { fetchPriority } from "@/lib/utils";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAutoRotateTabs } from "@/hooks/use-auto-rotate-tabs";
 import { HERO_SHOWCASE } from "@/content/deliverables";
@@ -45,7 +46,7 @@ const HeroShowcase = ({ emblemRef, originOpacity, active }: HeroShowcaseProps) =
                   alt={item.imageAlt}
                   className="w-full h-full object-cover"
                   loading={index === 0 ? "eager" : "lazy"}
-                  fetchPriority={index === 0 ? "high" : undefined}
+                  {...fetchPriority(index === 0 ? "high" : undefined)}
                   width="1440"
                   height="900"
                 />
@@ -92,7 +93,7 @@ const HeroShowcase = ({ emblemRef, originOpacity, active }: HeroShowcaseProps) =
             style={{ opacity: originOpacity }}
             width="1174"
             height="740"
-            fetchPriority="high"
+            {...fetchPriority("high")}
             loading="eager"
           />
         ) : (
@@ -103,7 +104,7 @@ const HeroShowcase = ({ emblemRef, originOpacity, active }: HeroShowcaseProps) =
             className="w-full h-auto"
             width="1174"
             height="740"
-            fetchPriority="high"
+            {...fetchPriority("high")}
             loading="eager"
           />
         )}

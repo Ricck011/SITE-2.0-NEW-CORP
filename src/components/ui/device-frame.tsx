@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn, fetchPriority } from "@/lib/utils";
 
 interface DeviceFrameProps {
   src: string;
@@ -22,7 +22,7 @@ const DeviceFrame = ({ src, alt, className, priority = false }: DeviceFrameProps
           alt={alt}
           className="w-full h-full object-cover"
           loading={priority ? "eager" : "lazy"}
-          fetchPriority={priority ? "high" : undefined}
+          {...fetchPriority(priority ? "high" : undefined)}
         />
       </div>
     </div>
