@@ -21,23 +21,15 @@ const Chevron = () => (
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const prefersReducedMotion = useReducedMotion();
-  // Começa sem vídeo: celular e quem pediu menos movimento ficam só no pôster
-  // (que é o primeiro quadro do vídeo) e nunca chegam a baixar o arquivo.
-  const [showVideo, setShowVideo] = useState(false);
+  // Vídeo em qualquer tamanho de tela; só quem pede menos movimento
+  // (prefers-reduced-motion) fica no pôster parado.
+  const [showVideo, setShowVideo] = useState(!prefersReducedMotion);
   // Começa pausado e só vira "tocando" quando o navegador confirma; se o
   // autoplay for bloqueado (modo economia, por exemplo), o botão já mostra play.
   const [isPaused, setIsPaused] = useState(true);
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      setShowVideo(false);
-      return;
-    }
-    const query = window.matchMedia("(min-width: 768px)");
-    const sync = () => setShowVideo(query.matches);
-    sync();
-    query.addEventListener("change", sync);
-    return () => query.removeEventListener("change", sync);
+    setShowVideo(!prefersReducedMotion);
   }, [prefersReducedMotion]);
 
   const togglePause = () => {
