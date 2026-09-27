@@ -65,14 +65,24 @@ const Quiz = () => {
     setStage("ask");
   };
 
-  const handleLeadSubmit = (values: LeadFormValues) => {
-    setLead(values);
-    setStage("done");
-  };
-
   const resultId = getQuizResultId(answers);
   const result = QUIZ_RESULTS[resultId];
   const nextStep = QUIZ_NEXT_STEP_TEXT[getNextStepVariant(answers[3] ?? "")];
+
+  // O diagnóstico não salva o lead em lugar nenhum — o WhatsApp é o único
+  // registro que sobra. Abre sozinho ao enviar, mesmo tratamento do
+  // contact-form.tsx, em vez de esperar o segundo clique no botão da tela de
+  // resultado (que aqui tem conteúdo de verdade pra ler, então o clique
+  // continua disponível como reforço, não como único caminho).
+  const handleLeadSubmit = (values: LeadFormValues) => {
+    setLead(values);
+    setStage("done");
+    window.open(
+      waLink(`Olá! Sou ${getFirstName(values.nome)} e acabei de fazer o diagnóstico no site. Resultado: ${result.title}`),
+      "_blank",
+      "noopener,noreferrer",
+    );
+  };
 
   return (
     <section className="md:pt-20 xl:pt-32 pt-12 bg-background" id="diagnostico">

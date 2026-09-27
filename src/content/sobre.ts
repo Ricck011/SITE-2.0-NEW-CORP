@@ -71,7 +71,6 @@ export const SOBRE_FACTS: SobreFact[] = [
 export const SOBRE_PROOF_TITLE = "O sistema que eu vendo é o que eu uso";
 export const SOBRE_PROOF_BODY =
   "O painel de clientes, projetos e financeiro da própria NEW CORP foi construído por mim e roda todos os meus projetos. Quando eu digo que o fluxo funciona, é porque é nele que eu lanço a minha própria conta no fim do mês.";
-export const SOBRE_PROOF_CTA = "Ver o painel por dentro";
 
 export const SOBRE_CTA_TITLE = "Vamos conversar?";
 export const SOBRE_CTA_LEDE =

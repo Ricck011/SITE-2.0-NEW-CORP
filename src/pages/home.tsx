@@ -6,10 +6,8 @@ import { appConfig } from "@/utils/app-config";
 import { lazy, Suspense } from "react";
 
 // Lazy load below-the-fold components for code splitting
-const CoreFeatures = lazy(() => import("@/components/sections/home/core-features"));
 const Integrations = lazy(() => import("@/components/sections/home/integrations"));
 const BusinessAccount = lazy(() => import("@/components/sections/home/business-account"));
-const MobileApp = lazy(() => import("@/components/sections/home/mobile-app"));
 const SecurityCompliance = lazy(() => import("@/components/sections/home/security-compliance"));
 const Assistant = lazy(() => import("@/components/sections/home/assistant"));
 const Quiz = lazy(() => import("@/components/sections/home/quiz"));
@@ -43,12 +41,6 @@ const Home = () => {
         <Features />
         <Suspense fallback={null}>
           <Integrations />
-        </Suspense>
-        <Suspense fallback={null}>
-          <CoreFeatures />
-        </Suspense>
-        <Suspense fallback={null}>
-          <MobileApp />
         </Suspense>
         <Suspense fallback={null}>
           <BusinessAccount />

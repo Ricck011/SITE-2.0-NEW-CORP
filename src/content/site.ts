@@ -13,7 +13,6 @@ export function waLink(message?: string): string {
 export const NAV_LINKS = [
   { label: "Serviços", href: "/servicos" },
   { label: "Sobre", href: "/sobre" },
-  { label: "Cases", href: "/#cases" },
   { label: "Diagnóstico", href: "/#diagnostico" },
   { label: "Assistente", href: "/#assistente" },
 ] as const;
@@ -22,7 +21,6 @@ export const FOOTER_PAGE_LINKS = [
   { label: "Sobre", href: "/sobre" },
   { label: "Soluções", href: "/servicos" },
   { label: "Como funciona", href: "/servicos#como-funciona" },
-  { label: "Cases", href: "/#cases" },
   { label: "Diagnóstico", href: "/#diagnostico" },
 ] as const;
 
