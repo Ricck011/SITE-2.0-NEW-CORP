@@ -57,6 +57,22 @@ const ContactForm = () => {
     },
   });
 
+  // O formulário não salva o lead em lugar nenhum (sem backend nesta SPA) — o
+  // WhatsApp é o único registro que sobra. Por isso abre sozinho ao enviar,
+  // em vez de esperar um segundo clique que a pessoa pode nunca dar.
+  function handleSubmit(values: ContactFormValues) {
+    setSent(values);
+    window.open(
+      waLink(
+        `Olá! Sou ${getFirstName(values.nome)} e acabei de pedir um protótipo no site${
+          values.interesse ? `. Interesse: ${values.interesse}` : ""
+        }`,
+      ),
+      "_blank",
+      "noopener,noreferrer",
+    );
+  }
+
   return (
     <section className="md:pt-20 xl:pt-32 pt-12 bg-background" id="contato">
       <Container className="space-y-10">
@@ -102,7 +118,7 @@ const ContactForm = () => {
               </div>
             ) : (
               <Form {...form}>
-                <form onSubmit={form.handleSubmit((values) => setSent(values))} className="space-y-5">
+                <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-5">
                   <FormField
                     control={form.control}
                     name="nome"
