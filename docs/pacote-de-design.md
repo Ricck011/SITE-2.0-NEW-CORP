@@ -25,7 +25,6 @@ Tirada de `src/index.css`, que já passa contraste. Valores finais conferidos co
   --text-secondary:#a0abb8;/* 8,46:1 */
   --accent:#00c8fd;        /* botão, foco e uma ou duas ênfases; 10:1 */
   --accent-hover:#5cdcff;
-  --accent-muted:#00c8fd26;/* brilhos, bordas acesas, partículas */
   --violet:#8b2af1;        /* só em luz, degradê e decoração: 3,5:1 não serve para texto */
   --on-accent:#0a0824;     /* texto do botão sobre azul sólido */
 }
@@ -232,7 +231,7 @@ Como acende: as três recomendações surgem uma por vez (escalonamento de 120 m
 - **Palco de luz do topo:** atrás do vídeo, luz azul pela esquerda, roxa pela direita e uma poça de luz no chão, feitas em CSS. É o que aparece enquanto o vídeo não existe, se ele falhar e no topo parado.
 - **Ambiente fixo:** duas luzes suaves (azul à esquerda, roxa à direita) que derivam num ciclo de 70 s. Só `transform` e `opacity`. Sem grão: o piso da impeccable trata grão de ruído como amador.
 - **Um elemento vivo por seção, em nível de sussurro:** frentes, o nó de cada fileira pulsa; diagnóstico, o anel do contador; como funciona, o nó do passo; quem faz, a linha da prova; dúvidas, a seta do `details` gira; contato, o nó final do fio. O brilho colorido no botão saiu: o detector da impeccable marca halo colorido como decoração.
-- **Ícones:** sprite SVG inline com os lucide em uso, tirado de `node_modules/lucide-react` antes de apagar o React. `aria-hidden="true"` em tudo que é decoração.
+- **Ícones:** nenhum. A página não precisou de ícone: as setas do FAQ e os nós do fio são CSS. O sprite lucide previsto saiu (ponytail).
 - **Entradas:** um IntersectionObserver põe `.in` uma vez; só `opacity` e `transform`; conteúdo visível sem JS; nenhum `blur` animado.
 
 ## 8. Lista de engenharia

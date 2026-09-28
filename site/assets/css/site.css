@@ -12,9 +12,9 @@
   --field:#626c7a;
   --text-primary:#ecf1f5;
   --text-secondary:#a0abb8;
+  --text-on-stage:#d5dce3;/* subtítulos sobre o vídeo e o palco, sempre com --tshadow */
   --accent:#00c8fd;
   --accent-hover:#5cdcff;
-  --accent-muted:#00c8fd26;
   --violet:#8b2af1;
   --on-accent:#0a0824;
   --danger:#ff5a64;
@@ -125,7 +125,7 @@ input,select{caret-color:var(--accent)}
 .band-3{left:50%;top:46%;width:min(820px,90vw);transform:translateX(-50%);text-align:center}
 .band-title{font-weight:600;font-size:clamp(2.75rem,1.2rem + 4.4vw,5.5rem);line-height:1.02;letter-spacing:-.025em;max-width:14ch}
 .band-3 .band-title{margin-inline:auto;font-size:clamp(2.25rem,1rem + 3.2vw,4rem);max-width:17ch}
-.band-sub{margin-top:20px;font-size:clamp(1.125rem,1rem + .5vw,1.375rem);color:#d5dce3;max-width:38ch}
+.band-sub{margin-top:20px;font-size:clamp(1.125rem,1rem + .5vw,1.375rem);color:var(--text-on-stage);max-width:38ch}
 /* O título fica dentro do portal escuro; o subtítulo desce para depois da faixa clara do chão */
 .band-3 .band-sub{margin:15vh auto 0}
 .band-cta{margin-top:28px}
@@ -143,7 +143,7 @@ input,select{caret-color:var(--accent)}
 
 .hero-static{display:var(--still);position:absolute;left:0;right:0;bottom:0;padding:0 16px max(40px,7svh)}
 .hero-static h1{font-size:clamp(2.5rem,1rem + 3.6vw,4rem);line-height:1.02;letter-spacing:-.025em;max-width:12ch;text-shadow:var(--tshadow)}
-.hero-static .hero-sub{margin:18px 0 26px;font-size:1.125rem;color:#d5dce3;max-width:36ch;text-shadow:var(--tshadow)}
+.hero-static .hero-sub{margin:18px 0 26px;font-size:1.125rem;color:var(--text-on-stage);max-width:36ch;text-shadow:var(--tshadow)}
 @media (min-width: 720px){.hero-static{padding:0 max(32px,calc((100vw - 1180px)/2)) 10svh}}
 @media (min-width: 721px){.hero-static h1{max-width:none}}
 @media (orientation: portrait){.hero-logo{left:50%;top:30%;width:min(50vw,320px)}}
