@@ -14,7 +14,7 @@ O JavaScript do site é do tipo "módulo" e não roda quando você dá dois cliq
    ```powershell
    python -m http.server 8083 -d site
    ```
-   Confira: aparece `Serving HTTP on :: port 8083`.
+   Confira: aparece uma linha começando com `Serving HTTP` e com `8083`.
 3. No Chrome, abra `http://localhost:8083`.
 4. No celular, no mesmo Wi-Fi de casa, abra `http://<IP do computador>:8083`. O IP aparece no comando `ipconfig`, na linha "Endereço IPv4". Se o Windows perguntar sobre o firewall do Python, clique em Permitir.
 5. Para desligar o servidor, aperte `Ctrl+C` no PowerShell.
