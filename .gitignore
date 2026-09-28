@@ -13,6 +13,11 @@ dist-ssr
 *.local
 .env
 
+# Site estático: brutos de vídeo, quadros de auditoria e acesso da hospedagem
+midia-bruta/
+site/assets/audit/
+hostgator.env
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
