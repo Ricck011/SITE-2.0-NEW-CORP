@@ -21,22 +21,54 @@ menu?.addEventListener("click", (e) => {
   if (e.target.closest("a") && menu.matches(":popover-open")) menu.hidePopover();
 });
 
-// O fio: acompanha a rolagem de Frentes até o contato.
+// O fio: desce de Frentes até a altura do botão do contato, acende um nó por seção,
+// liga na linha dos passos e dobra para a direita até o formulário.
 const trilho = document.querySelector(".trilho");
-if (trilho) {
-  let last = -1, raf = 0;
+const fio = trilho?.querySelector(".fio");
+if (fio) {
+  const card = trilho.querySelector(".form-card");
+  const steps = trilho.querySelector(".steps");
+  // Nó na altura do título de cada seção; em Como funciona, na linha dos passos.
+  // O título de Frentes gruda no topo, então a medida vem do bloco que não gruda.
+  const anchors = [...trilho.querySelectorAll("section")].map((s) => {
+    const h2 = s.querySelector("h2");
+    return s.querySelector(".steps") || { box: h2.closest(".frentes") ? h2.closest(".wrap") : h2, h2 };
+  });
+  const make = (cls) => fio.appendChild(Object.assign(document.createElement("i"), { className: cls }));
+  const nodes = anchors.map(() => make("no"));
+  make("fim");
+  let len = 0, tops = [], last = -1, raf = 0;
+
+  const measure = () => {
+    const t = trilho.getBoundingClientRect();
+    const f = fio.getBoundingClientRect();
+    const btn = [...card.querySelectorAll(".btn")].find((b) => b.offsetParent) || card;
+    const b = btn.getBoundingClientRect();
+    len = b.top + b.height / 2 - t.top;
+    fio.style.bottom = "auto";
+    fio.style.height = `${len}px`;
+    fio.style.setProperty("--reach", `${Math.max(0, card.getBoundingClientRect().left - f.left)}px`);
+    steps?.style.setProperty("--gap", `${Math.max(0, steps.getBoundingClientRect().left - f.left)}px`);
+    tops = anchors.map((a) => a.h2
+      ? a.box.getBoundingClientRect().top - t.top + parseFloat(getComputedStyle(a.h2).fontSize) * 0.54
+      : a.getBoundingClientRect().top - t.top);
+    nodes.forEach((n, i) => { n.style.top = `${tops[i]}px`; });
+    last = -1;
+    draw();
+  };
   const draw = () => {
     raf = 0;
-    const r = trilho.getBoundingClientRect();
-    const p = clamp((innerHeight * 0.65 - r.top) / r.height, 0, 1);
+    const tip = clamp(innerHeight * 0.65 - trilho.getBoundingClientRect().top, 0, len);
+    const p = len ? tip / len : 0;
     if (Math.abs(p - last) < 0.002) return;
     last = p;
-    trilho.style.setProperty("--p", p.toFixed(3));
+    fio.style.setProperty("--p", p.toFixed(3));
+    nodes.forEach((n, i) => n.classList.toggle("on", tip >= tops[i]));
+    fio.classList.toggle("done", p > 0.995);
   };
   const ask = () => { raf ||= requestAnimationFrame(draw); };
   addEventListener("scroll", ask, { passive: true });
-  addEventListener("resize", ask);
-  draw();
+  new ResizeObserver(measure).observe(trilho);
 }
 
 // Diagnóstico e formulário dividem o resultado: o diagnóstico vai junto na mensagem.

@@ -224,9 +224,10 @@ Como acende: as três recomendações surgem uma por vez (escalonamento de 120 m
 
 ## 7. Camada vetorial e ambiente
 
-- **Elemento assinatura, "o fio":** uma linha fina vertical, azul descendo para roxo, que se traça com a rolagem da borda esquerda de `#frentes` até o botão do formulário, com um nó aceso em cada seção. Nos passos de "Como funciona" ela vira a linha que liga 01 a 04. Teste de volume: sem o fio, a página perde a sensação de uma estrutura só do topo ao contato. Movimento reduzido: o fio aparece inteiro, parado.
-- **Ambiente fixo:** duas luzes suaves (azul à esquerda, roxa à direita) que derivam num ciclo de 70 s, mais grão leve. Só `transform` e `opacity`.
-- **Um elemento vivo por seção, em nível de sussurro:** frentes, o número da fileira acende quando ela entra; diagnóstico, o anel do contador; como funciona, o nó do passo; quem faz, um brilho lento na borda da tela do painel; dúvidas, o ícone do `details` gira; contato, a borda do botão respira.
+- **Elemento assinatura, "o fio":** uma linha fina vertical, azul descendo para roxo, que se traça com a rolagem da borda esquerda de `#frentes` até a altura do botão do formulário e ali dobra para a direita até o cartão do contato, onde um nó final pulsa. Tem um nó por seção, na altura do título, que acende quando a ponta do traço passa. Em "Como funciona" o fio encosta na linha dos passos e segue por ela de 01 a 04. Teste de volume: sem o fio, a página perde a sensação de uma estrutura só do topo ao contato. Movimento reduzido: o fio aparece inteiro, parado, com os nós acesos.
+- **Palco de luz do topo:** atrás do vídeo, luz azul pela esquerda, roxa pela direita e uma poça de luz no chão, feitas em CSS. É o que aparece enquanto o vídeo não existe, se ele falhar e no topo parado.
+- **Ambiente fixo:** duas luzes suaves (azul à esquerda, roxa à direita) que derivam num ciclo de 70 s. Só `transform` e `opacity`. Sem grão: o piso da impeccable trata grão de ruído como amador.
+- **Um elemento vivo por seção, em nível de sussurro:** frentes, o nó de cada fileira pulsa; diagnóstico, o anel do contador; como funciona, o nó do passo; quem faz, a linha da prova; dúvidas, a seta do `details` gira; contato, o nó final do fio. O brilho colorido no botão saiu: o detector da impeccable marca halo colorido como decoração.
 - **Ícones:** sprite SVG inline com os lucide em uso, tirado de `node_modules/lucide-react` antes de apagar o React. `aria-hidden="true"` em tudo que é decoração.
 - **Entradas:** um IntersectionObserver põe `.in` uma vez; só `opacity` e `transform`; conteúdo visível sem JS; nenhum `blur` animado.
 
@@ -257,3 +258,4 @@ Cada linha para o visitante acima embarca ao pé da letra. O `index.html` constr
 - Os 10 dias úteis valem para marca e página; sistema de gestão tem prazo próprio, combinado no orçamento (Pedro, 28/09). O título de "Como funciona" e o passo 04 dizem isso.
 - "Recebido, te chamo em até 24h" saiu: prazo de resposta é política ainda não confirmada.
 - "a gente" saiu: o estúdio é uma pessoa só.
+- Os rótulos "01 · Marca", "02 · Web" e "03 · Sistema" acima dos títulos das frentes e o "Seu resultado" acima do resultado do diagnóstico saíram: o piso da impeccable proíbe rótulo acima de título. O nome da frente continua no título dela.
