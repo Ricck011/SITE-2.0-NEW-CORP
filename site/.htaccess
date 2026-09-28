@@ -1,0 +1,7 @@
+# Endereços antigos do site em React viraram seções da página única.
+# NE mantém o # do destino sem virar %23.
+RewriteEngine On
+RewriteRule ^sobre/?$ /#quem-faz [R=301,NE,L]
+RewriteRule ^servicos/?$ /#frentes [R=301,NE,L]
+
+ErrorDocument 404 /404.html
