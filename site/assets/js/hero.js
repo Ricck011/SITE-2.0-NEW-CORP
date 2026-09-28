@@ -2,10 +2,10 @@
 // Sem vídeo, as faixas e a logo continuam guiadas pela rolagem sobre o ambiente da marca.
 import { approach, bandK, bandOpacity, rng } from "./lib.js";
 
-// Preencher depois do portão do vídeo. VIDEO_BYTES é o tamanho real do arquivo (conferido em testes/).
-export const VIDEO_URL = null;
-export const VIDEO_BYTES = 0;
-const POSTER_URL = null;
+// Vídeo aprovado no portão (Veo 3.1, 28/09). VIDEO_BYTES é o tamanho real do arquivo (conferido em testes/).
+export const VIDEO_URL = "assets/video/hero-scrub.mp4";
+export const VIDEO_BYTES = 6104132;
+const POSTER_URL = "assets/img/hero-inicio.webp";
 
 // Iguais, caractere por caractere, à media query dos portões em assets/css/site.css
 export const GATES = [

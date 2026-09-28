@@ -107,7 +107,7 @@ input,select{caret-color:var(--accent)}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:translateZ(0);transition:opacity .6s var(--ease)}
 .video-ready .hero-video{opacity:1}
 .scrim{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 120% 90% at 50% 45%,rgba(9,11,14,0) 35%,rgba(9,11,14,.62) 100%),linear-gradient(rgba(9,11,14,0) 72%,var(--canvas))}
-.hero-logo{--o:max(var(--kl,0),var(--static));position:absolute;left:calc(50% + var(--static)*26%);top:calc(38% + var(--static)*12%);width:min(calc(28vw - var(--static)*6vw),340px);height:auto;opacity:var(--o);transform:translate(-50%,-50%) translateY(calc((1 - var(--o))*48px)) scale(calc(.9 + .1*var(--o)));filter:drop-shadow(0 28px 40px rgba(0,0,0,.55));will-change:transform,opacity}
+.hero-logo{--o:max(var(--kl,0),var(--static));position:absolute;left:calc(50% + var(--static)*26%);top:calc(31% + var(--static)*19%);width:min(21vw,290px);height:auto;opacity:var(--o);transform:translate(-50%,-50%) translateY(calc((1 - var(--o))*48px)) scale(calc(.9 + .1*var(--o)));filter:drop-shadow(0 28px 40px rgba(0,0,0,.55));will-change:transform,opacity}
 .hero-ring{position:absolute;right:24px;bottom:24px;width:36px;height:36px;color:var(--accent);transition:opacity .4s var(--ease)}
 .hero-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
 .hero-ring circle{fill:none;stroke:currentColor;stroke-width:3;stroke-dasharray:107;stroke-dashoffset:var(--ld,107)}
@@ -116,13 +116,18 @@ input,select{caret-color:var(--accent)}
 .hero-bands{display:var(--scrub);position:sticky;top:0;height:100vh;height:100svh;margin-top:-100vh;margin-top:-100svh;pointer-events:none}
 .band{position:absolute;opacity:0;visibility:hidden;text-shadow:var(--tshadow)}
 .band::before{content:"";position:absolute;inset:-22% -14%;z-index:-1;pointer-events:none;opacity:calc(.25 + .75*var(--k,1));background:radial-gradient(closest-side,rgba(5,5,10,.66) 0%,rgba(5,5,10,.44) 46%,rgba(5,5,10,0) 96%)}
-.band-1,.band-2{left:max(32px,calc((100vw - 1180px)/2));bottom:13vh;width:min(880px,64vw)}
+.band-1,.band-2{left:max(9vw,calc((100vw - 1180px)/2));bottom:13vh;width:min(880px,64vw)}
+/* Nas faixas 1 e 2 o neon do vídeo passa pela esquerda do texto: a sombra nasce ancorada ali */
+.band-1::before,.band-2::before{inset:-45% -25% -45% -60%;background:radial-gradient(closest-side,rgba(5,5,10,.88) 0%,rgba(5,5,10,.78) 40%,rgba(5,5,10,.36) 70%,rgba(5,5,10,0) 96%)}
+/* Faixa 3: a faixa clara do chão passa atrás do subtítulo; a sombra é mais funda que nas outras */
+.band-3::before{background:radial-gradient(closest-side,rgba(5,5,10,.84) 0%,rgba(5,5,10,.66) 46%,rgba(5,5,10,0) 96%)}
 .band-1 .band-title{max-width:none;font-size:clamp(2.75rem,1rem + 3.6vw,4.75rem)}
-.band-3{left:50%;top:60%;width:min(820px,90vw);transform:translateX(-50%);text-align:center}
+.band-3{left:50%;top:46%;width:min(820px,90vw);transform:translateX(-50%);text-align:center}
 .band-title{font-weight:600;font-size:clamp(2.75rem,1.2rem + 4.4vw,5.5rem);line-height:1.02;letter-spacing:-.025em;max-width:14ch}
 .band-3 .band-title{margin-inline:auto;font-size:clamp(2.25rem,1rem + 3.2vw,4rem);max-width:17ch}
 .band-sub{margin-top:20px;font-size:clamp(1.125rem,1rem + .5vw,1.375rem);color:#d5dce3;max-width:38ch}
-.band-3 .band-sub{margin-inline:auto}
+/* O título fica dentro do portal escuro; o subtítulo desce para depois da faixa clara do chão */
+.band-3 .band-sub{margin:15vh auto 0}
 .band-cta{margin-top:28px}
 .band .btn{pointer-events:auto;text-shadow:none}
 .band .w,.band .c{display:inline-block}
@@ -147,7 +152,7 @@ input,select{caret-color:var(--accent)}
 
 /* O fio: a assinatura. Vai de Frentes até o botão do contato e se traça com a rolagem */
 .trilho{position:relative}
-.fio{position:absolute;top:0;bottom:0;left:max(7px,calc((100% - 1180px)/2 - 40px));width:1px;background:var(--line);pointer-events:none}
+.fio{position:absolute;z-index:1;top:0;bottom:0;left:max(7px,calc((100% - 1180px)/2 - 40px));width:1px;background:var(--line);pointer-events:none}
 /* Trecho final: dobra para a direita e entrega a pessoa no botão */
 .fio::after{content:"";position:absolute;left:0;top:100%;width:var(--reach,0px);height:1px;background:linear-gradient(90deg,var(--violet),var(--accent));transform-origin:left;transform:scaleX(0);transition:transform .9s var(--ease)}
 .fio.done::after{transform:scaleX(1)}
@@ -270,7 +275,12 @@ html:not(.js) [data-back]{display:none}
 
 /* Contato */
 .contact{isolation:isolate;overflow:hidden}
-.contact-bg{position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse 55% 70% at 82% 60%,rgba(139,42,241,.18),transparent 70%),radial-gradient(ellipse 45% 60% at 12% 35%,rgba(0,200,253,.1),transparent 70%)}
+/* O quadro final do vídeo: o portal de luz onde a jornada do topo termina */
+.contact-bg{position:absolute;inset:0;z-index:-1}
+.contact-bg img{width:100%;height:100%;object-fit:cover;object-position:62% 50%;opacity:.4}
+.contact-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(var(--canvas),rgba(9,11,14,0) 28%,rgba(9,11,14,0) 70%,var(--canvas)),linear-gradient(rgba(9,11,14,.7),rgba(9,11,14,.7))}
+/* No computador o texto fica à esquerda: o portal aparece só do lado do formulário */
+@media (min-width: 1000px){.contact-bg img{opacity:.55}.contact-bg::after{background:linear-gradient(var(--canvas),rgba(9,11,14,0) 26%,rgba(9,11,14,0) 72%,var(--canvas)),linear-gradient(90deg,var(--canvas) 0%,rgba(9,11,14,.92) 38%,rgba(9,11,14,.35) 56%,rgba(9,11,14,0) 70%)}}
 .contact-grid{display:grid;gap:40px}
 @media (min-width: 1000px){.contact-grid{grid-template-columns:minmax(0,5fr) minmax(0,6fr);column-gap:72px;align-items:center}}
 .contact h2{max-width:14ch}

@@ -53,15 +53,19 @@ Conceitos que ficaram de reserva (se D falhar três vezes no vídeo, troca-se o 
 
 | Faixa | Intervalo (partida) | Momento da filmagem (conceito D) | Texto (ao pé da letra) | Entrada |
 |---|---|---|---|---|
-| 1 | 0,00 a 0,30 | Névoa escura, as duas luzes acendem nas bordas | Título: "Arte que chama. Sistema que sustenta." Subtítulo: "Marca que passa confiança, página que traz contato e um painel para largar a planilha." | (f) deriva para baixo, montada no carregamento (`max(scrollK, loadK)`) |
-| 2 | 0,36 a 0,64 | A descida atravessa a névoa, luz azul e roxa dos dois lados | Título: "Quem atende é quem faz." Subtítulo: "Marca, página e sistema feitos pela mesma pessoa, do primeiro papo à entrega." | (b) alinhamento em grade |
-| 3 | 0,70 a 1,00 | Chegada ao palco de luz; a logo NC real sobe e pousa no centro | Título: "Antes de fechar, você vê uma tela pronta." Subtítulo: "Desenho uma tela real do seu projeto, sem custo e sem compromisso." Botão: "Quero meu protótipo" | (e) subida palavra por palavra, depois subtítulo, depois botão |
+| 1 | 0,00 a 0,28 | Névoa escura, as duas luzes acendem nas bordas | Título: "Arte que chama. Sistema que sustenta." Subtítulo: "Marca que passa confiança, página que traz contato e um painel para largar a planilha." | (f) deriva para baixo, montada no carregamento (`max(scrollK, loadK)`) |
+| 2 | 0,32 a 0,58 | A descida atravessa a névoa, luz azul e roxa dos dois lados | Título: "Quem atende é quem faz." Subtítulo: "Marca, página e sistema feitos pela mesma pessoa, do primeiro papo à entrega." | (b) alinhamento em grade |
+| 3 | 0,66 a 1,00 | Chegada ao palco de luz; a logo NC real sobe e pousa no centro | Título: "Antes de fechar, você vê uma tela pronta." Subtítulo: "Desenho uma tela real do seu projeto, sem custo e sem compromisso." Botão: "Quero meu protótipo" | (e) subida palavra por palavra, depois subtítulo, depois botão |
+
+**Vídeo aprovado no portão (28/09):** Veo 3.1, 6 s, 1080p, a partir da imagem inicial B (o poço de aço). A câmera desce o poço e, entre 3,0 s e 3,8 s, a imagem se dissolve numa sala escura com um **portal de luz** azul para roxo sobre o chão iluminado. A logo NC pousa dentro do portal. O Pedro aprovou com esse dissolve. Custo: 320 créditos na imagem e 1.500 no vídeo.
+
+**Ajustes depois da auditoria do pior quadro (todas as faixas com 3,5:1 ou mais em 1280, 1440 e 1920 px):** as faixas foram recalibradas para 0,00 a 0,28, 0,32 a 0,58 e 0,66 a 1,00, e o dissolve passa sem texto. Nas faixas 1 e 2 a sombra atrás do texto nasce ancorada à esquerda, onde o neon do vídeo passa. Na faixa 3 a logo sobe para 31% da altura, o título fica dentro do portal escuro e o subtítulo desce para depois da faixa clara do chão. O teste de flick passou: 6, 6 e 10 flicks de 120 px com cada faixa cheia, e nenhuma faixa pulada em 360 px.
 
 Rampas: `f = min(0,02, (b - a) / 3)`. A logo da faixa 3 usa o mesmo `--k` da faixa: `opacity` e `transform: translateY + scale` só, e desmonta ao rolar para cima.
 
 ## 5. Topo parado (celular, tablet em pé, movimento reduzido)
 
-Fundo: o quadro final do vídeo em `object-fit: cover`. A logo NC real fica por cima como elemento da página, não gravada na imagem, então nunca é cortada no retrato e fica inteira e legível em 375 px. Esse topo parado é mostrado ao Pedro no mesmo portão do vídeo. Sem vídeo no celular: decisão do Portão 1. Até o vídeo existir, o fundo é o ambiente da marca (a logo parada sobre as duas luzes).
+Fundo: o palco de luz em CSS (azul à esquerda, roxo à direita, poça no chão), com a logo NC real por cima como elemento da página. O quadro final do vídeo não entra aqui: cortado em retrato ele mostraria só o miolo escuro do portal, sem as barras de luz, e pesaria mais no 4G. A logo nunca é cortada e fica inteira em 375 px. Sem vídeo no celular: decisão do Portão 1. O quadro final do vídeo fica como fundo da seção de contato.
 
 - Título: "Arte que chama. Sistema que sustenta."
 - Subtítulo: "Marca, página e sistema para pequena empresa, feitos por uma pessoa só. Antes de fechar, você vê uma tela do seu projeto, sem custo."
