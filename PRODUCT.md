@@ -23,7 +23,7 @@ Site institucional da NEW CORP STUDIO, estúdio de uma pessoa só (Pedro Henriqu
 - Uma pessoa só faz as três frentes: marca, página e sistema.
 - Veio de três anos de vendas na indústria e fala sem termo técnico.
 - Mostra um protótipo de uma tela, sem custo, antes de qualquer contrato.
-- Entrega em até 10 dias úteis do primeiro papo ao ar.
+- Marca e página no ar em até 10 dias úteis do primeiro papo. Sistema de gestão tem prazo próprio, combinado no orçamento.
 - O cliente fica dono de arquivos, código e acessos.
 - O painel que vende é o mesmo que usa para tocar o próprio estúdio.
 

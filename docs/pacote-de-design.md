@@ -61,7 +61,7 @@ Rampas: `f = min(0,02, (b - a) / 3)`. A logo da faixa 3 usa o mesmo `--k` da fai
 
 ## 5. Topo parado (celular, tablet em pé, movimento reduzido)
 
-Imagem: o quadro final com a logo NC real composta por cima (ffmpeg `overlay`, sem crédito). Sem vídeo no celular: decisão do Portão 1.
+Fundo: o quadro final do vídeo em `object-fit: cover`. A logo NC real fica por cima como elemento da página, não gravada na imagem, então nunca é cortada no retrato e fica inteira e legível em 375 px. Esse topo parado é mostrado ao Pedro no mesmo portão do vídeo. Sem vídeo no celular: decisão do Portão 1. Até o vídeo existir, o fundo é o ambiente da marca (a logo parada sobre as duas luzes).
 
 - Título: "Arte que chama. Sistema que sustenta."
 - Subtítulo: "Marca, página e sistema para pequena empresa, feitos por uma pessoa só. Antes de fechar, você vê uma tela do seu projeto, sem custo."
@@ -149,11 +149,11 @@ Como acende: as três recomendações surgem uma por vez (escalonamento de 120 m
 
 ### 6.3 `#como-funciona`, quatro passos no fio
 
-- Título: "Do primeiro papo ao ar em 10 dias úteis."
+- Título: "Marca e página no ar em até 10 dias úteis."
 - "01", "Conversa de 20 minutos": "Você conta como a empresa funciona hoje e o que está travando. Sem briefing longo nem formulário gigante."
 - "02", "Protótipo de uma tela": "Desenho uma tela real do seu projeto: a página inicial, o painel, o que fizer mais sentido. Sem custo e sem compromisso."
 - "03", "Produção": "Aprovado o rumo, entra a produção: arte, página e sistema na mesma linha visual."
-- "04", "No ar em até 10 dias úteis": "Entrega publicada, com você sabendo mexer. Ajustes da primeira semana já estão inclusos."
+- "04", "No ar em até 10 dias úteis": "Marca e página publicadas, com você sabendo mexer. Sistema de gestão tem prazo próprio, combinado no orçamento. Ajustes da primeira semana já estão inclusos."
 
 ### 6.4 `#quem-faz`, história e prova lado a lado
 
@@ -254,5 +254,6 @@ Cada linha para o visitante acima embarca ao pé da letra. O `index.html` constr
 - "Landing page", "Formulário de leads" e "Integração WhatsApp" viraram o resultado ("Página que traz contato", "Formulário que chega no seu WhatsApp", "Botão que abre a conversa pronta"): regra de jargão da auditoria. A entrega "Landing page" virou "Página única". Continuam doze entregas.
 - Os resultados do diagnóstico perderam o "{nome}" (o diagnóstico não pede mais nome) e as promessas de contato que o site não cumpre ("te chamo hoje").
 - "Prazo curto, e dito na cara" virou "Prazo dito na cara" e deixou de repetir os 10 dias, que já estão em "Como funciona".
+- Os 10 dias úteis valem para marca e página; sistema de gestão tem prazo próprio, combinado no orçamento (Pedro, 28/09). O título de "Como funciona" e o passo 04 dizem isso.
 - "Recebido, te chamo em até 24h" saiu: prazo de resposta é política ainda não confirmada.
 - "a gente" saiu: o estúdio é uma pessoa só.

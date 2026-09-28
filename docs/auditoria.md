@@ -14,6 +14,12 @@ Feita em 27/09/2026 sobre o app React (branch `claude/site-newcorp`, rodando em 
 - A prova do site são **telas do painel interno da NEW CORP**, regeradas em azul e roxo com **dados de demonstração** (nunca dados reais de cliente). O case Game Brothers não está autorizado. Sem foto do Pedro por enquanto.
 - O vídeo do topo é gerado pelo **conector da Artlist** (plano pago do Pedro). A Higgsfield conectada está no plano grátis. O custo é mostrado antes de cada gasto.
 - Marca fixa: preto frio, azul `#00c8fd`, roxo `#8b2af1`, logo 3D metálica "NC". Preço nunca aparece no site.
+- **Portão 1 (28/09):** vídeo no conceito D (a logo NC real pousa pela camada da página, nunca gerada), IBM Plex Sans e IBM Plex Mono, topo parado no celular, texto do `docs/pacote-de-design.md` aprovado ao pé da letra. Os 10 dias úteis valem para marca e página; sistema tem prazo próprio.
+- **Prints do painel:** capturados do sistema real (`STUDIO NEW CORP\sistema`) rodando nesta máquina com dados de demonstração, recoloridos em azul e roxo só na hora da captura, sem editar o sistema. Nunca gerados por IA, nunca tirados de `sistema\docs\preview` nem do Supabase real, e sem nenhum `R$` ou nome de empresa real legível. Sem captura aprovada, a seção de prova fica com o lugar reservado e a captura vira tarefa separada com o Pedro: não gaste a sessão montando um Supabase de mentira.
+- **Andaime do topo:** a logo NC parada sobre o fundo da marca. O vídeo antigo (`public/videos/hero-neural.*`) e o pôster dele, com feixes dourados, nunca entram, nem como andaime.
+- **Git:** nunca push no remoto `lovable` (desativado de propósito, não reative) e nunca merge em `main`. O React sai só na branch `claude/site-10k`, e o PR fica para o Pedro.
+- **Prévia:** sempre por `http://localhost`, com o servidor rodando dentro de `site/`. O JS é módulo ES e não roda no duplo clique do `index.html`.
+- Vídeo bruto, vídeo de revisão e quadros de auditoria ficam só em `midia-bruta/`, que o git ignora.
 
 ## 2. O que preservar do site antigo (texto aprovado)
 
@@ -43,7 +49,9 @@ Fonte dos textos: `src/content/*.ts`, que vai para o histórico quando o React s
 | Acessibilidade | Títulos feitos com `div`, header e footer dentro do `main`, sem link de pular, rótulos em inglês ("Main", "Close"), campos só com placeholder, dois estilos de foco, alvos de 16 a 40px | Marcos semânticos, link de pular, um h2 real por seção, rótulo visível em cada campo, um estilo de foco, alvos de 44px (campos de 48px) |
 | Jargão | "Formulário de leads", "Integração WhatsApp" e "landing page" sem explicação | Nomear pelo resultado ("formulário que chega no seu WhatsApp", "botão que abre a conversa pronta") |
 | Resíduos | "domínio a definir" à vista, link do GitHub, "Soluções" contra "Serviços", `og:image` apontando para lovable.dev, `head` duplicado (2 descriptions, 2 og:title) | Um `head` estático e limpo, um nome só (NEW CORP STUDIO), `<!-- DEPLOY STEP -->` onde a URL final entra |
-| Peso | Cerca de 620KB de JS para uma página quase estática; Google Fonts bloqueando a renderização com 4 pesos | JS abaixo de 30KB; IBM Plex Sans local em woff2, subconjunto latino, pesos 400 e 600, pré-carregada |
+| Peso | Cerca de 620KB de JS para uma página quase estática; Google Fonts bloqueando a renderização com 4 pesos | JS abaixo de 30KB; IBM Plex Sans local em woff2, subconjunto latino, pesos 400 e 600, pré-carregada, e IBM Plex Mono 500 só nos rótulos |
+| Cor | O azul em 51 e 94 pontos da página (detector) e o roxo só na ponta do degradê | Azul de interface só no botão, no foco e em uma ou duas ênfases; na luz do ambiente e do vídeo, azul e roxo dividem a cena; degradê só na logo e no fio |
+| Sem JS | O conteúdo dependia do JS para aparecer | Com JS desligado a página fica inteira: o esconder das entradas só vale sob a classe `js` no `<html>` |
 
 ## 4. Linguagem real dos clientes
 
