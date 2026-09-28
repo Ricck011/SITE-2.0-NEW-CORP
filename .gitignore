@@ -28,3 +28,6 @@ hostgator.env
 *.njsproj
 *.sln
 *.sw?
+
+# Capturas de revisão da impeccable
+.impeccable/
