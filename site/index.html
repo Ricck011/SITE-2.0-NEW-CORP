@@ -48,7 +48,7 @@
   <div class="hero-stage" inert>
     <video class="hero-video" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
     <div class="scrim"></div>
-    <img class="hero-logo" src="assets/img/nc-emblema-640.webp" width="640" height="559" alt="" fetchpriority="high">
+    <img class="hero-logo" src="assets/img/nc-emblema-640.webp" srcset="assets/img/nc-emblema-400.webp 400w, assets/img/nc-emblema-640.webp 640w" sizes="(max-width: 720px) 260px, 340px" width="640" height="559" alt="" fetchpriority="high">
     <div class="hero-ring" role="presentation"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="17"/></svg></div>
   </div>
 
@@ -80,7 +80,7 @@
 
 <section id="frentes" class="frentes" aria-labelledby="frentes-title">
   <div class="wrap">
-    <header class="sec-head reveal">
+    <header class="sec-head">
       <h2 id="frentes-title">Três frentes. Dá para começar por uma.</h2>
       <p class="lede">Identidade visual, página que traz contato e sistema de gestão. Você pode contratar o pacote inteiro ou só a parte que está travando a sua empresa hoje.</p>
     </header>
@@ -88,7 +88,6 @@
     <ol class="fronts">
       <li class="front reveal">
         <div class="front-head">
-          <p class="kicker">01 · Marca</p>
           <h3>Identidade visual</h3>
         </div>
         <div class="front-body">
@@ -106,7 +105,6 @@
 
       <li class="front reveal">
         <div class="front-head">
-          <p class="kicker">02 · Web</p>
           <h3>Página que traz contato</h3>
         </div>
         <div class="front-body">
@@ -123,7 +121,6 @@
 
       <li class="front reveal">
         <div class="front-head">
-          <p class="kicker">03 · Sistema</p>
           <h3>Sistema de gestão</h3>
         </div>
         <div class="front-body">
@@ -141,18 +138,18 @@
       </li>
     </ol>
 
-    <p class="closer reveal">Doze entregas, nenhuma surpresa.</p>
+    <p class="closer">Doze entregas, nenhuma surpresa.</p>
   </div>
 </section>
 
 <section id="diagnostico" class="diag" aria-labelledby="diag-title">
   <div class="wrap diag-grid">
-    <header class="sec-head reveal">
+    <header class="sec-head">
       <h2 id="diag-title">Descubra por onde começar.</h2>
       <p class="lede">Quatro perguntas, um minuto. O resultado aparece aqui mesmo, sem pedir seu contato.</p>
     </header>
 
-    <div class="quiz-card reveal">
+    <div class="quiz-card">
       <form class="quiz" id="quiz" action="#contato">
         <div class="quiz-top">
           <p class="count mono" aria-live="polite">Pergunta <span data-count>1</span> de 4</p>
@@ -197,7 +194,6 @@
       </form>
 
       <div class="result" id="resultado" tabindex="-1" hidden>
-        <p class="kicker mono">Seu resultado</p>
         <div data-result="presenca" hidden>
           <h3>Comece pela presença: marca e página primeiro.</h3>
           <p>Pelas suas respostas, o gargalo está em ser encontrado e entendido, antes de escalar a operação.</p>
@@ -237,7 +233,7 @@
 
 <section id="como-funciona" class="steps-sec" aria-labelledby="steps-title">
   <div class="wrap">
-    <h2 id="steps-title" class="reveal">Marca e página no ar em até 10 dias úteis.</h2>
+    <h2 id="steps-title">Marca e página no ar em até 10 dias úteis.</h2>
     <ol class="steps">
       <li class="step reveal">
         <span class="step-n mono" aria-hidden="true">01</span>
@@ -266,16 +262,16 @@
 <section id="quem-faz" class="about" aria-labelledby="about-title">
   <div class="wrap about-grid">
     <div class="about-text">
-      <h2 id="about-title" class="reveal">Vim de vendas. Por isso aqui ninguém fala difícil.</h2>
-      <p class="lede reveal">Sou o Pedro Henrique. Toco a NEW CORP STUDIO sozinho, de Cajamar, atendendo toda São Paulo.</p>
-      <div class="story reveal">
+      <h2 id="about-title">Vim de vendas. Por isso aqui ninguém fala difícil.</h2>
+      <p class="lede">Sou o Pedro Henrique. Toco a NEW CORP STUDIO sozinho, de Cajamar, atendendo toda São Paulo.</p>
+      <div class="story">
         <p>Passei três anos vendendo para a indústria. Nesse tempo entrei em muita empresa pequena que trabalhava bem e vendia mal. Não era falta de qualidade: quem procurava no Google não achava, e quem achava via uma apresentação que não combinava com o serviço prestado.</p>
         <p>Aprendi a programar para resolver exatamente isso. Hoje faço as três coisas que faltavam naquelas empresas: a marca, a página e o sistema que segura a operação por dentro.</p>
         <p>Como vim de vendas e não de tecnologia, eu explico em português. Se em algum momento eu soltar uma palavra que você não entendeu, pode me parar na hora. O erro é meu, não seu.</p>
       </div>
     </div>
 
-    <figure class="proof reveal">
+    <figure class="proof">
       <div class="proof-shot" data-shot></div>
       <figcaption>
         <h3>O sistema que eu vendo é o que eu uso</h3>
@@ -294,8 +290,8 @@
 
 <section id="duvidas" class="faq-sec" aria-labelledby="faq-title">
   <div class="wrap faq-grid">
-    <h2 id="faq-title" class="reveal">Perguntas que todo mundo faz antes de fechar.</h2>
-    <div class="faq reveal">
+    <h2 id="faq-title">Perguntas que todo mundo faz antes de fechar.</h2>
+    <div class="faq">
       <details name="faq">
         <summary>Quanto custa?</summary>
         <p>Não tenho tabela, porque cada empresa precisa de uma coisa. Depois da conversa eu mando o orçamento pelo WhatsApp em três opções, com o que entra em cada uma, e você escolhe. O preço fica fechado antes de começar.</p>
@@ -331,12 +327,12 @@
 <section id="contato" class="contact" aria-labelledby="contact-title">
   <div class="contact-bg" aria-hidden="true"></div>
   <div class="wrap contact-grid">
-    <header class="sec-head reveal">
+    <header class="sec-head">
       <h2 id="contact-title">Me conta o que você precisa.</h2>
       <p class="lede">Você conta, eu devolvo um protótipo de uma tela. Só depois falamos de contrato.</p>
     </header>
 
-    <div class="form-card reveal">
+    <div class="form-card">
       <form class="lead" id="lead" action="https://wa.me/5511988681657" method="get" target="_blank">
         <div class="field">
           <label for="nome">Seu nome</label>

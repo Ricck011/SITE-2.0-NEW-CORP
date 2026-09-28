@@ -5,3 +5,17 @@ RewriteRule ^sobre/?$ /#quem-faz [R=301,NE,L]
 RewriteRule ^servicos/?$ /#frentes [R=301,NE,L]
 
 ErrorDocument 404 /404.html
+
+# Texto comprimido e arquivos da pasta assets guardados no navegador por um mês.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript image/svg+xml
+</IfModule>
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 month"
+</IfModule>
