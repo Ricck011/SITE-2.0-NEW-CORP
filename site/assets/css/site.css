@@ -244,7 +244,9 @@ html:not(.js) [data-back]{display:none}
 .about h2{max-width:17ch}
 .story{display:grid;gap:18px;max-width:62ch}
 .proof{position:relative;display:grid;gap:24px;margin:0}
-.proof-shot:empty{display:none}
+.proof-shot{display:grid;gap:10px}
+.proof-shot img{width:100%;height:auto;border:1px solid var(--line);border-radius:12px}
+.shot-note{font-size:.875rem;color:var(--text-secondary)}
 .proof figcaption{position:relative;display:grid;gap:14px;padding-top:28px}
 .proof figcaption::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--accent),var(--violet))}
 .proof h3{font-size:clamp(1.375rem,1.2rem + .7vw,1.75rem);max-width:18ch}
